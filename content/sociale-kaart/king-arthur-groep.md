@@ -1,6 +1,7 @@
 ---
 naam: "King Arthur Groep"
 categorie: "Ouderen"
+ggz_niveau: ["Overig"]
 omschrijving: "Gespecialiseerde kleinschalige zorg en dagbegeleiding voor mensen met dementie en mantelzorgers; ontmoetingscentrum in Achterveld (De Oude Bieb)."
 website: "https://www.kingarthurgroep.nl"
 telefoon: "035-2050950"

@@ -1,6 +1,7 @@
 ---
 naam: "Welzin Maatschappelijk Werk & Thuisbegeleiding"
 categorie: "Welzijn & maatschappelijk werk"
+ggz_niveau: ["Overig"]
 omschrijving: "Algemeen maatschappelijk werk, praktische gezinsondersteuning, KIES-training, assertiviteitscursussen en specialistische thuisbegeleiding."
 website: "https://www.welzin.nl"
 telefoon: "033-4692400"

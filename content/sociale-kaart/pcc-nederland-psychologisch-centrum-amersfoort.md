@@ -1,6 +1,7 @@
 ---
 naam: "PCC Nederland (Psychologisch Centrum Amersfoort)"
 categorie: "GGZ volwassenen"
+ggz_niveau: ["B-GGZ", "S-GGZ"]
 omschrijving: "Centrum voor diagnostiek en behandeling in de Basis en Specialistische GGZ voor kinderen, jongeren en volwassenen."
 website: "https://www.pccnederland.nl"
 telefoon: "088-4656000"

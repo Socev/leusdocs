@@ -1,6 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { CATEGORIEEN, VERWIJSWIJZEN, AFZENDERS } from '../shared/velden.mjs';
+import { CATEGORIEEN, VERWIJSWIJZEN, AFZENDERS, GGZ_NIVEAUS } from '../shared/velden.mjs';
 
 // Schema's: bij `npm run build` wordt elk bestand in content/ hiertegen gecontroleerd.
 // Klopt een veld niet, dan faalt de build met een duidelijke melding (bestand + veld).
@@ -13,6 +13,7 @@ const socialeKaart = defineCollection({
   schema: z.object({
     naam: z.string().min(1),
     categorie: z.enum(CATEGORIEEN as [string, ...string[]]),
+    ggz_niveau: z.array(z.enum(GGZ_NIVEAUS as [string, ...string[]])).default([]),
     omschrijving: z.string().min(1),
     website: z.preprocess(legeStringNaarUndefined, z.string().url().optional()),
     telefoon: z.preprocess(legeStringNaarUndefined, z.string().optional()),

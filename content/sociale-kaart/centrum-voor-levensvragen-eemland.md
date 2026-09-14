@@ -1,6 +1,7 @@
 ---
 naam: "Centrum voor Levensvragen Eemland"
 categorie: "Welzijn & maatschappelijk werk"
+ggz_niveau: ["Overig"]
 omschrijving: "Kosteloze professionele geestelijke verzorging aan huis voor thuiswonende 50-plussers en mensen in de palliatieve fase bij existentiële vragen."
 telefoon: "06-12664381"
 email: "info@centrumlevensvrageneemland.nl"

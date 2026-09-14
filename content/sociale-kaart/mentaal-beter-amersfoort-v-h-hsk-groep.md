@@ -1,6 +1,7 @@
 ---
 naam: "Mentaal Beter Amersfoort (v/h HSK Groep)"
 categorie: "GGZ volwassenen"
+ggz_niveau: ["B-GGZ", "S-GGZ"]
 omschrijving: "Instelling voor Basis en Specialistische GGZ bij angst, stemmingsstoornissen, trauma en werkgerelateerde uitval. HSK is overgenomen door Mentaal Beter."
 website: "https://mentaalbeter.nl"
 telefoon: "088-0335500"

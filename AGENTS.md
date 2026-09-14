@@ -36,6 +36,7 @@ Handige leesbron zonder Git: de gebouwde site publiceert elke collectie als JSON
 ---
 naam: "GGZ Centraal"                              # verplicht
 categorie: "GGZ volwassenen"                      # verplicht, EXACT één uit shared/velden.mjs → CATEGORIEEN
+ggz_niveau: ["B-GGZ", "S-GGZ"]                    # alleen voor de groep GGZ & welzijn; één of meer uit GGZ_NIVEAUS: B-GGZ, S-GGZ, Overig
 omschrijving: "Specialistische GGZ voor volwassenen en ouderen in de regio Eemland."   # verplicht, 1–2 zinnen
 website: "https://www.ggzcentraal.nl"             # optioneel, moet met http(s):// beginnen
 telefoon: "033 123 45 67"                         # optioneel, vrije tekst (voorbeeldwaarde)
@@ -62,6 +63,8 @@ Categorieën (`CATEGORIEEN`) zijn verdeeld in twee groepen (`GROEPEN`); de groep
 - **Overige zorgverleners**: `Huisartsen`, `Apotheken`, `Tandartsen`, `Fysiotherapie & oefentherapie`, `Diëtetiek, logopedie & ergotherapie`, `Paramedisch`, `Zwangerschap & geboorte`, `Thuiszorg & mantelzorg`, `Verpleeg- en verzorgingshuizen`, `Palliatieve zorg & overlijden`, `Ziekenhuis & specialistische zorg`, `Laboratorium & diagnostiek`, `Overig`
 
 Een nieuwe categorie voeg je toe aan de juiste groep in `shared/velden.mjs`.
+
+Binnen GGZ & welzijn filtert de site extra op `ggz_niveau` (knoppen B-GGZ / S-GGZ / Overig). Geef elk item in die groep minstens één niveau; behandelaars die zowel basis- als specialistische GGZ bieden krijgen beide. Welzijn, hulplijnen, coaching, POH-GGZ e.d. krijgen `Overig`.
 
 Verwijswijzen (`VERWIJSWIJZEN`): `Rechtstreeks (patiënt meldt zichzelf aan)`, `Via ZorgDomein`, `Verwijsbrief huisarts`, `Via gemeente / WMO-loket`, `Onbekend`.
 

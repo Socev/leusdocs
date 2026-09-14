@@ -1,6 +1,7 @@
 ---
 naam: "Interapy"
 categorie: "GGZ volwassenen"
+ggz_niveau: ["B-GGZ", "S-GGZ"]
 omschrijving: "Erkende GGZ-instelling voor online cognitieve gedragstherapie bij o.a. depressie, angst, burn-out en trauma (PTSS)."
 website: "https://www.interapy.nl"
 telefoon: "020-7988300"

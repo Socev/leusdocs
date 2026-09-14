@@ -1,6 +1,7 @@
 ---
 naam: "BilancioBudget Amersfoort"
 categorie: "Werk, inkomen & schulden"
+ggz_niveau: ["Overig"]
 omschrijving: "Bureau voor wettelijke beschermingsbewindvoering, mentorschap, curatele en inkomensbeheer bij schulden of verminderde zelfredzaamheid."
 website: "https://www.bilanciobudget.nl"
 telefoon: "06-20042951"

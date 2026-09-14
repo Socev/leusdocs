@@ -1,6 +1,7 @@
 ---
 naam: "JADE Rouw- en Verliestherapie (Judith Kooi)"
 categorie: "Welzijn & maatschappelijk werk"
+ggz_niveau: ["Overig"]
 omschrijving: "Praktijk voor contextuele therapie, rouw- en verliesverwerking, fertiliteitsproblemen en begeleiding bij ongewenste zwangerschap."
 website: "https://www.jadetherapie.nl"
 telefoon: "06-12954740"

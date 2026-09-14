@@ -1,6 +1,7 @@
 ---
 naam: "Indebuurt033"
 categorie: "Welzijn & maatschappelijk werk"
+ggz_niveau: ["Overig"]
 omschrijving: "Brede welzijnsorganisatie voor de gemeente Amersfoort. Let op: inwoners van Leusden dienen primair te worden doorverwezen naar Stichting Lariks."
 website: "https://www.indebuurt033.nl"
 telefoon: "033-2048677"

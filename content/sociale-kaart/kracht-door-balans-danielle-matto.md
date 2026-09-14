@@ -1,6 +1,7 @@
 ---
 naam: "Kracht door Balans (Daniëlle Matto)"
 categorie: "GGZ volwassenen"
+ggz_niveau: ["B-GGZ"]
 omschrijving: "Praktijk voor Generalistische Basis GGZ, CSR-stresscoaching, biofeedback en neuropsychologische begeleiding."
 website: "https://www.krachtdoorbalans.nl"
 telefoon: "06-45330846"

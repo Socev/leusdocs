@@ -1,6 +1,7 @@
 ---
 naam: "Stichting Lariks Welzijn en Zorg"
 categorie: "Gemeente & WMO"
+ggz_niveau: ["Overig"]
 omschrijving: "Het centrale welzijns- en sociaal team van de gemeente Leusden voor WMO-aanvragen, mantelzorgsteun, seniorenactiviteiten en vrijwilligershulp."
 website: "https://www.lariks-leusden.nl"
 telefoon: "033-3034444"

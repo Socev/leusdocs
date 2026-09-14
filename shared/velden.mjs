@@ -43,6 +43,9 @@ export const GROEPEN = [
 
 export const CATEGORIEEN = GROEPEN.flatMap((g) => g.categorieen);
 
+// Verfijning binnen de groep GGZ & welzijn; een organisatie kan meerdere niveaus hebben.
+export const GGZ_NIVEAUS = ['B-GGZ', 'S-GGZ', 'Overig'];
+
 export function groepVanCategorie(categorie) {
   return GROEPEN.find((g) => g.categorieen.includes(categorie)) ?? GROEPEN[GROEPEN.length - 1];
 }
@@ -68,6 +71,7 @@ export const VELDEN = {
   'sociale-kaart': [
     { naam: 'naam', label: 'Naam organisatie', type: 'text', verplicht: true },
     { naam: 'categorie', label: 'Categorie', type: 'select', opties: CATEGORIEEN, verplicht: true },
+    { naam: 'ggz_niveau', label: 'GGZ-niveau (alleen voor GGZ & welzijn; meerdere mogelijk)', type: 'multi', opties: GGZ_NIVEAUS },
     { naam: 'omschrijving', label: 'Korte omschrijving (1–2 zinnen)', type: 'textarea', verplicht: true },
     { naam: 'website', label: 'Website', type: 'url' },
     { naam: 'telefoon', label: 'Telefoon', type: 'text' },

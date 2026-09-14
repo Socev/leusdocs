@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
-import { GROEPEN, groepVanCategorie } from '../../shared/velden.mjs';
+import { GROEPEN, GGZ_NIVEAUS, groepVanCategorie } from '../../shared/velden.mjs';
 import { datumLang } from '../lib/datum';
 
 // Alfabetisch; items die nog gecontroleerd moeten worden onderaan
@@ -42,7 +42,12 @@ const perGroep = GROEPEN.map((g) => ({
           <option value="">Alle categorieën ({g.items.length})</option>
           {g.categorieen.map((c) => <option value={c}>{c} ({g.items.filter((i) => i.data.categorie === c).length})</option>)}
         </select>
-        <label class="klein sk-open-label"><input type="checkbox" class="sk-open" /> Verberg aanmeldstops</label>
+      </div>
+      <div class="chips" role="group" aria-label="Filters">
+        {g.id === 'ggz' && GGZ_NIVEAUS.map((n) => (
+          <button type="button" class="chip sk-niveau" data-niveau={n} aria-pressed="false">{n} <span class="chip-aantal">{g.items.filter((i) => i.data.ggz_niveau.includes(n)).length}</span></button>
+        ))}
+        <button type="button" class="chip sk-open" aria-pressed="false">Verberg aanmeldstops <span class="chip-aantal">{g.items.filter((i) => i.data.aanmeldstop).length}</span></button>
       </div>
 
       <div class="grid sk-lijst">
@@ -51,11 +56,12 @@ const perGroep = GROEPEN.map((g) => ({
             class="kaart sk-kaart"
             data-categorie={i.data.categorie}
             data-stop={i.data.aanmeldstop ? '1' : ''}
+            data-niveau={i.data.ggz_niveau.join('|')}
             data-zoek={[i.data.naam, i.data.omschrijving, i.data.doelgroep, i.data.adres, ...(i.data.tags ?? []), i.data.categorie].filter(Boolean).join(' ').toLowerCase()}
             id={i.id}
           >
             <div class="rij tussen">
-              <span class="label">{i.data.categorie}</span>
+              <span class="rij" style="gap:4px"><span class="label">{i.data.categorie}</span>{i.data.ggz_niveau.filter((n) => n !== 'Overig').map((n) => <span class="label niveau">{n}</span>)}</span>
               {i.data.concept && <span class="label let-op" title="Gegevens zijn nog niet gecontroleerd">Nog te controleren</span>}
             </div>
             <h3>{i.data.website ? <a href={i.data.website} target="_blank" rel="noopener">{i.data.naam}</a> : i.data.naam}</h3>
@@ -195,15 +201,20 @@ const perGroep = GROEPEN.map((g) => ({
     for (const p of panelen) {
       const zoek = p.querySelector<HTMLInputElement>('.sk-zoek')!;
       const cat = p.querySelector<HTMLSelectElement>('.sk-categorie')!;
-      const open = p.querySelector<HTMLInputElement>('.sk-open')!;
+      const open = p.querySelector<HTMLButtonElement>('.sk-open')!;
+      const niveaus = Array.from(p.querySelectorAll<HTMLButtonElement>('.sk-niveau'));
+      const aan = (b: HTMLButtonElement) => b.getAttribute('aria-pressed') === 'true';
       const kaarten = Array.from(p.querySelectorAll<HTMLElement>('.sk-kaart'));
       const leeg = p.querySelector<HTMLElement>('.sk-leeg')!;
       const filter = () => {
         const q = zoek.value.trim().toLowerCase();
         const c = cat.value;
         let n = 0;
+        const gekozen = niveaus.filter(aan).map((b) => b.dataset.niveau!);
         for (const k of kaarten) {
-          const ok = (!c || k.dataset.categorie === c) && (!q || (k.dataset.zoek ?? '').includes(q)) && !(open.checked && k.dataset.stop === '1');
+          const kn = (k.dataset.niveau ?? '').split('|').filter(Boolean);
+          const niveauOk = !gekozen.length || gekozen.some((n) => kn.includes(n));
+          const ok = (!c || k.dataset.categorie === c) && (!q || (k.dataset.zoek ?? '').includes(q)) && !(aan(open) && k.dataset.stop === '1') && niveauOk;
           k.hidden = !ok;
           if (ok) n++;
         }
@@ -211,12 +222,13 @@ const perGroep = GROEPEN.map((g) => ({
         if (!p.hidden) {
           q ? params.set('q', q) : params.delete('q');
           c ? params.set('cat', c) : params.delete('cat');
+          gekozen.length ? params.set('niveau', gekozen.join(',')) : params.delete('niveau');
           history.replaceState(null, '', params.toString() ? `?${params}` : location.pathname);
         }
       };
       zoek.addEventListener('input', filter);
       cat.addEventListener('change', filter);
-      open.addEventListener('change', filter);
+      for (const b of [open, ...niveaus]) b.addEventListener('click', () => { b.setAttribute('aria-pressed', String(!aan(b))); filter(); });
       p.dataset.init = '1';
       (p as any).__filter = filter;
     }
@@ -234,6 +246,7 @@ const perGroep = GROEPEN.map((g) => ({
     const actief = panelen.find((p) => p.dataset.groep === start)!;
     if (params.get('q')) actief.querySelector<HTMLInputElement>('.sk-zoek')!.value = params.get('q')!;
     if (params.get('cat')) actief.querySelector<HTMLSelectElement>('.sk-categorie')!.value = params.get('cat')!;
+    for (const n of (params.get('niveau') ?? '').split(',')) actief.querySelector<HTMLButtonElement>(`.sk-niveau[data-niveau="${CSS.escape(n)}"]`)?.setAttribute('aria-pressed', 'true');
     (actief as any).__filter();
     if (anker) document.getElementById(anker)?.scrollIntoView({ block: 'start' });
   </script>

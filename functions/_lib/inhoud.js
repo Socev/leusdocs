@@ -56,6 +56,7 @@ export function valideer(collectie, data) {
     if (v.verplicht && leeg) fouten.push(`${v.label} is verplicht`);
     if (leeg) continue;
     if (v.type === 'select' && !v.opties.includes(w)) fouten.push(`${v.label}: "${w}" is geen geldige keuze`);
+    if (v.type === 'multi' && (!Array.isArray(w) || w.some((x) => !v.opties.includes(x)))) fouten.push(`${v.label}: alleen ${v.opties.join(', ')} zijn toegestaan`);
     if (v.type === 'url' && !/^https?:\/\/\S+$/.test(w)) fouten.push(`${v.label}: moet beginnen met http:// of https://`);
     if (v.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(w)) fouten.push(`${v.label}: geen geldig e-mailadres`);
     if (v.type === 'date' && !/^\d{4}-\d{2}-\d{2}$/.test(w)) fouten.push(`${v.label}: gebruik JJJJ-MM-DD`);
@@ -70,7 +71,7 @@ export function valideer(collectie, data) {
 function yamlWaarde(v, type) {
   if (type === 'date') return String(v).slice(0, 10);
   if (type === 'checkbox') return v ? 'true' : 'false';
-  if (type === 'tags') return JSON.stringify((Array.isArray(v) ? v : String(v).split(',')).map((t) => String(t).trim()).filter(Boolean));
+  if (type === 'tags' || type === 'multi') return JSON.stringify((Array.isArray(v) ? v : String(v).split(',')).map((t) => String(t).trim()).filter(Boolean));
   return JSON.stringify(String(v));
 }
 
@@ -81,7 +82,7 @@ export function maakBestand(collectie, data, body) {
     const w = data[v.naam];
     if (w === undefined || w === null || w === '') continue;
     if (v.type === 'checkbox' && !w) continue;
-    if (v.type === 'tags' && (!w || (Array.isArray(w) && !w.length))) continue;
+    if ((v.type === 'tags' || v.type === 'multi') && (!w || (Array.isArray(w) && !w.length))) continue;
     if (v.type === 'links') {
       if (!Array.isArray(w) || !w.length) continue;
       regels.push(`${v.naam}:`);

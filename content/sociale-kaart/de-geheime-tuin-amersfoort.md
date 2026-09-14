@@ -1,6 +1,7 @@
 ---
 naam: "De Geheime Tuin Amersfoort"
 categorie: "GGZ jeugd"
+ggz_niveau: ["S-GGZ"]
 omschrijving: "Instelling voor kinder- en jeugd-GGZ en systeemtherapie. Biedt diagnostiek en behandeling aan kinderen, jongeren en hun gezin."
 website: "https://www.degeheimetuin.info"
 telefoon: "033-4700072"

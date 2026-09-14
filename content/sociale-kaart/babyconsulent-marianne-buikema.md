@@ -1,6 +1,7 @@
 ---
 naam: "Babyconsulent Marianne Buikema"
 categorie: "Jeugd & gezin"
+ggz_niveau: ["Overig"]
 omschrijving: "Gespecialiseerde ambulante begeleiding aan huis bij onrustige baby's, excessief huilen, reflux, slaap- en voedingsproblemen in het eerste levensjaar."
 telefoon: "06-50977857"
 email: "mariannebuikema@gmail.com"

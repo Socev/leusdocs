@@ -1,6 +1,7 @@
 ---
 naam: "Praktijk voor Pedagogische en Psychologische Hulp (Ellen van Dijck)"
 categorie: "GGZ jeugd"
+ggz_niveau: ["Overig"]
 omschrijving: "Praktijk op Zorgplein Tolgaarde voor psychologische hulp, psychotherapie, opvoedondersteuning en Cogmed-werkgeheugentraining."
 website: "https://ellenvandijck.praktijkinfo.nl"
 telefoon: "033-4701965"

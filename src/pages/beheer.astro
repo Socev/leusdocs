@@ -71,6 +71,7 @@ import Base from '../layouts/Base.astro';
     .veld textarea { min-height: 80px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9rem; line-height: 1.5; }
     .veld.check { display: flex; align-items: center; gap: 8px; }
     .veld.check span { margin: 0; font-weight: 500; }
+    .multi-optie { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--kleur-rand); border-radius: 8px; background: #fff; cursor: pointer; font-size: 0.9rem; }
     .links-lijst { display: grid; gap: 6px; }
     .links-lijst .rij input { flex: 1; min-width: 120px; }
     .twee { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
@@ -166,6 +167,10 @@ import Base from '../layouts/Base.astro';
       if (v.type === 'textarea') return `<label class="veld"><span>${v.label}${v.verplicht ? ' *' : ''}</span><textarea name="${naam}" rows="3" ${v.verplicht ? 'required' : ''}>${esc(val)}</textarea></label>`;
       if (v.type === 'select') return `<label class="veld"><span>${v.label}${v.verplicht ? ' *' : ''}</span><select name="${naam}" ${v.verplicht ? 'required' : ''}><option value="">— kies —</option>${v.opties.map((o: string) => `<option ${o === val ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>`;
       if (v.type === 'checkbox') return `<label class="veld check"><input type="checkbox" name="${naam}" ${val ? 'checked' : ''}><span>${v.label}</span></label>`;
+      if (v.type === 'multi') {
+        const gekozen = Array.isArray(val) ? val : [];
+        return `<div class="veld"><span>${v.label}</span><div class="rij">${v.opties.map((o: string) => `<label class="multi-optie"><input type="checkbox" name="${naam}" value="${esc(o)}" ${gekozen.includes(o) ? 'checked' : ''}> ${esc(o)}</label>`).join('')}</div></div>`;
+      }
       if (v.type === 'tags') return `<label class="veld"><span>${v.label}</span><input type="text" name="${naam}" value="${esc(Array.isArray(val) ? val.join(', ') : val)}"></label>`;
       if (v.type === 'date') return `<label class="veld"><span>${v.label}${v.verplicht ? ' *' : ''}</span><input type="date" name="${naam}" value="${esc(String(val).slice(0, 10))}" ${v.verplicht ? 'required' : ''}></label>`;
       if (v.type === 'links') {
@@ -213,6 +218,10 @@ import Base from '../layouts/Base.astro';
         const el = form.elements.namedItem(v.naam) as any;
         if (v.type === 'links') {
           data.links = [...veldenEl.querySelectorAll('#links .rij')].map((r) => ({ titel: (r.querySelector('[data-k=titel]') as HTMLInputElement).value.trim(), url: (r.querySelector('[data-k=url]') as HTMLInputElement).value.trim() })).filter((l) => l.titel || l.url);
+          continue;
+        }
+        if (v.type === 'multi') {
+          data[v.naam] = [...veldenEl.querySelectorAll<HTMLInputElement>(`input[name="${v.naam}"]:checked`)].map((c) => c.value);
           continue;
         }
         if (!el) continue;

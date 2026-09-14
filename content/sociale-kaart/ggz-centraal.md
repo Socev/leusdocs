@@ -1,6 +1,7 @@
 ---
 naam: "GGZ Centraal"
 categorie: "GGZ volwassenen"
+ggz_niveau: ["S-GGZ"]
 omschrijving: "Specialistische GGZ voor volwassenen en ouderen in de regio Eemland (locatie Amersfoort)."
 website: "https://www.ggzcentraal.nl"
 adres: "Amersfoort"

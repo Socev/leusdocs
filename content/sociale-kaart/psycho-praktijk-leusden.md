@@ -1,6 +1,7 @@
 ---
 naam: "Psycho Praktijk Leusden"
 categorie: "GGZ volwassenen"
+ggz_niveau: ["B-GGZ", "S-GGZ"]
 omschrijving: "Praktijk voor BGGZ en SGGZ, CGT en EMDR bij kinderen, jongeren en volwassenen. Hoofdvestiging Groepsekom."
 website: "https://www.psychopraktijkleusden.nl"
 telefoon: "033-4950974"

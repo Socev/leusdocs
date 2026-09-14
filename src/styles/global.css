@@ -101,7 +101,13 @@ main { padding-block: 36px 56px; }
 .filters { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 20px; }
 .filters input[type="search"], .filters select { font: inherit; padding: 9px 12px; border: 1px solid var(--kleur-rand); border-radius: 8px; background: var(--kleur-wit); min-width: 220px; }
 .filters input[type="search"] { flex: 1 1 260px; }
-.sk-open-label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; color: var(--kleur-tekst-zacht); cursor: pointer; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: -8px 0 18px; }
+.chip { font: inherit; font-size: 0.88rem; font-weight: 600; padding: 7px 13px; border: 1px solid var(--kleur-rand); border-radius: 999px; background: var(--kleur-wit); color: var(--kleur-tekst); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip:hover { border-color: var(--kleur-accent); color: var(--kleur-accent-donker); }
+.chip[aria-pressed="true"] { background: var(--kleur-accent); border-color: var(--kleur-accent); color: #fff; }
+.chip-aantal { font-size: 0.75rem; font-weight: 600; background: var(--kleur-achtergrond); border-radius: 999px; padding: 0 6px; color: var(--kleur-tekst-zacht); }
+.chip[aria-pressed="true"] .chip-aantal { background: rgba(255,255,255,0.22); color: #fff; }
+.label.niveau { background: #eef7ee; color: #1f5f2f; }
 .sk-kaart { display: flex; flex-direction: column; gap: 8px; }
 .sk-kaart h3 { margin: 0; font-size: 1.08rem; }
 .sk-kaart .rij { row-gap: 4px; }

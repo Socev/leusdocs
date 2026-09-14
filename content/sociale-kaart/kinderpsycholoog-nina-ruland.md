@@ -1,6 +1,7 @@
 ---
 naam: "Kinderpsycholoog Nina Ruland"
 categorie: "GGZ jeugd"
+ggz_niveau: ["Overig"]
 omschrijving: "Vrijgevestigde praktijk voor diagnostiek en psychologische behandeling van kinderen en jongeren (0–18 jaar) en ouderbegeleiding."
 telefoon: "033-7549468"
 email: "nina.ruland@kinderpsycholoogamersfoort.nl"

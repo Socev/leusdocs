@@ -1,6 +1,7 @@
 ---
 naam: "NuGezamenlijk (Adelheid Dolmans)"
 categorie: "GGZ volwassenen"
+ggz_niveau: ["Overig"]
 omschrijving: "Praktijk voor Past Reality Integration (PRI) therapie en coaching voor ouders en partners gericht op emotionele balans en verbindend opvoeden."
 website: "https://www.nugezamenlijk.nl"
 telefoon: "06-12938043"

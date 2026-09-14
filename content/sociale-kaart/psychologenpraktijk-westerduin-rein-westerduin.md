@@ -1,6 +1,7 @@
 ---
 naam: "Psychologenpraktijk Westerduin (Rein Westerduin)"
 categorie: "GGZ jeugd"
+ggz_niveau: ["B-GGZ"]
 omschrijving: "Praktijk in GC De Heelkom voor kinder- en jeugdpsychologie, orthopedagogiek en BGGZ bij lichte verstandelijke beperking en gezinsproblematiek."
 website: "https://www.psychologenpraktijkwesterduin.nl"
 telefoon: "06-83327328"

@@ -1,6 +1,7 @@
 ---
 naam: "Jellinek Amersfoort"
 categorie: "Verslaving"
+ggz_niveau: ["S-GGZ"]
 omschrijving: "Instelling voor specialistische verslavingszorg voor alcohol, drugs, medicatie, gokken en overige verslavingsproblematiek in regio Eemland."
 website: "https://www.jellinek.nl"
 telefoon: "088-5050500"

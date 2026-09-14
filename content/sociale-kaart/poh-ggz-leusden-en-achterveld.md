@@ -1,6 +1,7 @@
 ---
 naam: "POH-GGZ Leusden & Achterveld"
 categorie: "GGZ volwassenen"
+ggz_niveau: ["Overig"]
 omschrijving: "Praktijkondersteuning GGZ binnen de lokale huisartsenpraktijken voor diagnostiek, kortdurende behandeling en begeleiding bij psychische klachten."
 website: "https://www.leusdocs.nl"
 adres: "De Mulderij 2 / Tolplaats 3 / De Biezenkamp / De Heelkom"

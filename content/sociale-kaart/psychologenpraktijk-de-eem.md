@@ -1,6 +1,7 @@
 ---
 naam: "Psychologenpraktijk De Eem"
 categorie: "GGZ volwassenen"
+ggz_niveau: ["B-GGZ"]
 omschrijving: "Vrijgevestigde psychologenpraktijk voor Generalistische Basis GGZ bij volwassenen."
 telefoon: "033-2583198"
 email: "info@eempsycholoog.nl"

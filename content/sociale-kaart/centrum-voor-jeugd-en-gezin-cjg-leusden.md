@@ -1,6 +1,7 @@
 ---
 naam: "Centrum voor Jeugd en Gezin (CJG) Leusden"
 categorie: "Jeugd & gezin"
+ggz_niveau: ["Overig"]
 omschrijving: "Centraal loket voor jeugdgezondheidszorg (GGD consultatiebureau, schoolarts) en toegang tot lichte en specialistische jeugdhulp in Leusden."
 telefoon: "033-4328555"
 email: "info@cjgleusden.nl"

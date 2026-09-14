@@ -1,6 +1,7 @@
 ---
 naam: "Benzodebaas.nl"
 categorie: "Verslaving"
+ggz_niveau: ["Overig"]
 omschrijving: "Landelijke online hulpverlening en begeleiding bij het zelfstandig afbouwen of stoppen van slaap- en kalmeringsmiddelen onder beheer van Tactus."
 website: "https://www.benzodebaas.nl"
 telefoon: "088-3822880"

@@ -1,6 +1,7 @@
 ---
 naam: "Specialist Ouderengeneeskunde Beweging 3.0"
 categorie: "Ouderen"
+ggz_niveau: ["Overig"]
 omschrijving: "Ambulante consultatieve dienst voor de huisarts bij kwetsbare thuiswonende ouderen, multimorbiditeit, cognitieve screening en probleemgedrag."
 website: "https://www.beweging3.nl/behandeling"
 telefoon: "033-4326100"
