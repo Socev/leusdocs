@@ -24,6 +24,7 @@ const socialeKaart = defineCollection({
     tags: z.array(z.string()).default([]),
     concept: z.boolean().default(false),
     bijgewerkt: z.coerce.date().optional(),
+    bron: z.preprocess(legeStringNaarUndefined, z.string().url().optional()),
   }),
 });
 

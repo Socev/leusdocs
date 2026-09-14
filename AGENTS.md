@@ -47,11 +47,17 @@ wachttijd: "ca. 6 weken (intake)"                 # optioneel, vrije tekst
 tags: ["sggz", "crisisdienst"]                    # optioneel, lijst van trefwoorden (voor zoeken)
 concept: true                                     # optioneel; true = toont label "Nog te controleren"
 bijgewerkt: 2026-09-14                            # optioneel, datum JJJJ-MM-DD (laatst gecontroleerd)
+bron: "https://sociaalleusden.nl/ggz/…"           # optioneel, waar de gegevens vandaan komen
 ---
 Optionele toelichting in markdown (verwijscriteria, bijzonderheden, contactpersoon).
 ```
 
-Categorieën (`CATEGORIEEN`): `GGZ volwassenen`, `GGZ jeugd`, `Jeugd & gezin`, `Ouderen`, `Welzijn & maatschappelijk werk`, `Gemeente & WMO`, `Verslaving`, `Thuiszorg & mantelzorg`, `Paramedisch`, `Werk, inkomen & schulden`, `Overig`.
+Categorieën (`CATEGORIEEN`) zijn verdeeld in twee groepen (`GROEPEN`); de groep bepaalt op welk tabblad van /sociale-kaart een organisatie staat:
+
+- **GGZ & welzijn** (standaardtabblad): `GGZ volwassenen`, `GGZ jeugd`, `Jeugd & gezin`, `Verslaving`, `Ouderen`, `Welzijn & maatschappelijk werk`, `Gemeente & WMO`, `Werk, inkomen & schulden`
+- **Overige zorgverleners**: `Huisartsen`, `Apotheken`, `Tandartsen`, `Fysiotherapie & oefentherapie`, `Diëtetiek, logopedie & ergotherapie`, `Paramedisch`, `Zwangerschap & geboorte`, `Thuiszorg & mantelzorg`, `Verpleeg- en verzorgingshuizen`, `Palliatieve zorg & overlijden`, `Ziekenhuis & specialistische zorg`, `Laboratorium & diagnostiek`, `Overig`
+
+Een nieuwe categorie voeg je toe aan de juiste groep in `shared/velden.mjs`.
 
 Verwijswijzen (`VERWIJSWIJZEN`): `Rechtstreeks (patiënt meldt zichzelf aan)`, `Via ZorgDomein`, `Verwijsbrief huisarts`, `Via gemeente / WMO-loket`, `Onbekend`.
 

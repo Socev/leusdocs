@@ -1,93 +1,141 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
-import { CATEGORIEEN } from '../../shared/velden.mjs';
+import { GROEPEN, groepVanCategorie } from '../../shared/velden.mjs';
 import { datumLang } from '../lib/datum';
 
-const items = (await getCollection('sociale-kaart')).sort((a, b) => a.data.naam.localeCompare(b.data.naam, 'nl'));
-const gerenderd = await Promise.all(items.map(async (i) => ({ ...i, Body: (await render(i)).Content, heeftBody: i.body?.trim().length ? true : false })));
-const gebruikteCategorieen = CATEGORIEEN.filter((c) => items.some((i) => i.data.categorie === c));
+// Alfabetisch; items die nog gecontroleerd moeten worden onderaan
+const items = (await getCollection('sociale-kaart')).sort((a, b) => Number(a.data.concept) - Number(b.data.concept) || a.data.naam.localeCompare(b.data.naam, 'nl'));
+const gerenderd = await Promise.all(
+  items.map(async (i) => ({ ...i, Body: (await render(i)).Content, heeftBody: !!i.body?.trim().length, groep: groepVanCategorie(i.data.categorie).id })),
+);
 const nettoTel = (t: string) => t.replace(/[^\d+]/g, '');
+const perGroep = GROEPEN.map((g) => ({
+  ...g,
+  items: gerenderd.filter((i) => i.groep === g.id),
+  categorieen: g.categorieen.filter((c) => gerenderd.some((i) => i.data.categorie === c)),
+}));
 ---
 <Base titel="Sociale kaart" omschrijving="Sociale kaart voor huisartsen en POH-GGZ in Leusden en Achterveld">
   <div class="kop-rij">
     <div>
       <h1>Sociale kaart</h1>
-      <p class="intro" style="margin-bottom:0">Organisaties voor GGZ, welzijn, jeugd en ouderen in en om Leusden — met hoe je verwijst. Bijgehouden door de POH-GGZ.</p>
+      <p class="intro" style="margin-bottom:0">Waar verwijs je naartoe in en om Leusden? Klikbare contactgegevens, doelgroep en verwijsroute. Bijgehouden door de POH-GGZ en de praktijken.</p>
     </div>
     <a class="knop secundair" href="/beheer#sociale-kaart">Toevoegen of wijzigen</a>
   </div>
 
-  <div class="filters" role="search">
-    <input type="search" id="zoek" placeholder="Zoek op naam, trefwoord, doelgroep…" aria-label="Zoeken" autocomplete="off" />
-    <select id="categorie" aria-label="Categorie">
-      <option value="">Alle categorieën ({items.length})</option>
-      {gebruikteCategorieen.map((c) => <option value={c}>{c} ({items.filter((i) => i.data.categorie === c).length})</option>)}
-    </select>
-  </div>
-
-  <div class="grid" id="sk-lijst">
-    {gerenderd.map((i) => (
-      <article
-        class="kaart sk-kaart"
-        data-categorie={i.data.categorie}
-        data-zoek={[i.data.naam, i.data.omschrijving, i.data.doelgroep, i.data.adres, ...(i.data.tags ?? []), i.data.categorie].filter(Boolean).join(' ').toLowerCase()}
-        id={i.id}
-      >
-        <div class="rij tussen">
-          <span class="label">{i.data.categorie}</span>
-          {i.data.concept && <span class="label let-op" title="Gegevens zijn nog niet gecontroleerd">Nog te controleren</span>}
-        </div>
-        <h3>{i.data.website ? <a href={i.data.website} target="_blank" rel="noopener">{i.data.naam}</a> : i.data.naam}</h3>
-        <p style="margin:0">{i.data.omschrijving}</p>
-        <ul class="sk-contact">
-          {i.data.website && <li><span class="k">Website</span><a href={i.data.website} target="_blank" rel="noopener">{i.data.website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</a></li>}
-          {i.data.telefoon && <li><span class="k">Telefoon</span><a href={`tel:${nettoTel(i.data.telefoon)}`}>{i.data.telefoon}</a></li>}
-          {i.data.email && <li><span class="k">E-mail</span><a href={`mailto:${i.data.email}`}>{i.data.email}</a></li>}
-          {i.data.adres && <li><span class="k">Adres</span><a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(i.data.adres)}`} target="_blank" rel="noopener">{i.data.adres}</a></li>}
-        </ul>
-        {(i.data.doelgroep || i.data.verwijzen || i.data.wachttijd) && (
-          <div class="sk-meta">
-            {i.data.doelgroep && <span><b>Doelgroep:</b> {i.data.doelgroep}</span>}
-            {i.data.verwijzen && <span><b>Verwijzen:</b> {i.data.verwijzen}</span>}
-            {i.data.wachttijd && <span><b>Wachttijd:</b> {i.data.wachttijd}</span>}
-          </div>
-        )}
-        {i.heeftBody && <div class="sk-toelichting"><i.Body /></div>}
-        <div class="rij tussen" style="margin-top:auto">
-          {i.data.tags?.length ? <div class="tags">{i.data.tags.map((t) => <span class="tag">{t}</span>)}</div> : <span />}
-          {i.data.bijgewerkt && <span class="klein zacht">gecontroleerd {datumLang(i.data.bijgewerkt)}</span>}
-        </div>
-      </article>
+  <div class="sk-tabs" role="tablist" aria-label="Onderdeel van de sociale kaart">
+    {perGroep.map((g, n) => (
+      <button class="sk-tab" role="tab" type="button" data-groep={g.id} aria-selected={n === 0 ? 'true' : 'false'}>
+        {g.label} <span class="sk-tab-aantal">{g.items.length}</span>
+      </button>
     ))}
   </div>
-  <p class="leeg" id="sk-leeg" hidden>Geen organisaties gevonden. <a href="/beheer#sociale-kaart">Voeg er een toe</a>.</p>
+
+  {perGroep.map((g, n) => (
+    <section class="sk-paneel" data-groep={g.id} role="tabpanel" hidden={n !== 0}>
+      <p class="zacht klein" style="margin:0 0 14px">{g.omschrijving}</p>
+      <div class="filters" role="search">
+        <input type="search" class="sk-zoek" placeholder="Zoek op naam, trefwoord, doelgroep…" aria-label="Zoeken" autocomplete="off" />
+        <select class="sk-categorie" aria-label="Categorie">
+          <option value="">Alle categorieën ({g.items.length})</option>
+          {g.categorieen.map((c) => <option value={c}>{c} ({g.items.filter((i) => i.data.categorie === c).length})</option>)}
+        </select>
+      </div>
+
+      <div class="grid sk-lijst">
+        {g.items.map((i) => (
+          <article
+            class="kaart sk-kaart"
+            data-categorie={i.data.categorie}
+            data-zoek={[i.data.naam, i.data.omschrijving, i.data.doelgroep, i.data.adres, ...(i.data.tags ?? []), i.data.categorie].filter(Boolean).join(' ').toLowerCase()}
+            id={i.id}
+          >
+            <div class="rij tussen">
+              <span class="label">{i.data.categorie}</span>
+              {i.data.concept && <span class="label let-op" title="Gegevens zijn nog niet gecontroleerd">Nog te controleren</span>}
+            </div>
+            <h3>{i.data.website ? <a href={i.data.website} target="_blank" rel="noopener">{i.data.naam}</a> : i.data.naam}</h3>
+            <p style="margin:0">{i.data.omschrijving}</p>
+            <ul class="sk-contact">
+              {i.data.website && <li><span class="k">Website</span><a href={i.data.website} target="_blank" rel="noopener">{i.data.website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</a></li>}
+              {i.data.telefoon && <li><span class="k">Telefoon</span><a href={`tel:${nettoTel(i.data.telefoon)}`}>{i.data.telefoon}</a></li>}
+              {i.data.email && <li><span class="k">E-mail</span><a href={`mailto:${i.data.email}`}>{i.data.email}</a></li>}
+              {i.data.adres && <li><span class="k">Adres</span><a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(i.data.adres)}`} target="_blank" rel="noopener">{i.data.adres}</a></li>}
+            </ul>
+            {(i.data.doelgroep || i.data.verwijzen || i.data.wachttijd) && (
+              <div class="sk-meta">
+                {i.data.doelgroep && <span><b>Doelgroep:</b> {i.data.doelgroep}</span>}
+                {i.data.verwijzen && <span><b>Verwijzen:</b> {i.data.verwijzen}</span>}
+                {i.data.wachttijd && <span><b>Wachttijd:</b> {i.data.wachttijd}</span>}
+              </div>
+            )}
+            {i.heeftBody && <div class="sk-toelichting"><i.Body /></div>}
+            <div class="rij tussen" style="margin-top:auto">
+              {i.data.tags?.length ? <div class="tags">{i.data.tags.slice(0, 6).map((t) => <span class="tag">{t}</span>)}</div> : <span />}
+              {i.data.bijgewerkt && <span class="klein zacht">gecontroleerd {datumLang(i.data.bijgewerkt)}</span>}
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="leeg sk-leeg" hidden>Geen organisaties gevonden. <a href="/beheer#sociale-kaart">Voeg er een toe</a>.</p>
+    </section>
+  ))}
 
   <script>
-    const zoek = document.getElementById('zoek') as HTMLInputElement;
-    const cat = document.getElementById('categorie') as HTMLSelectElement;
-    const kaarten = Array.from(document.querySelectorAll<HTMLElement>('#sk-lijst .sk-kaart'));
-    const leeg = document.getElementById('sk-leeg')!;
-    function filter() {
-      const q = zoek.value.trim().toLowerCase();
-      const c = cat.value;
-      let n = 0;
-      for (const k of kaarten) {
-        const ok = (!c || k.dataset.categorie === c) && (!q || (k.dataset.zoek ?? '').includes(q));
-        k.hidden = !ok;
-        if (ok) n++;
-      }
-      leeg.hidden = n > 0;
-      const p = new URLSearchParams();
-      if (q) p.set('q', q);
-      if (c) p.set('cat', c);
-      history.replaceState(null, '', p.toString() ? `?${p}` : location.pathname);
+    const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.sk-tab'));
+    const panelen = Array.from(document.querySelectorAll<HTMLElement>('.sk-paneel'));
+    const params = new URLSearchParams(location.search);
+
+    function toonGroep(id: string, schrijfUrl = true) {
+      for (const t of tabs) t.setAttribute('aria-selected', String(t.dataset.groep === id));
+      for (const p of panelen) p.hidden = p.dataset.groep !== id;
+      if (schrijfUrl) { params.set('groep', id); history.replaceState(null, '', `?${params}`); }
     }
-    const init = new URLSearchParams(location.search);
-    if (init.get('q')) zoek.value = init.get('q')!;
-    if (init.get('cat')) cat.value = init.get('cat')!;
-    zoek.addEventListener('input', filter);
-    cat.addEventListener('change', filter);
-    filter();
+    tabs.forEach((t) => t.addEventListener('click', () => toonGroep(t.dataset.groep!)));
+
+    for (const p of panelen) {
+      const zoek = p.querySelector<HTMLInputElement>('.sk-zoek')!;
+      const cat = p.querySelector<HTMLSelectElement>('.sk-categorie')!;
+      const kaarten = Array.from(p.querySelectorAll<HTMLElement>('.sk-kaart'));
+      const leeg = p.querySelector<HTMLElement>('.sk-leeg')!;
+      const filter = () => {
+        const q = zoek.value.trim().toLowerCase();
+        const c = cat.value;
+        let n = 0;
+        for (const k of kaarten) {
+          const ok = (!c || k.dataset.categorie === c) && (!q || (k.dataset.zoek ?? '').includes(q));
+          k.hidden = !ok;
+          if (ok) n++;
+        }
+        leeg.hidden = n > 0;
+        if (!p.hidden) {
+          q ? params.set('q', q) : params.delete('q');
+          c ? params.set('cat', c) : params.delete('cat');
+          history.replaceState(null, '', params.toString() ? `?${params}` : location.pathname);
+        }
+      };
+      zoek.addEventListener('input', filter);
+      cat.addEventListener('change', filter);
+      p.dataset.init = '1';
+      (p as any).__filter = filter;
+    }
+
+    // Beginstand uit de URL: ?groep=zorg&cat=Huisartsen&q=…  (of een #anker naar een kaart)
+    let start = params.get('groep') ?? '';
+    const anker = location.hash.slice(1);
+    if (anker) {
+      const kaart = document.getElementById(anker);
+      const paneel = kaart?.closest<HTMLElement>('.sk-paneel');
+      if (paneel) start = paneel.dataset.groep!;
+    }
+    if (!panelen.some((p) => p.dataset.groep === start)) start = panelen[0].dataset.groep!;
+    toonGroep(start, false);
+    const actief = panelen.find((p) => p.dataset.groep === start)!;
+    if (params.get('q')) actief.querySelector<HTMLInputElement>('.sk-zoek')!.value = params.get('q')!;
+    if (params.get('cat')) actief.querySelector<HTMLSelectElement>('.sk-categorie')!.value = params.get('cat')!;
+    (actief as any).__filter();
+    if (anker) document.getElementById(anker)?.scrollIntoView({ block: 'start' });
   </script>
 </Base>

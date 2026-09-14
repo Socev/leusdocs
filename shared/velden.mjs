@@ -1,19 +1,51 @@
 // Gedeelde definities: gebruikt door de site (build) én door /beheer (formulieren + Pages Function).
 // Wijzig je hier een categorie, dan verandert die overal.
 
-export const CATEGORIEEN = [
-  'GGZ volwassenen',
-  'GGZ jeugd',
-  'Jeugd & gezin',
-  'Ouderen',
-  'Welzijn & maatschappelijk werk',
-  'Gemeente & WMO',
-  'Verslaving',
-  'Thuiszorg & mantelzorg',
-  'Paramedisch',
-  'Werk, inkomen & schulden',
-  'Overig',
+// Twee groepen: GGZ & welzijn staat voorop (standaardtabblad op /sociale-kaart), de overige zorgverleners
+// staan op een eigen tabblad. Een categorie hoort bij precies één groep.
+export const GROEPEN = [
+  {
+    id: 'ggz',
+    label: 'GGZ & welzijn',
+    omschrijving: 'Psychische hulp, jeugd, verslaving, welzijn en het sociaal domein — de kaart voor de POH-GGZ en verwijzende huisarts.',
+    categorieen: [
+      'GGZ volwassenen',
+      'GGZ jeugd',
+      'Jeugd & gezin',
+      'Verslaving',
+      'Ouderen',
+      'Welzijn & maatschappelijk werk',
+      'Gemeente & WMO',
+      'Werk, inkomen & schulden',
+    ],
+  },
+  {
+    id: 'zorg',
+    label: 'Overige zorgverleners',
+    omschrijving: 'Huisartsen, apotheken, paramedici, thuiszorg, palliatieve zorg, ziekenhuizen en diagnostiek in en om Leusden.',
+    categorieen: [
+      'Huisartsen',
+      'Apotheken',
+      'Tandartsen',
+      'Fysiotherapie & oefentherapie',
+      'Diëtetiek, logopedie & ergotherapie',
+      'Paramedisch',
+      'Zwangerschap & geboorte',
+      'Thuiszorg & mantelzorg',
+      'Verpleeg- en verzorgingshuizen',
+      'Palliatieve zorg & overlijden',
+      'Ziekenhuis & specialistische zorg',
+      'Laboratorium & diagnostiek',
+      'Overig',
+    ],
+  },
 ];
+
+export const CATEGORIEEN = GROEPEN.flatMap((g) => g.categorieen);
+
+export function groepVanCategorie(categorie) {
+  return GROEPEN.find((g) => g.categorieen.includes(categorie)) ?? GROEPEN[GROEPEN.length - 1];
+}
 
 export const VERWIJSWIJZEN = [
   'Rechtstreeks (patiënt meldt zichzelf aan)',
@@ -47,6 +79,7 @@ export const VELDEN = {
     { naam: 'tags', label: 'Trefwoorden (komma-gescheiden)', type: 'tags' },
     { naam: 'concept', label: 'Nog te controleren (toont een label op de site)', type: 'checkbox' },
     { naam: 'bijgewerkt', label: 'Laatst gecontroleerd op', type: 'date' },
+    { naam: 'bron', label: 'Bron (bv. oude vermelding op sociaalleusden.nl)', type: 'url' },
   ],
   mededelingen: [
     { naam: 'titel', label: 'Titel', type: 'text', verplicht: true },
