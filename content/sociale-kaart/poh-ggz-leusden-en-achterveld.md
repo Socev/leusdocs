@@ -10,9 +10,6 @@ wachttijd: "Praktijkafhankelijk (doorgaans 1–4 weken)"
 tags: ["poh-ggz","geestelijke gezondheidszorg","huisarts","laagdrempelig","e-health"]
 bijgewerkt: 2026-09-14
 bron: "https://sociaalleusden.nl/poh-ggz/poh-ggz-leusden-achterveld"
-aanmeldstop: true
-aanmeldstop_vanaf: 2026-09-01
-aanmeldstop_toelichting: "Testmelding — alleen voor VGZ"
 aanmeldstop_gemeld: 2026-09-14
 ---
 
