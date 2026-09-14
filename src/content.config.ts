@@ -25,6 +25,11 @@ const socialeKaart = defineCollection({
     concept: z.boolean().default(false),
     bijgewerkt: z.coerce.date().optional(),
     bron: z.preprocess(legeStringNaarUndefined, z.string().url().optional()),
+    // Aanmeldstop (openbaar te melden via de site)
+    aanmeldstop: z.boolean().default(false),
+    aanmeldstop_vanaf: z.coerce.date().optional(),
+    aanmeldstop_toelichting: z.preprocess(legeStringNaarUndefined, z.string().max(300).optional()),
+    aanmeldstop_gemeld: z.coerce.date().optional(),
   }),
 });
 

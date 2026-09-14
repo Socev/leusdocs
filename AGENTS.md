@@ -48,6 +48,10 @@ tags: ["sggz", "crisisdienst"]                    # optioneel, lijst van trefwoo
 concept: true                                     # optioneel; true = toont label "Nog te controleren"
 bijgewerkt: 2026-09-14                            # optioneel, datum JJJJ-MM-DD (laatst gecontroleerd)
 bron: "https://sociaalleusden.nl/ggz/…"           # optioneel, waar de gegevens vandaan komen
+aanmeldstop: true                                 # optioneel; true = neemt geen nieuwe patiënten aan (rood label op de site)
+aanmeldstop_vanaf: 2026-09-01                     # optioneel, JJJJ-MM-DD
+aanmeldstop_toelichting: "alleen voor VGZ/Zilveren Kruis"   # optioneel, max 200 tekens
+aanmeldstop_gemeld: 2026-09-14                    # datum waarop de aanmeldstop-status voor het laatst is gemeld/gecontroleerd (altijd zetten als je de status aanpast)
 ---
 Optionele toelichting in markdown (verwijscriteria, bijzonderheden, contactpersoon).
 ```
@@ -62,6 +66,13 @@ Een nieuwe categorie voeg je toe aan de juiste groep in `shared/velden.mjs`.
 Verwijswijzen (`VERWIJSWIJZEN`): `Rechtstreeks (patiënt meldt zichzelf aan)`, `Via ZorgDomein`, `Verwijsbrief huisarts`, `Via gemeente / WMO-loket`, `Onbekend`.
 
 Controleer bij twijfel altijd `shared/velden.mjs` — dat is de waarheid, niet dit document.
+
+### 3a. Aanmeldstop
+
+- `aanmeldstop: true` + optioneel `aanmeldstop_vanaf`/`aanmeldstop_toelichting` → rood label "Aanmeldstop sinds … · toelichting — gemeld <datum>".
+- `aanmeldstop` weg of `false` mét `aanmeldstop_gemeld` → groen label "Neemt patiënten aan — gemeld <datum>". Zonder `aanmeldstop_gemeld` wordt niets getoond.
+- Iedereen (zonder login) kan de status melden via de knop op /sociale-kaart; dat gaat via `POST /api/aanmeldstop` met `{ "id": "<slug>", "aanmeldstop": true|false, "vanaf": "JJJJ-MM-DD", "toelichting": "…" }`. Die functie past uitsluitend de vier `aanmeldstop_*`-velden aan en zet `aanmeldstop_gemeld` op vandaag. Elke melding is een aparte commit (`aanmeldstop: <naam> — …`).
+- **Periodieke controle (opdracht voor de bot):** loop alle items met `aanmeldstop: true` én alle GGZ-items (`/data/sociale-kaart.json`, groep GGZ & welzijn) langs, open de `website`, zoek naar teksten als "aanmeldstop", "wachtlijst", "geen nieuwe cliënten/patiënten", "aanmelden niet mogelijk", "tijdelijk gesloten voor aanmelding" en werk de velden bij via de GitHub API (sectie 7) — altijd met `aanmeldstop_gemeld` op de controledatum, en een korte toelichting die de bron noemt (bv. "volgens website 14-9-2026"). Bij twijfel: niets veranderen en het item rapporteren.
 
 ## 4. Mededelingen — veldenschema
 

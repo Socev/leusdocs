@@ -80,6 +80,11 @@ export const VELDEN = {
     { naam: 'concept', label: 'Nog te controleren (toont een label op de site)', type: 'checkbox' },
     { naam: 'bijgewerkt', label: 'Laatst gecontroleerd op', type: 'date' },
     { naam: 'bron', label: 'Bron (bv. oude vermelding op sociaalleusden.nl)', type: 'url' },
+    // Aanmeldstop: ook openbaar te melden via de knop op /sociale-kaart (functions/api/aanmeldstop.js)
+    { naam: 'aanmeldstop', label: 'Heeft aanmeldstop (neemt geen nieuwe patiënten aan)', type: 'checkbox' },
+    { naam: 'aanmeldstop_vanaf', label: 'Aanmeldstop vanaf', type: 'date' },
+    { naam: 'aanmeldstop_toelichting', label: 'Toelichting aanmeldstop (bv. "alleen voor VGZ/Zilveren Kruis", "tot 1 januari")', type: 'text' },
+    { naam: 'aanmeldstop_gemeld', label: 'Aanmeldstop-status gemeld op', type: 'date' },
   ],
   mededelingen: [
     { naam: 'titel', label: 'Titel', type: 'text', verplicht: true },
@@ -102,6 +107,9 @@ export const COLLECTIES = {
   mededelingen: { map: 'content/mededelingen', label: 'Mededelingen', body: 'Bericht' },
   paginas: { map: 'content/paginas', label: "Pagina's", body: 'Inhoud', vast: true },
 };
+
+// Velden die iedereen (zonder inloggen) mag aanpassen via /api/aanmeldstop
+export const AANMELDSTOP_VELDEN = ['aanmeldstop', 'aanmeldstop_vanaf', 'aanmeldstop_toelichting', 'aanmeldstop_gemeld'];
 
 export function slugify(s) {
   return String(s)

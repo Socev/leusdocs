@@ -42,6 +42,7 @@ const perGroep = GROEPEN.map((g) => ({
           <option value="">Alle categorieën ({g.items.length})</option>
           {g.categorieen.map((c) => <option value={c}>{c} ({g.items.filter((i) => i.data.categorie === c).length})</option>)}
         </select>
+        <label class="klein sk-open-label"><input type="checkbox" class="sk-open" /> Verberg aanmeldstops</label>
       </div>
 
       <div class="grid sk-lijst">
@@ -49,6 +50,7 @@ const perGroep = GROEPEN.map((g) => ({
           <article
             class="kaart sk-kaart"
             data-categorie={i.data.categorie}
+            data-stop={i.data.aanmeldstop ? '1' : ''}
             data-zoek={[i.data.naam, i.data.omschrijving, i.data.doelgroep, i.data.adres, ...(i.data.tags ?? []), i.data.categorie].filter(Boolean).join(' ').toLowerCase()}
             id={i.id}
           >
@@ -72,6 +74,19 @@ const perGroep = GROEPEN.map((g) => ({
               </div>
             )}
             {i.heeftBody && <div class="sk-toelichting"><i.Body /></div>}
+            <div class="as-blok" data-id={i.id}>
+              {i.data.aanmeldstop ? (
+                <div class="as-status stop">
+                  <b>Aanmeldstop</b>{i.data.aanmeldstop_vanaf && ` sinds ${datumLang(i.data.aanmeldstop_vanaf)}`}{i.data.aanmeldstop_toelichting && ` · ${i.data.aanmeldstop_toelichting}`}
+                  {i.data.aanmeldstop_gemeld && <span class="as-gemeld">gemeld {datumLang(i.data.aanmeldstop_gemeld)}</span>}
+                </div>
+              ) : i.data.aanmeldstop_gemeld ? (
+                <div class="as-status open"><b>Neemt patiënten aan</b>{i.data.aanmeldstop_toelichting && ` · ${i.data.aanmeldstop_toelichting}`}<span class="as-gemeld">gemeld {datumLang(i.data.aanmeldstop_gemeld)}</span></div>
+              ) : null}
+              <button type="button" class="as-knop" data-id={i.id} data-naam={i.data.naam} data-stop={i.data.aanmeldstop ? '1' : ''} data-vanaf={i.data.aanmeldstop_vanaf ? i.data.aanmeldstop_vanaf.toISOString().slice(0, 10) : ''} data-toelichting={i.data.aanmeldstop_toelichting ?? ''}>
+                {i.data.aanmeldstop ? 'Aanmeldstop wijzigen of opheffen' : 'Aanmeldstop melden'}
+              </button>
+            </div>
             <div class="rij tussen" style="margin-top:auto">
               {i.data.tags?.length ? <div class="tags">{i.data.tags.slice(0, 6).map((t) => <span class="tag">{t}</span>)}</div> : <span />}
               {i.data.bijgewerkt && <span class="klein zacht">gecontroleerd {datumLang(i.data.bijgewerkt)}</span>}
@@ -83,7 +98,89 @@ const perGroep = GROEPEN.map((g) => ({
     </section>
   ))}
 
+  <dialog id="as-dialog" class="as-dialog">
+    <form method="dialog" id="as-form" autocomplete="off">
+      <h3 style="margin:0 0 4px">Aanmeldstop melden</h3>
+      <p class="klein zacht" id="as-naam" style="margin:0 0 14px"></p>
+      <label class="as-optie"><input type="radio" name="as-status" value="stop" checked /> Heeft een aanmeldstop (neemt geen nieuwe patiënten aan)</label>
+      <label class="as-optie"><input type="radio" name="as-status" value="open" /> Neemt (weer) patiënten aan</label>
+      <div class="as-velden" id="as-stopvelden">
+        <label class="as-veld"><span>Vanaf (optioneel)</span><input type="date" name="vanaf" /></label>
+      </div>
+      <label class="as-veld"><span>Toelichting (optioneel, bv. "alleen voor VGZ/Zilveren Kruis" of "tot 1 januari")</span><input type="text" name="toelichting" maxlength="200" /></label>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+      <p class="klein zacht" style="margin:10px 0 0">Je melding is direct openbaar zichtbaar met de datum van vandaag, zonder je naam. Na 1–2 minuten staat hij definitief op de site.</p>
+      <p class="as-fout" id="as-fout" hidden></p>
+      <div class="rij" style="margin-top:14px">
+        <button type="submit" class="knop" id="as-verstuur">Melding opslaan</button>
+        <button type="button" class="knop secundair" id="as-annuleer">Annuleren</button>
+      </div>
+    </form>
+  </dialog>
+
   <script>
+    // ---- Aanmeldstop melden (openbaar) ----
+    const dlg = document.getElementById('as-dialog') as HTMLDialogElement;
+    const asForm = document.getElementById('as-form') as HTMLFormElement;
+    const fDatum = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+    const esc = (t: string) => t.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+    let asId = '';
+    document.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.as-knop');
+      if (!b) return;
+      asId = b.dataset.id!;
+      (document.getElementById('as-naam') as HTMLElement).textContent = b.dataset.naam!;
+      const stop = b.dataset.stop === '1';
+      (asForm.elements.namedItem('as-status') as RadioNodeList).value = stop ? 'stop' : 'stop';
+      (asForm.elements.namedItem('vanaf') as HTMLInputElement).value = b.dataset.vanaf || '';
+      (asForm.elements.namedItem('toelichting') as HTMLInputElement).value = b.dataset.toelichting || '';
+      (document.getElementById('as-fout') as HTMLElement).hidden = true;
+      (dlg.querySelector('h3') as HTMLElement).textContent = stop ? 'Aanmeldstop wijzigen' : 'Aanmeldstop melden';
+      toggleStopVelden();
+      dlg.showModal();
+    });
+    function toggleStopVelden() {
+      const v = (asForm.elements.namedItem('as-status') as RadioNodeList).value;
+      (document.getElementById('as-stopvelden') as HTMLElement).hidden = v !== 'stop';
+    }
+    asForm.addEventListener('change', toggleStopVelden);
+    document.getElementById('as-annuleer')!.addEventListener('click', () => dlg.close());
+    asForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const knop = document.getElementById('as-verstuur') as HTMLButtonElement;
+      const fout = document.getElementById('as-fout') as HTMLElement;
+      knop.disabled = true; knop.textContent = 'Opslaan…'; fout.hidden = true;
+      const stop = (asForm.elements.namedItem('as-status') as RadioNodeList).value === 'stop';
+      const body = {
+        id: asId,
+        aanmeldstop: stop,
+        vanaf: stop ? (asForm.elements.namedItem('vanaf') as HTMLInputElement).value : '',
+        toelichting: (asForm.elements.namedItem('toelichting') as HTMLInputElement).value.trim(),
+        website: (asForm.elements.namedItem('website') as HTMLInputElement).value,
+      };
+      try {
+        const r = await fetch('/api/aanmeldstop', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(j.fout || `HTTP ${r.status}`);
+        // Kaart direct bijwerken (de site zelf bouwt in 1–2 minuten opnieuw)
+        const blok = document.querySelector<HTMLElement>(`.as-blok[data-id="${CSS.escape(asId)}"]`);
+        if (blok) {
+          (blok.closest('.sk-kaart') as HTMLElement).dataset.stop = stop ? '1' : '';
+          const vandaag = fDatum.format(new Date());
+          const toel = body.toelichting ? ` · ${esc(body.toelichting)}` : '';
+          const status = stop
+            ? `<div class="as-status stop"><b>Aanmeldstop</b>${body.vanaf ? ` sinds ${fDatum.format(new Date(body.vanaf))}` : ''}${toel}<span class="as-gemeld">gemeld ${vandaag}</span></div>`
+            : `<div class="as-status open"><b>Neemt patiënten aan</b>${toel}<span class="as-gemeld">gemeld ${vandaag}</span></div>`;
+          const naam = blok.querySelector<HTMLButtonElement>('.as-knop')!.dataset.naam!;
+          blok.innerHTML = `${status}<button type="button" class="as-knop" data-id="${esc(asId)}" data-naam="${esc(naam)}" data-stop="${stop ? '1' : ''}" data-vanaf="${esc(body.vanaf)}" data-toelichting="${esc(body.toelichting)}">${stop ? 'Aanmeldstop wijzigen of opheffen' : 'Aanmeldstop melden'}</button>`;
+        }
+        dlg.close();
+      } catch (err: any) {
+        fout.textContent = `Opslaan mislukt: ${err.message}`;
+        fout.hidden = false;
+      } finally { knop.disabled = false; knop.textContent = 'Melding opslaan'; }
+    });
+
     const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.sk-tab'));
     const panelen = Array.from(document.querySelectorAll<HTMLElement>('.sk-paneel'));
     const params = new URLSearchParams(location.search);
@@ -98,6 +195,7 @@ const perGroep = GROEPEN.map((g) => ({
     for (const p of panelen) {
       const zoek = p.querySelector<HTMLInputElement>('.sk-zoek')!;
       const cat = p.querySelector<HTMLSelectElement>('.sk-categorie')!;
+      const open = p.querySelector<HTMLInputElement>('.sk-open')!;
       const kaarten = Array.from(p.querySelectorAll<HTMLElement>('.sk-kaart'));
       const leeg = p.querySelector<HTMLElement>('.sk-leeg')!;
       const filter = () => {
@@ -105,7 +203,7 @@ const perGroep = GROEPEN.map((g) => ({
         const c = cat.value;
         let n = 0;
         for (const k of kaarten) {
-          const ok = (!c || k.dataset.categorie === c) && (!q || (k.dataset.zoek ?? '').includes(q));
+          const ok = (!c || k.dataset.categorie === c) && (!q || (k.dataset.zoek ?? '').includes(q)) && !(open.checked && k.dataset.stop === '1');
           k.hidden = !ok;
           if (ok) n++;
         }
@@ -118,6 +216,7 @@ const perGroep = GROEPEN.map((g) => ({
       };
       zoek.addEventListener('input', filter);
       cat.addEventListener('change', filter);
+      open.addEventListener('change', filter);
       p.dataset.init = '1';
       (p as any).__filter = filter;
     }
