@@ -20,13 +20,12 @@ import Base from '../layouts/Base.astro';
         <a href="#paginas" data-c="paginas">Pagina's</a>
       </nav>
       <div class="kaart klein" style="margin-top:16px">
-        <b>Opmaak (markdown)</b>
+        <b>Zo werkt het</b>
         <ul style="padding-left:1.2em;margin:6px 0 0">
-          <li><code>**vet**</code>, <code>*cursief*</code></li>
-          <li><code>- </code> voor een opsomming</li>
-          <li><code>## Kopje</code></li>
-          <li><code>[tekst](https://…)</code> voor een link</li>
-          <li>Tabel: <code>| kolom | kolom |</code> met daaronder <code>|---|---|</code></li>
+          <li>Kies links een onderdeel, klik <i>Bewerken</i> of <i>+ Nieuw</i>.</li>
+          <li>Tekst maak je op met de knoppen boven het tekstvak (vet, kopje, lijst, link, tabel) — net als in Word.</li>
+          <li>In een tabel: Tab springt naar de volgende cel; knoppen <i>+ Rij</i> / <i>+ Kolom</i> verschijnen zodra je in de tabel staat.</li>
+          <li><i>Opslaan</i> zet de wijziging op de site (na 1–2 minuten zichtbaar).</li>
         </ul>
       </div>
     </aside>
@@ -77,11 +76,32 @@ import Base from '../layouts/Base.astro';
     .twee { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
     #melding.ok { border-color: #12b76a; background: #ecfdf3; }
     #melding.fout { border-color: #f04438; background: #fef3f2; }
+    /* Visuele editor */
+    .rte { border: 1px solid var(--kleur-rand); border-radius: 8px; background: #fff; overflow: hidden; }
+    .rte-balk { display: flex; flex-wrap: wrap; gap: 4px; padding: 6px; border-bottom: 1px solid var(--kleur-rand); background: var(--kleur-achtergrond); }
+    .rte-knop { font: inherit; font-size: 0.82rem; padding: 4px 9px; border: 1px solid var(--kleur-rand); border-radius: 6px; background: #fff; cursor: pointer; color: var(--kleur-tekst); }
+    .rte-knop:hover { border-color: var(--kleur-accent); color: var(--kleur-accent-donker); }
+    .rte-knop.actief { background: var(--kleur-accent); color: #fff; border-color: var(--kleur-accent); }
+    .rte-knop:nth-child(1) { font-weight: 700; } .rte-knop:nth-child(2) { font-style: italic; }
+    .rte-bronknop { margin-left: auto; color: var(--kleur-tekst-zacht); }
+    .rte-inhoud .tiptap { min-height: 260px; padding: 12px 14px; outline: none; line-height: 1.55; }
+    .rte-inhoud .tiptap > * + * { margin-top: 0.6em; }
+    .rte-inhoud .tiptap p { margin: 0; }
+    .rte-inhoud .tiptap h2 { font-size: 1.25rem; margin-top: 1em; } .rte-inhoud .tiptap h3 { font-size: 1.05rem; margin-top: 0.8em; }
+    .rte-inhoud .tiptap ul, .rte-inhoud .tiptap ol { padding-left: 1.4em; }
+    .rte-inhoud .tiptap table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+    .rte-inhoud .tiptap th, .rte-inhoud .tiptap td { border: 1px solid var(--kleur-rand); padding: 6px 8px; vertical-align: top; min-width: 60px; position: relative; }
+    .rte-inhoud .tiptap th { background: var(--kleur-achtergrond); font-weight: 600; text-align: left; }
+    .rte-inhoud .tiptap .selectedCell::after { content: ''; position: absolute; inset: 0; background: rgba(27,94,138,0.12); pointer-events: none; }
+    .rte-inhoud .tiptap a { color: var(--kleur-accent); }
+    .rte-inhoud .tiptap p.is-editor-empty:first-child::before { content: 'Begin met typen…'; color: var(--kleur-tekst-zacht); float: left; height: 0; pointer-events: none; }
+    .rte-bron { border: 0 !important; border-radius: 0 !important; min-height: 260px !important; }
     @media (max-width: 760px) { .beheer, .twee { grid-template-columns: 1fr; } }
   </style>
 
   <script>
     import { VELDEN, COLLECTIES, slugify } from '../../shared/velden.mjs';
+    import { maakEditor } from '../scripts/editor';
 
     const $ = (s: string) => document.querySelector(s) as HTMLElement;
     const melding = $('#melding');
@@ -91,6 +111,7 @@ import Base from '../layouts/Base.astro';
     let collectie = 'sociale-kaart';
     let huidig: { pad?: string; sha?: string; id?: string } = {};
     let bestandUpload: File | null = null;
+    const rte = maakEditor(form.elements.namedItem('body') as HTMLTextAreaElement);
 
     function toon(tekst: string, type: 'ok' | 'fout' | '' = '') {
       melding.hidden = !tekst;
@@ -180,7 +201,7 @@ import Base from '../layouts/Base.astro';
       $('#form-titel').textContent = id ? `Bewerken: ${data.naam || data.titel || id}` : `Nieuw: ${def.label}`;
       $('#body-label').textContent = def.body;
       veldenEl.innerHTML = VELDEN[collectie].map((v: any) => veldHtml(v, data[v.naam])).join('');
-      (form.elements.namedItem('body') as HTMLTextAreaElement).value = body;
+      rte.zet(body);
       ($('#verwijder') as HTMLButtonElement).hidden = !id || !!def.vast;
       $('#form-pad').textContent = huidig.pad ? `Bestand: ${huidig.pad}` : 'Nieuw bestand wordt aangemaakt op basis van de naam.';
       toon('');
@@ -199,7 +220,7 @@ import Base from '../layouts/Base.astro';
         else if (v.type === 'tags') data[v.naam] = el.value.split(',').map((t: string) => t.trim()).filter(Boolean);
         else data[v.naam] = el.value.trim();
       }
-      return { data, body: (form.elements.namedItem('body') as HTMLTextAreaElement).value };
+      return { data, body: rte.lees() };
     }
 
     form.addEventListener('submit', async (e) => {

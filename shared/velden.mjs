@@ -65,9 +65,9 @@ export const VELDEN = {
 
 // Waar de bestanden van elke collectie staan (relatief t.o.v. de repo-root)
 export const COLLECTIES = {
-  'sociale-kaart': { map: 'content/sociale-kaart', label: 'Sociale kaart', body: 'Toelichting (optioneel, markdown)' },
-  mededelingen: { map: 'content/mededelingen', label: 'Mededelingen', body: 'Bericht (markdown)' },
-  paginas: { map: 'content/paginas', label: "Pagina's", body: 'Inhoud (markdown)', vast: true },
+  'sociale-kaart': { map: 'content/sociale-kaart', label: 'Sociale kaart', body: 'Toelichting (optioneel)' },
+  mededelingen: { map: 'content/mededelingen', label: 'Mededelingen', body: 'Bericht' },
+  paginas: { map: 'content/paginas', label: "Pagina's", body: 'Inhoud', vast: true },
 };
 
 export function slugify(s) {

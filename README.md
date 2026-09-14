@@ -4,7 +4,7 @@ Website van de huisartsen en apothekers in Leusden & Achterveld: HAGRO-agenda, s
 
 - **Hosting:** Cloudflare Pages (bouwt automatisch bij elke push op `main`)
 - **Techniek:** [Astro](https://astro.build) (statisch) + twee Pages Functions (`/api/agenda`, `/api/beheer/*`)
-- **Inhoud bewerken:** via [www.leusdocs.nl/beheer](https://www.leusdocs.nl/beheer) (inloggen met e-mailcode via Cloudflare Access), of rechtstreeks in `content/` — zie [AGENTS.md](AGENTS.md) voor het exacte formaat.
+- **Inhoud bewerken:** via [www.leusdocs.nl/beheer](https://www.leusdocs.nl/beheer) (inloggen met e-mailcode via Cloudflare Access) met een visuele editor (TipTap; slaat op als markdown), of rechtstreeks in `content/` — zie [AGENTS.md](AGENTS.md) voor het exacte formaat.
 - **Hosting, Access en DNS instellen:** [docs/cloudflare-setup.md](docs/cloudflare-setup.md)
 
 ## Lokaal draaien
