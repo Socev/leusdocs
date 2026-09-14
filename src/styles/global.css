@@ -131,9 +131,10 @@ main { padding-block: 36px 56px; }
 .med-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
 
 /* Home */
-.hero { display: grid; gap: 24px; grid-template-columns: 1.4fr 1fr; align-items: start; margin-bottom: 36px; }
-.hero .kaart { height: 100%; }
+.hero { display: grid; gap: 28px; grid-template-columns: 1.35fr 1fr; align-items: start; margin-bottom: 36px; }
+.hero-agenda { position: sticky; top: 84px; }
 .snel { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin-bottom: 36px; }
+.snel-2 { grid-template-columns: 1fr 1fr; margin-bottom: 0; }
 .snel a { display: block; text-decoration: none; color: var(--kleur-tekst); background: var(--kleur-wit); border: 1px solid var(--kleur-rand); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--schaduw); }
 .snel a:hover { border-color: var(--kleur-accent); }
 .snel a b { display: block; font-size: 1.02rem; margin-bottom: 2px; }

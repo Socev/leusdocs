@@ -16,44 +16,43 @@ const aantalSk = (await getCollection('sociale-kaart')).length;
 ---
 <Base>
   <section class="hero">
-    <div>
+    <div class="hero-links">
       <h1>Samen zorgen in Leusden & Achterveld</h1>
       <p class="intro">
         Leusdocs is de gedeelde werkplek van de huisartsen en apothekers in Leusden en Achterveld:
         de HAGRO-agenda, onze werkafspraken, een sociale kaart voor verwijzen en een plek voor korte mededelingen.
       </p>
-      <div class="rij">
+      <div class="rij" style="margin-bottom:28px">
         <a class="knop" href="/agenda">Bekijk de agenda</a>
         <a class="knop secundair" href="/sociale-kaart">Sociale kaart</a>
       </div>
+
+      <div class="kop-rij"><h2 style="margin-top:0">Mededelingen</h2><a class="klein" href="/mededelingen">Alle mededelingen →</a></div>
+      {mededelingen.length === 0 ? <p class="zacht">Nog geen mededelingen.</p> : (
+        <div class="med-lijst" style="margin-bottom:28px">
+          {mededelingen.map((m) => (
+            <article class="kaart med-item">
+              <div class="med-meta"><span class="label">{m.data.afzender}</span> · {datumLang(m.data.datum)}</div>
+              <h3><a href={`/mededelingen/${m.id}`}>{m.data.titel}</a></h3>
+              {m.data.samenvatting && <p class="klein" style="margin:0">{m.data.samenvatting}</p>}
+            </article>
+          ))}
+        </div>
+      )}
+
+      <div class="snel snel-2">
+        <a href="/sociale-kaart"><b>Sociale kaart</b><span>{aantalSk} organisaties — GGZ & welzijn voorop, overige zorgverleners op een eigen tabblad</span></a>
+        <a href="/werkafspraken"><b>Werkafspraken</b><span>Afspraken tussen huisartsen en apothekers</span></a>
+        <a href="/omzettingen"><b>Omzettingen</b><span>Omzettingen bij tekorten en preferentiebeleid</span></a>
+        <a href="/beheer"><b>Iets toevoegen?</b><span>Beheer de sociale kaart of plaats een mededeling</span></a>
+      </div>
     </div>
-    <div class="kaart">
+
+    <div class="kaart hero-agenda">
       <div class="kop-rij"><h2 style="margin-top:0">Binnenkort</h2><a class="klein" href="/agenda">Hele agenda →</a></div>
       <div id="agenda-kort" data-max="5"><p class="zacht klein">Agenda wordt geladen…</p></div>
       <p class="klein" style="margin:12px 0 0"><a href={site.agenda.icalUrl}>Abonneer via iCal</a></p>
     </div>
-  </section>
-
-  <section class="snel">
-    <a href="/sociale-kaart"><b>Sociale kaart</b><span>{aantalSk} organisaties — GGZ & welzijn voorop, overige zorgverleners op een eigen tabblad</span></a>
-    <a href="/werkafspraken"><b>Werkafspraken</b><span>Afspraken tussen huisartsen en apothekers</span></a>
-    <a href="/omzettingen"><b>Omzettingen</b><span>Omzettingen bij tekorten en preferentiebeleid</span></a>
-    <a href="/beheer"><b>Iets toevoegen?</b><span>Beheer de sociale kaart of plaats een mededeling</span></a>
-  </section>
-
-  <section>
-    <div class="kop-rij"><h2 style="margin-top:0">Mededelingen</h2><a class="klein" href="/mededelingen">Alle mededelingen →</a></div>
-    {mededelingen.length === 0 ? <p class="zacht">Nog geen mededelingen.</p> : (
-      <div class="med-lijst">
-        {mededelingen.map((m) => (
-          <article class="kaart med-item">
-            <div class="med-meta"><span class="label">{m.data.afzender}</span> · {datumLang(m.data.datum)}</div>
-            <h3><a href={`/mededelingen/${m.id}`}>{m.data.titel}</a></h3>
-            {m.data.samenvatting && <p class="klein" style="margin:0">{m.data.samenvatting}</p>}
-          </article>
-        ))}
-      </div>
-    )}
   </section>
 
   <script src="../scripts/agenda.ts"></script>
