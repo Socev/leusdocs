@@ -1,6 +1,6 @@
 # Cloudflare: Pages, Access en DNS instellen
 
-Eenmalige stappen om `Socev/Leusdocs` live te zetten op www.leusdocs.nl. Volgorde aanhouden.
+Eenmalige stappen om `Socev/Leusdocs` live te zetten op www.leusdocs.nl. **Status 14 sep 2026: stappen 1–4 zijn uitgevoerd** (Pages-project `leusdocs`, custom domains, Access-app "Leusdocs beheer" op team `huisdokter.cloudflareaccess.com`). Hieronder ter referentie en voor het geval iets opnieuw moet.
 
 ## Stap 1 — Pages-project koppelen aan GitHub (±5 min)
 
@@ -20,7 +20,7 @@ Eenmalige stappen om `Socev/Leusdocs` live te zetten op www.leusdocs.nl. Volgord
    | `GITHUB_TOKEN` | fine-grained PAT, repo `Socev/Leusdocs`, permission **Contents: Read and write** | **secret** |
    | `GITHUB_REPO` | `Socev/Leusdocs` | text |
    | `GITHUB_BRANCH` | `main` | text |
-   | `CF_ACCESS_TEAM_DOMAIN` | `<team>.cloudflareaccess.com` (stap 3) | text |
+   | `CF_ACCESS_TEAM_DOMAIN` | `huisdokter.cloudflareaccess.com` (bestaand Zero Trust-team) | text |
    | `CF_ACCESS_AUD` | Application Audience tag (stap 3) | text |
 5. **Save and Deploy**. De eerste build duurt ±1–2 minuten. Daarna is de site bereikbaar op `https://leusdocs.pages.dev`.
    Controleer: `/`, `/agenda` (moet events tonen, dat bewijst dat de Function werkt), `/sociale-kaart`.
@@ -45,7 +45,7 @@ Eenmalige stappen om `Socev/Leusdocs` live te zetten op www.leusdocs.nl. Volgord
 
 ## Stap 4 — Cloudflare Access op /beheer (inloggen met e-mailcode)
 
-1. **Zero Trust** (one.dash.cloudflare.com) → bij eerste keer: kies een team name, bv. `socev` → team domain wordt `socev.cloudflareaccess.com`. Free-plan volstaat (tot 50 gebruikers).
+1. **Zero Trust** (one.dash.cloudflare.com) → bij eerste keer: het team bestaat al: `huisdokter.cloudflareaccess.com`. Free-plan volstaat (tot 50 gebruikers).
 2. Zero Trust → **Access** → **Applications** → **Add an application** → **Self-hosted**.
    - Application name: `Leusdocs beheer`
    - Session duration: `1 week` (of naar wens)
@@ -56,7 +56,7 @@ Eenmalige stappen om `Socev/Leusdocs` live te zetten op www.leusdocs.nl. Volgord
 3. **Policy**: name `Beheerders`, action **Allow**, include → **Emails** → de e-mailadressen van iedereen die mag bewerken (jij, de POH-GGZ, de apotheek). Uitbreiden kan later altijd. Alternatief: **Emails ending in** `@<praktijkdomein>`.
 4. Opslaan. Open de applicatie → **Overview** → kopieer de **Application Audience (AUD) Tag**.
 5. Terug naar Workers & Pages → leusdocs → Settings → Environment variables:
-   - `CF_ACCESS_TEAM_DOMAIN` = `socev.cloudflareaccess.com` (jouw team domain, zonder https://)
+   - `CF_ACCESS_TEAM_DOMAIN` = `huisdokter.cloudflareaccess.com` (zonder https://)
    - `CF_ACCESS_AUD` = de AUD-tag
    Daarna **Retry deployment** (of een lege commit) zodat de Function de nieuwe variabelen krijgt.
 6. Test: ga in een privévenster naar `https://www.leusdocs.nl/beheer` → Access vraagt om e-mail → code → beheerpagina toont "Ingelogd als …". Sla een testwijziging op en controleer dat er een commit in GitHub verschijnt en de site na ±1–2 min bijgewerkt is.

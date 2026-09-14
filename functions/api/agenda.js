@@ -4,7 +4,7 @@
 // over een venster van 6 maanden terug tot 18 maanden vooruit.
 
 import ICAL from 'ical.js';
-import site from '../../site.json' with { type: 'json' };
+import site from '../../site.json';
 
 const CACHE_SECONDEN = 600;
 

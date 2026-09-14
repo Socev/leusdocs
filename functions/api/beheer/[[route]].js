@@ -21,7 +21,7 @@
 //   PUT    /api/beheer/bestand                 body { naam, base64 } → { bestand } (komt in public/bestanden/)
 
 import YAML from 'yaml';
-import site from '../../../site.json' with { type: 'json' };
+import site from '../../../site.json';
 import { VELDEN, COLLECTIES, slugify } from '../../../shared/velden.mjs';
 
 const MAX_BESTAND_BYTES = 5 * 1024 * 1024;
