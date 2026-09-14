@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { getEntry, render } from 'astro:content';
+import { datumLang } from '../lib/datum';
+
+interface Props { id: string; omschrijving?: string }
+const { id, omschrijving } = Astro.props;
+const pagina = await getEntry('paginas', id);
+if (!pagina) throw new Error(`Pagina content/paginas/${id}.md ontbreekt`);
+const { Content } = await render(pagina);
+---
+<Base titel={pagina.data.titel} omschrijving={omschrijving}>
+  <div class="kop-rij">
+    <h1>{pagina.data.titel}</h1>
+    <div class="rij klein zacht">
+      {pagina.data.bijgewerkt && <span>Laatste revisie: {datumLang(pagina.data.bijgewerkt)}</span>}
+      <a href={`/beheer#paginas/${id}`}>Bewerken</a>
+    </div>
+  </div>
+  <article class="proza tabel-scroll"><Content /></article>
+</Base>

@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+import site from '../../site.json';
+
+interface Props {
+  titel?: string;
+  omschrijving?: string;
+}
+const { titel, omschrijving } = Astro.props;
+const paginaTitel = titel ? `${titel} – ${site.naam}` : `${site.naam} – ${site.ondertitel}`;
+const pad = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const nav = [
+  { href: '/agenda', label: 'Agenda' },
+  { href: '/sociale-kaart', label: 'Sociale kaart' },
+  { href: '/mededelingen', label: 'Mededelingen' },
+  { href: '/werkafspraken', label: 'Werkafspraken' },
+  { href: '/omzettingen', label: 'Omzettingen' },
+  { href: '/over-ons', label: 'Over ons' },
+];
+const actief = (href: string) => pad === href || (href !== '/' && pad.startsWith(href + '/'));
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{paginaTitel}</title>
+    <meta name="description" content={omschrijving ?? site.ondertitel} />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#1b5e8a" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="logo" href="/" aria-label={site.naam}>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1b5e8a"/><path d="M11 8h4v12h6v4H11z" fill="#fff"/></svg>
+          <span>{site.naam}<small>{site.ondertitel}</small></span>
+        </a>
+        <nav class="nav" aria-label="Hoofdnavigatie">
+          {nav.map((n) => <a href={n.href} aria-current={actief(n.href) ? 'page' : undefined}>{n.label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>{site.naam} · huisartsen en apothekers in Leusden & Achterveld</span>
+        <span><a href="/beheer">Beheer</a> · <a href={site.agenda.icalUrl}>iCal-feed agenda</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

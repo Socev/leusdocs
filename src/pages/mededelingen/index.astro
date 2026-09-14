@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { datumLang } from '../../lib/datum';
+
+const items = (await getCollection('mededelingen')).sort((a, b) => b.data.datum.getTime() - a.data.datum.getTime());
+---
+<Base titel="Mededelingen" omschrijving="Mededelingen van apotheek, POH-GGZ en huisartsen in Leusden">
+  <div class="kop-rij">
+    <div>
+      <h1>Mededelingen</h1>
+      <p class="intro" style="margin-bottom:0">Korte berichten en bijlagen van de apotheek, de POH-GGZ en de praktijken. Alles hier is openbaar.</p>
+    </div>
+    <a class="knop secundair" href="/beheer#mededelingen">Mededeling plaatsen</a>
+  </div>
+  {items.length === 0 ? <p class="leeg">Nog geen mededelingen.</p> : (
+    <div class="med-lijst">
+      {items.map((m) => (
+        <article class="kaart med-item">
+          <div class="med-meta"><span class="label">{m.data.afzender}</span> · {datumLang(m.data.datum)}</div>
+          <h3><a href={`/mededelingen/${m.id}`}>{m.data.titel}</a></h3>
+          {m.data.samenvatting && <p class="klein" style="margin:0">{m.data.samenvatting}</p>}
+          {(m.data.bestand || m.data.links.length > 0) && (
+            <div class="med-links klein">
+              {m.data.bestand && <a href={`/bestanden/${m.data.bestand}`} target="_blank" rel="noopener">📎 {m.data.bestand}</a>}
+              {m.data.links.map((l) => <a href={l.url} target="_blank" rel="noopener">{l.titel} ↗</a>)}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  )}
+</Base>

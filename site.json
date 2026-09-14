@@ -1,0 +1,15 @@
+{
+  "naam": "Leusdocs",
+  "ondertitel": "Huisartsen en apothekers in Leusden & Achterveld",
+  "url": "https://www.leusdocs.nl",
+  "agenda": {
+    "naam": "HAGRO-agenda",
+    "googleCalendarId": "8333ec8aba711ca00cc3faf9b90cc0abd9224c665156f00b48516a5c23a26574@group.calendar.google.com",
+    "icalUrl": "https://calendar.google.com/calendar/ical/8333ec8aba711ca00cc3faf9b90cc0abd9224c665156f00b48516a5c23a26574%40group.calendar.google.com/public/basic.ics",
+    "googleWebUrl": "https://calendar.google.com/calendar/embed?src=8333ec8aba711ca00cc3faf9b90cc0abd9224c665156f00b48516a5c23a26574%40group.calendar.google.com&ctz=Europe%2FAmsterdam"
+  },
+  "beheer": {
+    "githubRepo": "Socev/Leusdocs",
+    "branch": "main"
+  }
+}

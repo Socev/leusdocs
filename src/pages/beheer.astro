@@ -1,0 +1,260 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base titel="Beheer" omschrijving="Beheer van de sociale kaart, mededelingen en pagina's">
+  <div class="kop-rij">
+    <div>
+      <h1>Beheer</h1>
+      <p class="intro" style="margin-bottom:0">Wijzigingen worden als commit opgeslagen in GitHub; de site wordt daarna automatisch opnieuw gebouwd (±1–2 minuten).</p>
+    </div>
+    <span class="klein zacht" id="wie">…</span>
+  </div>
+
+  <div id="melding" class="kaart" hidden style="margin-bottom:16px"></div>
+
+  <div class="beheer">
+    <aside>
+      <nav class="tabs" id="tabs">
+        <a href="#sociale-kaart" data-c="sociale-kaart">Sociale kaart</a>
+        <a href="#mededelingen" data-c="mededelingen">Mededelingen</a>
+        <a href="#paginas" data-c="paginas">Pagina's</a>
+      </nav>
+      <div class="kaart klein" style="margin-top:16px">
+        <b>Opmaak (markdown)</b>
+        <ul style="padding-left:1.2em;margin:6px 0 0">
+          <li><code>**vet**</code>, <code>*cursief*</code></li>
+          <li><code>- </code> voor een opsomming</li>
+          <li><code>## Kopje</code></li>
+          <li><code>[tekst](https://…)</code> voor een link</li>
+          <li>Tabel: <code>| kolom | kolom |</code> met daaronder <code>|---|---|</code></li>
+        </ul>
+      </div>
+    </aside>
+
+    <section>
+      <div id="lijst-paneel">
+        <div class="kop-rij">
+          <h2 style="margin-top:0" id="lijst-titel">…</h2>
+          <button class="knop" id="nieuw" type="button">+ Nieuw</button>
+        </div>
+        <div id="lijst" class="beheer-lijst"><p class="zacht">Laden…</p></div>
+      </div>
+
+      <form id="formulier" class="kaart" hidden autocomplete="off">
+        <div class="kop-rij"><h2 style="margin-top:0" id="form-titel">Bewerken</h2><a href="#" id="terug" class="klein">← Terug naar de lijst</a></div>
+        <div id="velden"></div>
+        <label class="veld"><span id="body-label">Tekst</span><textarea name="body" rows="12"></textarea></label>
+        <div class="rij tussen" style="margin-top:16px">
+          <div class="rij">
+            <button class="knop" type="submit" id="opslaan">Opslaan</button>
+            <button class="knop secundair" type="button" id="annuleer">Annuleren</button>
+          </div>
+          <button class="knop secundair" type="button" id="verwijder" style="color:#b42318">Verwijderen</button>
+        </div>
+        <p class="klein zacht" id="form-pad" style="margin:12px 0 0"></p>
+      </form>
+    </section>
+  </div>
+
+  <style is:global>
+    .beheer { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; }
+    .tabs { display: flex; flex-direction: column; gap: 4px; }
+    .tabs a { text-decoration: none; color: var(--kleur-tekst); padding: 9px 12px; border-radius: 8px; font-weight: 500; }
+    .tabs a.actief { background: var(--kleur-accent); color: #fff; }
+    .tabs a:hover:not(.actief) { background: var(--kleur-accent-licht); }
+    .beheer-lijst { display: grid; gap: 6px; }
+    .beheer-rij { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: var(--kleur-wit); border: 1px solid var(--kleur-rand); border-radius: 8px; padding: 10px 14px; }
+    .beheer-rij b { font-weight: 600; }
+    .beheer-rij .klein { display: block; }
+    .veld { display: block; margin-bottom: 12px; }
+    .veld > span { display: block; font-size: 0.86rem; font-weight: 600; margin-bottom: 4px; }
+    .veld input[type="text"], .veld input[type="url"], .veld input[type="email"], .veld input[type="date"], .veld select, .veld textarea { width: 100%; font: inherit; padding: 8px 10px; border: 1px solid var(--kleur-rand); border-radius: 8px; background: #fff; }
+    .veld textarea { min-height: 80px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9rem; line-height: 1.5; }
+    .veld.check { display: flex; align-items: center; gap: 8px; }
+    .veld.check span { margin: 0; font-weight: 500; }
+    .links-lijst { display: grid; gap: 6px; }
+    .links-lijst .rij input { flex: 1; min-width: 120px; }
+    .twee { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    #melding.ok { border-color: #12b76a; background: #ecfdf3; }
+    #melding.fout { border-color: #f04438; background: #fef3f2; }
+    @media (max-width: 760px) { .beheer, .twee { grid-template-columns: 1fr; } }
+  </style>
+
+  <script>
+    import { VELDEN, COLLECTIES, slugify } from '../../shared/velden.mjs';
+
+    const $ = (s: string) => document.querySelector(s) as HTMLElement;
+    const melding = $('#melding');
+    const lijstPaneel = $('#lijst-paneel');
+    const form = $('#formulier') as HTMLFormElement;
+    const veldenEl = $('#velden');
+    let collectie = 'sociale-kaart';
+    let huidig: { pad?: string; sha?: string; id?: string } = {};
+    let bestandUpload: File | null = null;
+
+    function toon(tekst: string, type: 'ok' | 'fout' | '' = '') {
+      melding.hidden = !tekst;
+      melding.className = `kaart ${type}`;
+      melding.innerHTML = tekst;
+      if (tekst) melding.scrollIntoView({ block: 'nearest' });
+    }
+    async function api(route: string, init?: RequestInit) {
+      const r = await fetch(`/api/beheer/${route}`, { ...init, headers: { 'content-type': 'application/json', ...(init?.headers || {}) } });
+      const j = await r.json().catch(() => ({ fout: `HTTP ${r.status}` }));
+      if (!r.ok) throw new Error(j.fout + (j.fouten ? ': ' + j.fouten.join('; ') : '') + (j.detail ? ` (${j.detail})` : ''));
+      return j;
+    }
+
+    // Wie ben ik / is beheer geconfigureerd?
+    api('ik').then((j) => ($('#wie').textContent = `Ingelogd als ${j.email}`)).catch((e) => {
+      $('#wie').textContent = '';
+      toon(`<b>Beheer is nog niet beschikbaar.</b> ${e.message}`, 'fout');
+    });
+
+    /* ---------- Lijst ---------- */
+    async function laadLijst() {
+      document.querySelectorAll('#tabs a').forEach((a) => a.classList.toggle('actief', (a as HTMLElement).dataset.c === collectie));
+      $('#lijst-titel').textContent = COLLECTIES[collectie].label;
+      ($('#nieuw') as HTMLButtonElement).hidden = !!COLLECTIES[collectie].vast;
+      form.hidden = true;
+      lijstPaneel.hidden = false;
+      const lijst = $('#lijst');
+      lijst.innerHTML = '<p class="zacht">Laden…</p>';
+      let gebouwd: any[] = [];
+      let inGit: any[] = [];
+      try { gebouwd = (await (await fetch(`/data/${collectie}.json`, { cache: 'no-store' })).json()).items; } catch {}
+      try { inGit = (await api(`lijst?collectie=${collectie}`)).bestanden; } catch {}
+      const ids = new Set<string>([...gebouwd.map((i) => i.id), ...inGit.map((f) => f.naam)]);
+      const rijen = [...ids].map((id) => {
+        const g = gebouwd.find((i) => i.id === id);
+        const titel = g ? (g.naam || g.titel || id) : id;
+        const sub = g
+          ? [g.categorie, g.afzender, g.datum ? String(g.datum).slice(0, 10) : '', g.concept ? '⚠ nog te controleren' : ''].filter(Boolean).join(' · ')
+          : 'nog niet gepubliceerd (site wordt gebouwd)';
+        return { id, titel, sub, nietInGit: inGit.length > 0 && !inGit.some((f) => f.naam === id) };
+      }).sort((a, b) => a.titel.localeCompare(b.titel, 'nl'));
+      if (!rijen.length) { lijst.innerHTML = '<p class="zacht">Nog geen items.</p>'; return; }
+      lijst.innerHTML = rijen.map((r) => `<div class="beheer-rij"><div><b>${esc(r.titel)}</b><span class="klein zacht">${esc(r.sub)}${r.nietInGit ? ' · verwijderd, wacht op herbouw' : ''}</span></div>${r.nietInGit ? '' : `<a class="knop secundair klein" href="#${collectie}/${r.id}">Bewerken</a>`}</div>`).join('');
+    }
+    function esc(s: string) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!); }
+
+    /* ---------- Formulier ---------- */
+    function veldHtml(v: any, w: any) {
+      const naam = v.naam;
+      const val = w === undefined || w === null ? '' : w;
+      if (v.type === 'textarea') return `<label class="veld"><span>${v.label}${v.verplicht ? ' *' : ''}</span><textarea name="${naam}" rows="3" ${v.verplicht ? 'required' : ''}>${esc(val)}</textarea></label>`;
+      if (v.type === 'select') return `<label class="veld"><span>${v.label}${v.verplicht ? ' *' : ''}</span><select name="${naam}" ${v.verplicht ? 'required' : ''}><option value="">— kies —</option>${v.opties.map((o: string) => `<option ${o === val ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>`;
+      if (v.type === 'checkbox') return `<label class="veld check"><input type="checkbox" name="${naam}" ${val ? 'checked' : ''}><span>${v.label}</span></label>`;
+      if (v.type === 'tags') return `<label class="veld"><span>${v.label}</span><input type="text" name="${naam}" value="${esc(Array.isArray(val) ? val.join(', ') : val)}"></label>`;
+      if (v.type === 'date') return `<label class="veld"><span>${v.label}${v.verplicht ? ' *' : ''}</span><input type="date" name="${naam}" value="${esc(String(val).slice(0, 10))}" ${v.verplicht ? 'required' : ''}></label>`;
+      if (v.type === 'links') {
+        const ls = Array.isArray(val) ? val : [];
+        return `<div class="veld"><span>${v.label}</span><div class="links-lijst" id="links">${ls.map(linkRij).join('')}</div><button type="button" class="knop secundair klein" id="link-toevoegen" style="margin-top:6px">+ Link</button></div>`;
+      }
+      if (v.type === 'bestand') {
+        return `<div class="veld"><span>${v.label}</span>${val ? `<p class="klein" style="margin:0 0 6px">Huidig: <a href="/bestanden/${esc(val)}" target="_blank">${esc(val)}</a> <button type="button" class="knop secundair klein" id="bestand-weg">verwijder koppeling</button></p>` : ''}<input type="file" name="${naam}__upload" accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx,.txt"><input type="hidden" name="${naam}" value="${esc(val)}"></div>`;
+      }
+      return `<label class="veld"><span>${v.label}${v.verplicht ? ' *' : ''}</span><input type="${v.type}" name="${naam}" value="${esc(val)}" ${v.verplicht ? 'required' : ''}></label>`;
+    }
+    function linkRij(l: any = {}) {
+      return `<div class="rij"><input type="text" placeholder="Titel" data-k="titel" value="${esc(l.titel || '')}"><input type="url" placeholder="https://…" data-k="url" value="${esc(l.url || '')}"><button type="button" class="knop secundair klein" data-weg>×</button></div>`;
+    }
+
+    async function openForm(id: string | null) {
+      lijstPaneel.hidden = true;
+      form.hidden = false;
+      bestandUpload = null;
+      const def = COLLECTIES[collectie];
+      let data: any = {};
+      let body = '';
+      huidig = {};
+      if (id) {
+        const pad = `${def.map}/${id}.md`;
+        try {
+          const j = await api(`item?pad=${encodeURIComponent(pad)}`);
+          data = j.data; body = j.body; huidig = { pad, sha: j.sha, id };
+        } catch (e: any) { toon(`Kon item niet laden: ${e.message}`, 'fout'); return; }
+      } else if (collectie === 'mededelingen') {
+        data.datum = new Date().toISOString().slice(0, 10);
+      }
+      $('#form-titel').textContent = id ? `Bewerken: ${data.naam || data.titel || id}` : `Nieuw: ${def.label}`;
+      $('#body-label').textContent = def.body;
+      veldenEl.innerHTML = VELDEN[collectie].map((v: any) => veldHtml(v, data[v.naam])).join('');
+      (form.elements.namedItem('body') as HTMLTextAreaElement).value = body;
+      ($('#verwijder') as HTMLButtonElement).hidden = !id || !!def.vast;
+      $('#form-pad').textContent = huidig.pad ? `Bestand: ${huidig.pad}` : 'Nieuw bestand wordt aangemaakt op basis van de naam.';
+      toon('');
+    }
+
+    function leesForm() {
+      const data: any = {};
+      for (const v of VELDEN[collectie]) {
+        const el = form.elements.namedItem(v.naam) as any;
+        if (v.type === 'links') {
+          data.links = [...veldenEl.querySelectorAll('#links .rij')].map((r) => ({ titel: (r.querySelector('[data-k=titel]') as HTMLInputElement).value.trim(), url: (r.querySelector('[data-k=url]') as HTMLInputElement).value.trim() })).filter((l) => l.titel || l.url);
+          continue;
+        }
+        if (!el) continue;
+        if (v.type === 'checkbox') data[v.naam] = el.checked;
+        else if (v.type === 'tags') data[v.naam] = el.value.split(',').map((t: string) => t.trim()).filter(Boolean);
+        else data[v.naam] = el.value.trim();
+      }
+      return { data, body: (form.elements.namedItem('body') as HTMLTextAreaElement).value };
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const knop = $('#opslaan') as HTMLButtonElement;
+      knop.disabled = true; knop.textContent = 'Opslaan…';
+      try {
+        const { data, body } = leesForm();
+        if (bestandUpload) {
+          const base64 = await naarBase64(bestandUpload);
+          const r = await api('bestand', { method: 'PUT', body: JSON.stringify({ naam: bestandUpload.name, base64 }) });
+          data.bestand = r.bestand;
+        }
+        const j = await api('item', { method: 'PUT', body: JSON.stringify({ collectie, pad: huidig.pad, sha: huidig.sha, data, body }) });
+        toon(`<b>Opgeslagen.</b> De site wordt nu opnieuw gebouwd; de wijziging is over 1–2 minuten zichtbaar. <span class="zacht klein">(${esc(j.pad)})</span>`, 'ok');
+        location.hash = `#${collectie}`;
+      } catch (err: any) {
+        toon(`<b>Opslaan mislukt.</b> ${esc(err.message)}`, 'fout');
+      } finally { knop.disabled = false; knop.textContent = 'Opslaan'; }
+    });
+    $('#verwijder').addEventListener('click', async () => {
+      if (!huidig.pad || !confirm('Dit item verwijderen van de site?')) return;
+      try {
+        await api('item', { method: 'DELETE', body: JSON.stringify({ pad: huidig.pad, sha: huidig.sha }) });
+        toon('<b>Verwijderd.</b> Over 1–2 minuten is het van de site.', 'ok');
+        location.hash = `#${collectie}`;
+      } catch (err: any) { toon(`Verwijderen mislukt: ${esc(err.message)}`, 'fout'); }
+    });
+    $('#annuleer').addEventListener('click', () => (location.hash = `#${collectie}`));
+    $('#terug').addEventListener('click', (e) => { e.preventDefault(); location.hash = `#${collectie}`; });
+    $('#nieuw').addEventListener('click', () => (location.hash = `#${collectie}/nieuw`));
+    veldenEl.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement;
+      if (t.id === 'link-toevoegen') $('#links').insertAdjacentHTML('beforeend', linkRij());
+      if (t.hasAttribute('data-weg')) t.closest('.rij')?.remove();
+      if (t.id === 'bestand-weg') { (form.elements.namedItem('bestand') as HTMLInputElement).value = ''; t.closest('p')?.remove(); }
+    });
+    veldenEl.addEventListener('change', (e) => {
+      const t = e.target as HTMLInputElement;
+      if (t.name === 'bestand__upload') bestandUpload = t.files?.[0] || null;
+    });
+    function naarBase64(f: File) {
+      return new Promise<string>((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1]); r.onerror = rej; r.readAsDataURL(f); });
+    }
+
+    /* ---------- Routing via #hash ---------- */
+    function route() {
+      const [c, id] = location.hash.replace(/^#/, '').split('/');
+      collectie = COLLECTIES[c] ? c : 'sociale-kaart';
+      document.querySelectorAll('#tabs a').forEach((a) => a.classList.toggle('actief', (a as HTMLElement).dataset.c === collectie));
+      if (id === 'nieuw') openForm(null);
+      else if (id) openForm(id);
+      else laadLijst();
+    }
+    window.addEventListener('hashchange', route);
+    route();
+  </script>
+</Base>

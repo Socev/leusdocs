@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { datumLang } from '../../lib/datum';
+
+export async function getStaticPaths() {
+  const items = await getCollection('mededelingen');
+  return items.map((m) => ({ params: { id: m.id }, props: { m } }));
+}
+const { m } = Astro.props;
+const { Content } = await render(m);
+---
+<Base titel={m.data.titel} omschrijving={m.data.samenvatting}>
+  <p class="klein"><a href="/mededelingen">← Alle mededelingen</a></p>
+  <article class="proza">
+    <div class="med-meta" style="margin-bottom:8px"><span class="label">{m.data.afzender}</span> · {datumLang(m.data.datum)}</div>
+    <h1>{m.data.titel}</h1>
+    <Content />
+    {(m.data.bestand || m.data.links.length > 0) && (
+      <div class="med-links" style="margin-top:20px">
+        {m.data.bestand && <a class="knop secundair" href={`/bestanden/${m.data.bestand}`} target="_blank" rel="noopener">📎 {m.data.bestand}</a>}
+        {m.data.links.map((l) => <a class="knop secundair" href={l.url} target="_blank" rel="noopener">{l.titel} ↗</a>)}
+      </div>
+    )}
+  </article>
+  <p class="klein zacht" style="margin-top:16px"><a href={`/beheer#mededelingen/${m.id}`}>Deze mededeling bewerken</a></p>
+</Base>
