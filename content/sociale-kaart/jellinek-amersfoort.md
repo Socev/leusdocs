@@ -9,8 +9,9 @@ email: "aanmelden@jellinek.nl"
 adres: "Stationsplein 45, 3818 LE Amersfoort"
 doelgroep: "Jongeren en volwassenen met verslavingsproblemen en hun naasten"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Ca. 3–6 weken afhankelijk van hulpvorm"
+wachttijd: "Locatie Amersfoort (site 13-8-2026): aanmeldwachttijd 5–7 wk, behandelwachttijd 19–21 wk"
 tags: ["verslaving", "alcohol", "drugs", "jellinek", "specialistische ggz"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-09-19
 bron: "https://sociaalleusden.nl"
+aanmeldstop_gemeld: 2026-09-19
 ---

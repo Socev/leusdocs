@@ -9,8 +9,9 @@ email: "amersfoort@pccnederland.nl"
 adres: "Maanlander 10, 3824 MP Amersfoort"
 doelgroep: "Kinderen, jongeren en volwassenen met psychische aandoeningen"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Wisselend per zorgverzekeraar en afdeling"
+wachttijd: "Geen aanmeldwachttijd voor intake en vervolgafspraken (opgave site 23-7-2026)"
 tags: ["ggz", "psychologie", "amersfoort", "diagnostiek"]
-concept: true
+bijgewerkt: 2026-09-19
 bron: "https://sociaalleusden.nl/ggz/pcc-amersfoort"
+aanmeldstop_gemeld: 2026-09-19
 ---

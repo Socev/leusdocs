@@ -9,8 +9,12 @@ email: "info@psychopraktijkleusden.nl"
 adres: "Groepsekom 22, 3831 RH Leusden"
 doelgroep: "Kinderen, jongeren en volwassenen"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Aanmeldstop: wachttijden op website; periodiek gesloten bij bereiken budgetplafonds"
+wachttijd: "Wachtlijst gesloten; bij heropening ca. 8–12 weken tot intake"
 tags: ["ggz", "emdr", "cgt", "leusden", "psychologie"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-09-19
 bron: "https://sociaalleusden.nl/ggz/psycho-praktijk-leusden"
+aanmeldstop: true
+aanmeldstop_toelichting: "wachtlijst BGGZ, SGGZ én medicatieconsulten tot nader order gesloten; daarnaast budgetstop voor CZ en Zilveren Kruis"
+aanmeldstop_gemeld: 2026-09-19
 ---
+Op de site staat op elke pagina de melding dat de wachtlijst voor alle behandelingen tot nader order gesloten is, plus een aanmeldstop voor verzekerden van CZ (CZ/OHRA/Nationale Nederlanden/Just) en Zilveren Kruis Achmea (Zilveren Kruis/Interpolis/ZieZo/De Friesland/FBTO) wegens een bereikt budgetplafond. De pagina Wachttijden zelf meldt nog "aanmeldingen weer welkom, ca. 8–12 weken" (tekst van 4-2-2025) — bij twijfel bellen.
