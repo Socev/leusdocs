@@ -57,7 +57,7 @@ const perGroep = GROEPEN.map((g) => ({
             data-categorie={i.data.categorie}
             data-stop={i.data.aanmeldstop ? '1' : ''}
             data-niveau={i.data.ggz_niveau.join('|')}
-            data-zoek={[i.data.naam, i.data.omschrijving, i.data.doelgroep, i.data.adres, ...(i.data.tags ?? []), i.data.categorie].filter(Boolean).join(' ').toLowerCase()}
+            data-zoek={[i.data.naam, i.data.omschrijving, i.data.doelgroep, i.data.adres, ...(i.data.tags ?? []), i.data.categorie, i.body?.replace(/[*_#>`]/g, '')].filter(Boolean).join(' ').toLowerCase()}
             id={i.id}
           >
             <div class="rij tussen">
