@@ -9,7 +9,7 @@ Website van de huisartsen en apothekers in Leusden & Achterveld: HAGRO-agenda, s
 
 ## Zoeken op de sociale kaart
 
-- Zoeken binnen een tabblad; daaronder de knop *Zoektocht uitbreiden naar álle categorieën?* (ook bij 0 treffers), met het
+- Zoeken binnen een tabblad; direct onder het zoekveld (boven de resultaten en de leeg-melding) de knop *Zoektocht uitbreiden naar álle categorieën?* (ook bij 0 treffers), met het
   aantal treffers in de andere tabbladen. Die weergave groepeert per tabblad (daarbinnen per categorie), heeft een eigen
   zoekveld, *Terug naar …* en per tabblad *Alleen in … zoeken*. Deeplink: `/sociale-kaart?q=bloedafname&alle=1`; de terugknop
   van de browser werkt. Zoeken negeert hoofdletters en accenten; aantallen worden via `role="status"` voorgelezen.
