@@ -50,6 +50,11 @@ const perGroep = GROEPEN.map((g) => ({
         {g.id === AANMELDSTOP_GROEP && <button type="button" class="chip sk-open" aria-pressed="false">Verberg aanmeldstops <span class="chip-aantal">{g.items.filter((i) => i.data.aanmeldstop).length}</span></button>}
       </div>
 
+      <div class="sk-uitbreiden" hidden>
+        <button type="button" class="knop secundair sk-uitbreid-knop">Zoektocht uitbreiden naar álle categorieën?</button>
+        <span class="klein zacht sk-elders"></span>
+      </div>
+
       <div class="grid sk-lijst">
         {g.items.map((i) => (
           <article
@@ -110,10 +115,6 @@ const perGroep = GROEPEN.map((g) => ({
         ))}
       </div>
       <p class="leeg sk-leeg" hidden>Geen organisaties gevonden in dit tabblad. <a href="/beheer#sociale-kaart">Voeg er een toe</a>.</p>
-      <div class="sk-uitbreiden" hidden>
-        <button type="button" class="knop secundair sk-uitbreid-knop">Zoektocht uitbreiden naar álle categorieën?</button>
-        <span class="klein zacht sk-elders"></span>
-      </div>
       <p class="sk-sr sk-telling" role="status" aria-live="polite"></p>
     </section>
   ))}
