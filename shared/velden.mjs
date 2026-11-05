@@ -116,7 +116,7 @@ export const VELDEN = {
     { naam: 'bijgewerkt', label: 'Laatst gecontroleerd op', type: 'date' },
     { naam: 'bron', label: 'Bron (bv. oude vermelding op sociaalleusden.nl)', type: 'url' },
     // Aanmeldstop: ook openbaar te melden via de knop op /sociale-kaart (functions/api/aanmeldstop.js)
-    { naam: 'aanmeldstop', label: 'Heeft aanmeldstop (neemt geen nieuwe patiënten aan)', type: 'checkbox' },
+    { naam: 'aanmeldstop', label: 'Heeft aanmeldstop (neemt geen nieuwe patiënten aan; alleen GGZ)', type: 'checkbox' },
     { naam: 'aanmeldstop_vanaf', label: 'Aanmeldstop vanaf', type: 'date' },
     { naam: 'aanmeldstop_toelichting', label: 'Toelichting aanmeldstop (bv. "alleen voor VGZ/Zilveren Kruis", "tot 1 januari")', type: 'text' },
     { naam: 'aanmeldstop_gemeld', label: 'Aanmeldstop-status gemeld op', type: 'date' },
@@ -142,6 +142,19 @@ export const COLLECTIES = {
   mededelingen: { map: 'content/mededelingen', label: 'Mededelingen', body: 'Bericht' },
   paginas: { map: 'content/paginas', label: "Pagina's", body: 'Inhoud', vast: true },
 };
+
+// Soorten van 'Meld een wijziging' (openbare knop op elke kaart, POST /api/wijziging). De melding wordt NIET
+// gepubliceerd: hij komt in de lijst Meldingen in /beheer (Cloudflare KV, binding MELDINGEN) en een beheerder past de
+// vermelding zelf aan. Sleutel = wat de functie opslaat, label = wat de melder ziet.
+export const WIJZIGING_SOORTEN = [
+  { id: 'adres', label: 'Adres gewijzigd' },
+  { id: 'opgeheven', label: 'Bestaat niet meer' },
+  { id: 'contact', label: 'Contactgegevens (telefoon, e-mail, website)' },
+  { id: 'info', label: 'Andere informatie' },
+];
+
+// Aanmeldstops gelden alleen voor het tabblad GGZ (knop, label en filter staan alleen daar; /api/aanmeldstop weigert de rest).
+export const AANMELDSTOP_GROEP = 'ggz';
 
 // Velden die iedereen (zonder inloggen) mag aanpassen via /api/aanmeldstop
 export const AANMELDSTOP_VELDEN = ['aanmeldstop', 'aanmeldstop_vanaf', 'aanmeldstop_toelichting', 'aanmeldstop_gemeld'];

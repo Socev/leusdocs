@@ -7,15 +7,19 @@
 // (aanmeldstop, aanmeldstop_vanaf, aanmeldstop_toelichting, aanmeldstop_gemeld = vandaag) en commit dat.
 // Alle andere velden blijven onaangeroerd. De site bouwt daarna automatisch opnieuw (±1–2 min).
 //
+// Alleen voor vermeldingen op het tabblad GGZ (sinds 5-11-2026).
+//
 // Bewust licht beveiligd (geen login): alleen bestaande vermeldingen, alleen deze velden, korte tekst,
 // honeypot, en een eenvoudige limiet per IP (via de Cache API, best effort). Elke melding is terug te
 // vinden in de git-geschiedenis en zo nodig terug te draaien via /beheer.
 
 import { githubClient, decodeBase64, maakBestand, splitsFrontmatter } from '../_lib/inhoud.js';
-import { COLLECTIES } from '../../shared/velden.mjs';
+import { COLLECTIES, AANMELDSTOP_GROEP, groepVanCategorie } from '../../shared/velden.mjs';
+import { binnenLimiet, json } from '../_lib/limiet.js';
 
 const MAX_TOELICHTING = 200;
 const MAX_PER_UUR = 10;
+const GEEN_GGZ = 'Een aanmeldstop melden kan alleen bij GGZ. Gebruik "Meld een wijziging".';
 
 export async function onRequestPost(context) {
   const { request, env } = context;
@@ -31,7 +35,12 @@ export async function onRequestPost(context) {
     const toelichting = String(b.toelichting || '').replace(/\s+/g, ' ').trim().slice(0, MAX_TOELICHTING);
 
     const ip = request.headers.get('cf-connecting-ip') || 'onbekend';
-    if (!(await binnenLimiet(ip))) return json({ fout: 'Te veel meldingen in korte tijd. Probeer het later nog eens.' }, 429);
+    if (!(await binnenLimiet('aanmeldstop', ip, MAX_PER_UUR))) return json({ fout: 'Te veel meldingen in korte tijd. Probeer het later nog eens.' }, 429);
+
+    // Alleen voor het tabblad GGZ (eerst tegen de gebouwde lijst van de site, nog eens na het lezen uit GitHub).
+    const lijst = await env.ASSETS.fetch(new URL('/data/sociale-kaart.json', request.url));
+    const gebouwd = lijst.ok ? ((await lijst.json()).items || []).find((i) => i.id === id) : null;
+    if (gebouwd && groepVanCategorie(gebouwd.categorie).id !== AANMELDSTOP_GROEP) return json({ fout: GEEN_GGZ }, 400);
 
     const gh = githubClient(env);
     const pad = `${COLLECTIES['sociale-kaart'].map}/${id}.md`;
@@ -40,6 +49,7 @@ export async function onRequestPost(context) {
     if (!r.ok) return json({ fout: 'GitHub niet bereikbaar' }, 502);
     const f = await r.json();
     const { data, body } = splitsFrontmatter(decodeBase64(f.content));
+    if (groepVanCategorie(data.categorie).id !== AANMELDSTOP_GROEP) return json({ fout: GEEN_GGZ }, 400);
 
     const vandaag = new Date().toISOString().slice(0, 10);
     data.aanmeldstop = aanmeldstop;
@@ -59,24 +69,4 @@ export async function onRequestPost(context) {
 
 export async function onRequestGet() {
   return json({ info: 'POST { id, aanmeldstop, vanaf?, toelichting? } om een aanmeldstop te melden. Zie AGENTS.md.' });
-}
-
-// Eenvoudige limiet per IP per uur via de Cache API (best effort; per datacenter).
-async function binnenLimiet(ip) {
-  try {
-    const cache = caches.default;
-    const uur = Math.floor(Date.now() / 3600e3);
-    const key = new Request(`https://leusdocs.nl/__limiet/aanmeldstop/${encodeURIComponent(ip)}/${uur}`);
-    const hit = await cache.match(key);
-    const n = hit ? Number(await hit.text()) : 0;
-    if (n >= MAX_PER_UUR) return false;
-    await cache.put(key, new Response(String(n + 1), { headers: { 'cache-control': 'max-age=3600' } }));
-    return true;
-  } catch {
-    return true;
-  }
-}
-
-function json(obj, status = 200) {
-  return new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 }

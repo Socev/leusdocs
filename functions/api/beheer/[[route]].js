@@ -19,10 +19,15 @@
 //   PUT    /api/beheer/item                    body { collectie, id?, pad?, sha?, data, body } → { pad, sha }
 //   DELETE /api/beheer/item                    body { pad, sha }
 //   PUT    /api/beheer/bestand                 body { naam, base64 } → { bestand } (komt in public/bestanden/)
+//   GET    /api/beheer/meldingen               → { meer, meldingen: [{ sleutel, id, naam, categorie, soort, tekst, gemeld }] }
+//   DELETE /api/beheer/melding                 body { sleutel } → afgehandeld (verwijderd uit KV)
+//
+// Meldingen = 'Meld een wijziging' op /sociale-kaart (functions/api/wijziging.js), opgeslagen in KV-binding MELDINGEN.
 
 import { VELDEN, COLLECTIES, slugify } from '../../../shared/velden.mjs';
 import { githubClient, decodeBase64, controleerPad, valideer, maakBestand, splitsFrontmatter } from '../../_lib/inhoud.js';
 
+const MAX_MELDINGEN = 200;
 const MAX_BESTAND_BYTES = 5 * 1024 * 1024;
 const TOEGESTANE_EXTENSIES = ['pdf', 'png', 'jpg', 'jpeg', 'docx', 'xlsx', 'txt'];
 
@@ -33,9 +38,32 @@ export async function onRequest(context) {
     const identiteit = await controleerToegang(request, env);
     if (!identiteit.ok) return json({ fout: identiteit.fout }, identiteit.status);
     const email = identiteit.email;
-    const gh = githubClient(env);
 
     if (request.method === 'GET' && route === 'ik') return json({ email });
+
+    if (route === 'meldingen' || route === 'melding') {
+      if (!env.MELDINGEN) return json({ fout: 'Meldingen-opslag (KV-binding MELDINGEN) ontbreekt' }, 503);
+      if (request.method === 'GET' && route === 'meldingen') {
+        // Sleutels bevatten de omgekeerde tijd (zie wijziging.js): de eerste MAX_MELDINGEN zijn de nieuwste.
+        const r = await env.MELDINGEN.list({ prefix: 'm:', limit: MAX_MELDINGEN });
+        const sleutels = r.keys.map((k) => k.name);
+        const meldingen = (await Promise.all(sleutels.map(async (sleutel) => {
+          const m = await env.MELDINGEN.get(sleutel, 'json');
+          return m ? { sleutel, ...m } : null;
+        }))).filter(Boolean).sort((a, b) => b.gemeld.localeCompare(a.gemeld));
+        return json({ meldingen, meer: !r.list_complete });
+      }
+      if (request.method === 'DELETE' && route === 'melding') {
+        const b = await request.json();
+        const sleutel = String(b.sleutel || '');
+        if (!/^m:[\w:.\-]{10,80}$/.test(sleutel)) return json({ fout: 'Ongeldige sleutel' }, 400);
+        await env.MELDINGEN.delete(sleutel);
+        return json({ afgehandeld: sleutel, door: email });
+      }
+      return json({ fout: 'Onbekende route' }, 404);
+    }
+
+    const gh = githubClient(env);
 
     if (request.method === 'GET' && route === 'lijst') {
       const collectie = new URL(request.url).searchParams.get('collectie');

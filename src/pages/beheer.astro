@@ -18,6 +18,7 @@ import Base from '../layouts/Base.astro';
         <a href="#sociale-kaart" data-c="sociale-kaart">Sociale kaart</a>
         <a href="#mededelingen" data-c="mededelingen">Mededelingen</a>
         <a href="#paginas" data-c="paginas">Pagina's</a>
+        <a href="#meldingen" data-c="meldingen">Meldingen <span class="chip-aantal" id="mw-aantal" hidden></span></a>
       </nav>
       <div class="kaart klein" style="margin-top:16px">
         <b>Zo werkt het</b>
@@ -26,6 +27,7 @@ import Base from '../layouts/Base.astro';
           <li>Tekst maak je op met de knoppen boven het tekstvak (vet, kopje, lijst, link, tabel) — net als in Word.</li>
           <li>In een tabel: Tab springt naar de volgende cel; knoppen <i>+ Rij</i> / <i>+ Kolom</i> verschijnen zodra je in de tabel staat.</li>
           <li><i>Opslaan</i> zet de wijziging op de site (na 1–2 minuten zichtbaar).</li>
+          <li><i>Meldingen</i>: wijzigingen die bezoekers via "Meld een wijziging" doorgaven. Pas de vermelding aan en klik <i>Afgehandeld</i>.</li>
         </ul>
       </div>
     </aside>
@@ -64,6 +66,10 @@ import Base from '../layouts/Base.astro';
     .beheer-lijst { display: grid; gap: 6px; }
     .beheer-rij { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: var(--kleur-wit); border: 1px solid var(--kleur-rand); border-radius: 8px; padding: 10px 14px; }
     .beheer-rij b { font-weight: 600; }
+    .mw-rij { align-items: flex-start; }
+    .mw-rij .mw-tekst { white-space: pre-wrap; margin: 6px 0 0; }
+    .mw-rij .rij { flex-shrink: 0; }
+    @media (max-width: 760px) { .mw-rij { flex-direction: column; } }
     .beheer-rij .klein { display: block; }
     .veld { display: block; margin-bottom: 12px; }
     .veld > span { display: block; font-size: 0.86rem; font-weight: 600; margin-bottom: 4px; }
@@ -101,7 +107,7 @@ import Base from '../layouts/Base.astro';
   </style>
 
   <script>
-    import { VELDEN, COLLECTIES, slugify } from '../../shared/velden.mjs';
+    import { VELDEN, COLLECTIES, slugify, WIJZIGING_SOORTEN } from '../../shared/velden.mjs';
     import { maakEditor } from '../scripts/editor';
 
     const $ = (s: string) => document.querySelector(s) as HTMLElement;
@@ -275,9 +281,48 @@ import Base from '../layouts/Base.astro';
       return new Promise<string>((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1]); r.onerror = rej; r.readAsDataURL(f); });
     }
 
+    /* ---------- Meldingen ('Meld een wijziging' op /sociale-kaart) ---------- */
+    const soortLabel = (id: string) => WIJZIGING_SOORTEN.find((s: any) => s.id === id)?.label ?? id;
+    const fTijd = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    function zetAantal(n: number) {
+      const el = $('#mw-aantal');
+      el.textContent = String(n);
+      el.hidden = !n;
+    }
+    async function laadMeldingen() {
+      form.hidden = true;
+      lijstPaneel.hidden = false;
+      $('#lijst-titel').textContent = 'Meldingen';
+      ($('#nieuw') as HTMLButtonElement).hidden = true;
+      const lijst = $('#lijst');
+      lijst.innerHTML = '<p class="zacht">Laden…</p>';
+      try {
+        const { meldingen, meer } = await api('meldingen');
+        zetAantal(meldingen.length);
+        if (!meldingen.length) { lijst.innerHTML = '<p class="zacht">Geen openstaande meldingen.</p>'; return; }
+        lijst.innerHTML = meldingen.map((m: any) => `<div class="beheer-rij mw-rij"><div><b>${esc(m.naam || m.id)}</b><span class="klein zacht">${esc(soortLabel(m.soort))} · ${esc(fTijd.format(new Date(m.gemeld)))} · ${esc(m.categorie || '')}</span>${m.tekst ? `<p class="mw-tekst">${esc(m.tekst)}</p>` : ''}</div><div class="rij"><a class="knop secundair klein" href="#sociale-kaart/${encodeURIComponent(m.id)}">Vermelding bewerken</a><button type="button" class="knop klein" data-afgehandeld="${esc(m.sleutel)}">Afgehandeld</button></div></div>`).join('') + (meer ? '<p class="zacht klein">Dit zijn de nieuwste 200 meldingen; handel ze af om oudere te zien.</p>' : '');
+      } catch (e: any) { lijst.innerHTML = `<p class="zacht">Meldingen laden mislukt: ${esc(e.message)}</p>`; }
+    }
+    $('#lijst').addEventListener('click', async (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-afgehandeld]');
+      if (!b) return;
+      b.disabled = true;
+      try {
+        await api('melding', { method: 'DELETE', body: JSON.stringify({ sleutel: b.dataset.afgehandeld }) });
+        toon('<b>Melding afgehandeld.</b>', 'ok');
+        laadMeldingen();
+      } catch (err: any) { b.disabled = false; toon(`Afhandelen mislukt: ${esc(err.message)}`, 'fout'); }
+    });
+    api('meldingen').then((j) => zetAantal(j.meldingen.length)).catch(() => {});
+
     /* ---------- Routing via #hash ---------- */
     function route() {
       const [c, id] = location.hash.replace(/^#/, '').split('/');
+      if (c === 'meldingen') {
+        document.querySelectorAll('#tabs a').forEach((a) => a.classList.toggle('actief', (a as HTMLElement).dataset.c === 'meldingen'));
+        laadMeldingen();
+        return;
+      }
       collectie = COLLECTIES[c] ? c : 'sociale-kaart';
       document.querySelectorAll('#tabs a').forEach((a) => a.classList.toggle('actief', (a as HTMLElement).dataset.c === collectie));
       if (id === 'nieuw') openForm(null);

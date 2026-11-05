@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
-import { GROEPEN, GGZ_NIVEAUS, OUDE_GROEPEN, groepVanCategorie } from '../../shared/velden.mjs';
+import { GROEPEN, GGZ_NIVEAUS, OUDE_GROEPEN, groepVanCategorie, WIJZIGING_SOORTEN, AANMELDSTOP_GROEP } from '../../shared/velden.mjs';
 import { datumLang } from '../lib/datum';
 
 // Alfabetisch; niet-geverifieerde items onderaan
@@ -47,7 +47,7 @@ const perGroep = GROEPEN.map((g) => ({
         {g.id === 'ggz' && GGZ_NIVEAUS.map((n) => (
           <button type="button" class="chip sk-niveau" data-niveau={n} aria-pressed="false">{n} <span class="chip-aantal">{g.items.filter((i) => i.data.ggz_niveau.includes(n)).length}</span></button>
         ))}
-        <button type="button" class="chip sk-open" aria-pressed="false">Verberg aanmeldstops <span class="chip-aantal">{g.items.filter((i) => i.data.aanmeldstop).length}</span></button>
+        {g.id === AANMELDSTOP_GROEP && <button type="button" class="chip sk-open" aria-pressed="false">Verberg aanmeldstops <span class="chip-aantal">{g.items.filter((i) => i.data.aanmeldstop).length}</span></button>}
       </div>
 
       <div class="grid sk-lijst">
@@ -55,7 +55,7 @@ const perGroep = GROEPEN.map((g) => ({
           <article
             class="kaart sk-kaart"
             data-categorie={i.data.categorie}
-            data-stop={i.data.aanmeldstop ? '1' : ''}
+            data-stop={g.id === AANMELDSTOP_GROEP && i.data.aanmeldstop ? '1' : ''}
             data-niveau={i.data.ggz_niveau.join('|')}
             data-zoek={[i.data.naam, i.data.omschrijving, i.data.doelgroep, i.data.adres, ...(i.data.tags ?? []), i.data.categorie, i.body?.replace(/[*_#>`]/g, '')].filter(Boolean).join(' ').toLowerCase()}
             id={i.id}
@@ -80,18 +80,27 @@ const perGroep = GROEPEN.map((g) => ({
               </div>
             )}
             {i.heeftBody && <div class="sk-toelichting"><i.Body /></div>}
-            <div class="as-blok" data-id={i.id}>
-              {i.data.aanmeldstop ? (
-                <div class="as-status stop">
-                  <b>Aanmeldstop</b>{i.data.aanmeldstop_vanaf && ` sinds ${datumLang(i.data.aanmeldstop_vanaf)}`}{i.data.aanmeldstop_toelichting && ` · ${i.data.aanmeldstop_toelichting}`}
-                  {i.data.aanmeldstop_gemeld && <span class="as-gemeld">gemeld {datumLang(i.data.aanmeldstop_gemeld)}</span>}
+            <div class="sk-acties">
+              {g.id === AANMELDSTOP_GROEP && (
+                <div class="as-blok" data-id={i.id}>
+                  {i.data.aanmeldstop ? (
+                    <div class="as-status stop">
+                      <b>Aanmeldstop</b>{i.data.aanmeldstop_vanaf && ` sinds ${datumLang(i.data.aanmeldstop_vanaf)}`}{i.data.aanmeldstop_toelichting && ` · ${i.data.aanmeldstop_toelichting}`}
+                      {i.data.aanmeldstop_gemeld && <span class="as-gemeld">gemeld {datumLang(i.data.aanmeldstop_gemeld)}</span>}
+                    </div>
+                  ) : i.data.aanmeldstop_gemeld ? (
+                    <div class="as-status open"><b>Neemt patiënten aan</b>{i.data.aanmeldstop_toelichting && ` · ${i.data.aanmeldstop_toelichting}`}<span class="as-gemeld">gemeld {datumLang(i.data.aanmeldstop_gemeld)}</span></div>
+                  ) : null}
                 </div>
-              ) : i.data.aanmeldstop_gemeld ? (
-                <div class="as-status open"><b>Neemt patiënten aan</b>{i.data.aanmeldstop_toelichting && ` · ${i.data.aanmeldstop_toelichting}`}<span class="as-gemeld">gemeld {datumLang(i.data.aanmeldstop_gemeld)}</span></div>
-              ) : null}
-              <button type="button" class="as-knop" data-id={i.id} data-naam={i.data.naam} data-stop={i.data.aanmeldstop ? '1' : ''} data-vanaf={i.data.aanmeldstop_vanaf ? i.data.aanmeldstop_vanaf.toISOString().slice(0, 10) : ''} data-toelichting={i.data.aanmeldstop_toelichting ?? ''}>
-                {i.data.aanmeldstop ? 'Aanmeldstop wijzigen of opheffen' : 'Aanmeldstop melden'}
-              </button>
+              )}
+              <div class="sk-actieknoppen">
+                {g.id === AANMELDSTOP_GROEP && (
+                  <button type="button" class="as-knop" data-id={i.id} data-naam={i.data.naam} data-stop={i.data.aanmeldstop ? '1' : ''} data-vanaf={i.data.aanmeldstop_vanaf ? i.data.aanmeldstop_vanaf.toISOString().slice(0, 10) : ''} data-toelichting={i.data.aanmeldstop_toelichting ?? ''}>
+                    {i.data.aanmeldstop ? 'Aanmeldstop wijzigen of opheffen' : 'Aanmeldstop melden'}
+                  </button>
+                )}
+                <button type="button" class="mw-knop" data-id={i.id} data-naam={i.data.naam}>Meld een wijziging</button>
+              </div>
             </div>
             <div class="rij tussen" style="margin-top:auto">
               {i.data.tags?.length ? <div class="tags">{i.data.tags.slice(0, 6).map((t) => <span class="tag">{t}</span>)}</div> : <span />}
@@ -124,8 +133,32 @@ const perGroep = GROEPEN.map((g) => ({
     </form>
   </dialog>
 
+  <dialog id="mw-dialog" class="as-dialog">
+    <form method="dialog" id="mw-form" autocomplete="off">
+      <h3 style="margin:0 0 4px">Meld een wijziging</h3>
+      <p class="klein zacht" id="mw-naam" style="margin:0 0 14px"></p>
+      <div id="mw-invoer">
+        <fieldset class="mw-soorten">
+          <legend class="klein" style="font-weight:600;margin-bottom:6px">Wat is er gewijzigd?</legend>
+          {WIJZIGING_SOORTEN.map((s, n) => (
+            <label class="as-optie"><input type="radio" name="mw-soort" value={s.id} checked={n === 0} /> {s.label}</label>
+          ))}
+        </fieldset>
+        <label class="as-veld"><span id="mw-tekstlabel">Wat is er anders?</span><textarea name="tekst" rows="4" maxlength="1000"></textarea></label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+        <p class="klein zacht" style="margin:10px 0 0">Je melding gaat naar de beheerders van deze site en wordt niet direct gepubliceerd. Zet er geen patiëntgegevens in.</p>
+        <p class="as-fout" id="mw-fout" hidden></p>
+      </div>
+      <p id="mw-klaar" hidden style="margin:0">Bedankt! Je melding is doorgegeven aan de beheerders.</p>
+      <div class="rij" style="margin-top:14px">
+        <button type="submit" class="knop" id="mw-verstuur">Melding versturen</button>
+        <button type="button" class="knop secundair" id="mw-annuleer">Annuleren</button>
+      </div>
+    </form>
+  </dialog>
+
   <script>
-    // ---- Aanmeldstop melden (openbaar) ----
+    // ---- Aanmeldstop melden (openbaar, alleen GGZ) ----
     const dlg = document.getElementById('as-dialog') as HTMLDialogElement;
     const asForm = document.getElementById('as-form') as HTMLFormElement;
     const fDatum = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -174,17 +207,73 @@ const perGroep = GROEPEN.map((g) => ({
           (blok.closest('.sk-kaart') as HTMLElement).dataset.stop = stop ? '1' : '';
           const vandaag = fDatum.format(new Date());
           const toel = body.toelichting ? ` · ${esc(body.toelichting)}` : '';
-          const status = stop
+          blok.innerHTML = stop
             ? `<div class="as-status stop"><b>Aanmeldstop</b>${body.vanaf ? ` sinds ${fDatum.format(new Date(body.vanaf))}` : ''}${toel}<span class="as-gemeld">gemeld ${vandaag}</span></div>`
             : `<div class="as-status open"><b>Neemt patiënten aan</b>${toel}<span class="as-gemeld">gemeld ${vandaag}</span></div>`;
-          const naam = blok.querySelector<HTMLButtonElement>('.as-knop')!.dataset.naam!;
-          blok.innerHTML = `${status}<button type="button" class="as-knop" data-id="${esc(asId)}" data-naam="${esc(naam)}" data-stop="${stop ? '1' : ''}" data-vanaf="${esc(body.vanaf)}" data-toelichting="${esc(body.toelichting)}">${stop ? 'Aanmeldstop wijzigen of opheffen' : 'Aanmeldstop melden'}</button>`;
+          const k = blok.closest('.sk-kaart')!.querySelector<HTMLButtonElement>('.as-knop');
+          if (k) {
+            Object.assign(k.dataset, { stop: stop ? '1' : '', vanaf: body.vanaf, toelichting: body.toelichting });
+            k.textContent = stop ? 'Aanmeldstop wijzigen of opheffen' : 'Aanmeldstop melden';
+          }
         }
         dlg.close();
       } catch (err: any) {
         fout.textContent = `Opslaan mislukt: ${err.message}`;
         fout.hidden = false;
       } finally { knop.disabled = false; knop.textContent = 'Melding opslaan'; }
+    });
+
+    // ---- Meld een wijziging (openbaar, alle tabbladen; komt bij de beheerders, niet direct op de site) ----
+    const mwDlg = document.getElementById('mw-dialog') as HTMLDialogElement;
+    const mwForm = document.getElementById('mw-form') as HTMLFormElement;
+    const mwTekst = mwForm.elements.namedItem('tekst') as HTMLTextAreaElement;
+    const mwKnop = document.getElementById('mw-verstuur') as HTMLButtonElement;
+    const mwFout = document.getElementById('mw-fout') as HTMLElement;
+    const MW_LABELS: Record<string, [string, string]> = {
+      adres: ['Wat is het nieuwe adres?', 'bv. Voorbeeldstraat 1, 3831 AA Leusden'],
+      opgeheven: ['Toelichting (optioneel)', 'bv. sinds wanneer, of wie het overneemt'],
+      contact: ['Wat zijn de nieuwe gegevens?', 'bv. nieuw telefoonnummer, e-mailadres of website'],
+      info: ['Wat klopt er niet of ontbreekt?', ''],
+    };
+    let mwId = '';
+    const mwSoort = () => (mwForm.elements.namedItem('mw-soort') as RadioNodeList).value;
+    function mwLabel() {
+      const [label, voorbeeld] = MW_LABELS[mwSoort()] ?? MW_LABELS.info;
+      (document.getElementById('mw-tekstlabel') as HTMLElement).textContent = label;
+      mwTekst.placeholder = voorbeeld;
+    }
+    function mwStand(klaar: boolean) {
+      (document.getElementById('mw-invoer') as HTMLElement).hidden = klaar;
+      (document.getElementById('mw-klaar') as HTMLElement).hidden = !klaar;
+      mwKnop.hidden = klaar;
+      (document.getElementById('mw-annuleer') as HTMLElement).textContent = klaar ? 'Sluiten' : 'Annuleren';
+    }
+    document.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.mw-knop');
+      if (!b) return;
+      mwId = b.dataset.id!;
+      (document.getElementById('mw-naam') as HTMLElement).textContent = b.dataset.naam!;
+      mwForm.reset();
+      mwFout.hidden = true;
+      mwStand(false);
+      mwLabel();
+      mwDlg.showModal();
+    });
+    mwForm.addEventListener('change', mwLabel);
+    document.getElementById('mw-annuleer')!.addEventListener('click', () => mwDlg.close());
+    mwForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      mwKnop.disabled = true; mwKnop.textContent = 'Versturen…'; mwFout.hidden = true;
+      try {
+        const body = { id: mwId, soort: mwSoort(), tekst: mwTekst.value.trim(), website: (mwForm.elements.namedItem('website') as HTMLInputElement).value };
+        const r = await fetch('/api/wijziging', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(j.fout || `HTTP ${r.status}`);
+        mwStand(true);
+      } catch (err: any) {
+        mwFout.textContent = `Versturen mislukt: ${err.message}`;
+        mwFout.hidden = false;
+      } finally { mwKnop.disabled = false; mwKnop.textContent = 'Melding versturen'; }
     });
 
     const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.sk-tab'));
@@ -201,7 +290,7 @@ const perGroep = GROEPEN.map((g) => ({
     for (const p of panelen) {
       const zoek = p.querySelector<HTMLInputElement>('.sk-zoek')!;
       const cat = p.querySelector<HTMLSelectElement>('.sk-categorie')!;
-      const open = p.querySelector<HTMLButtonElement>('.sk-open')!;
+      const open = p.querySelector<HTMLButtonElement>('.sk-open');
       const niveaus = Array.from(p.querySelectorAll<HTMLButtonElement>('.sk-niveau'));
       const aan = (b: HTMLButtonElement) => b.getAttribute('aria-pressed') === 'true';
       const kaarten = Array.from(p.querySelectorAll<HTMLElement>('.sk-kaart'));
@@ -214,7 +303,7 @@ const perGroep = GROEPEN.map((g) => ({
         for (const k of kaarten) {
           const kn = (k.dataset.niveau ?? '').split('|').filter(Boolean);
           const niveauOk = !gekozen.length || gekozen.some((n) => kn.includes(n));
-          const ok = (!c || k.dataset.categorie === c) && (!q || (k.dataset.zoek ?? '').includes(q)) && !(aan(open) && k.dataset.stop === '1') && niveauOk;
+          const ok = (!c || k.dataset.categorie === c) && (!q || (k.dataset.zoek ?? '').includes(q)) && !(open && aan(open) && k.dataset.stop === '1') && niveauOk;
           k.hidden = !ok;
           if (ok) n++;
         }
@@ -228,7 +317,7 @@ const perGroep = GROEPEN.map((g) => ({
       };
       zoek.addEventListener('input', filter);
       cat.addEventListener('change', filter);
-      for (const b of [open, ...niveaus]) b.addEventListener('click', () => { b.setAttribute('aria-pressed', String(!aan(b))); filter(); });
+      for (const b of [...(open ? [open] : []), ...niveaus]) b.addEventListener('click', () => { b.setAttribute('aria-pressed', String(!aan(b))); filter(); });
       p.dataset.init = '1';
       (p as any).__filter = filter;
     }

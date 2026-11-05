@@ -161,17 +161,22 @@ main { padding-block: 36px 56px; }
 @media (max-width: 760px) { .sk-tab { padding: 8px 9px; font-size: 0.9rem; } }
 
 /* Aanmeldstop */
-.as-blok { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; border-top: 1px dashed var(--kleur-rand); padding-top: 8px; }
+.sk-acties { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; border-top: 1px dashed var(--kleur-rand); padding-top: 8px; }
+.as-blok { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.as-blok:empty { display: none; }
+.sk-actieknoppen { display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .as-status { font-size: 0.88rem; padding: 5px 9px; border-radius: 7px; line-height: 1.4; }
 .as-status.stop { background: #fef3f2; color: #912018; border: 1px solid #fecdca; }
 .as-status.open { background: #ecfdf3; color: #085d3a; border: 1px solid #abefc6; }
 .as-gemeld { display: block; font-size: 0.76rem; opacity: 0.75; }
-.as-knop { font: inherit; font-size: 0.8rem; color: var(--kleur-accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
-.as-knop:hover { color: var(--kleur-accent-donker); }
+.as-knop, .mw-knop { font: inherit; font-size: 0.8rem; color: var(--kleur-accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.as-knop:hover, .mw-knop:hover { color: var(--kleur-accent-donker); }
 .as-dialog { border: 1px solid var(--kleur-rand); border-radius: 12px; padding: 22px 24px; max-width: 460px; width: calc(100% - 32px); box-shadow: 0 10px 40px rgba(16,24,40,0.2); }
 .as-dialog::backdrop { background: rgba(16,24,40,0.45); }
 .as-optie { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px; font-size: 0.95rem; }
 .as-veld { display: block; margin: 10px 0; }
 .as-veld > span { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; }
+.mw-soorten { border: 0; padding: 0; margin: 0; }
+.as-veld textarea { width: 100%; font: inherit; padding: 8px 10px; border: 1px solid var(--kleur-rand); border-radius: 8px; resize: vertical; }
 .as-veld input { width: 100%; font: inherit; padding: 8px 10px; border: 1px solid var(--kleur-rand); border-radius: 8px; }
 .as-fout { color: #b42318; font-size: 0.9rem; margin: 10px 0 0; }
