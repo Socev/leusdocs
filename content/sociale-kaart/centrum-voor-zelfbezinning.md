@@ -1,6 +1,6 @@
 ---
 naam: "Centrum voor Zelfbezinning"
-categorie: "Welzijn & maatschappelijk werk"
+categorie: "Zingeving & levensvragen"
 ggz_niveau: ["Overig"]
 omschrijving: "Biedt zelfbezinnende gespreksgroepen rondom verlies, levensvragen en persoonlijke richting. Geen therapeutische GGZ."
 website: "https://zelfbezinning.nl"
