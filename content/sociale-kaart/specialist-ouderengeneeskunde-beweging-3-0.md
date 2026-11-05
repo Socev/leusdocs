@@ -9,7 +9,6 @@ email: "expertisecentrum@beweging3.nl"
 adres: "Lisidunalaan 18, 3833 BS Leusden"
 doelgroep: "Thuiswonende kwetsbare ouderen in Leusden en Achterveld"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "1–2 weken; spoed in overleg"
 tags: ["specialist ouderengeneeskunde", "geriatrie", "dementie", "wilsbekwaamheid", "lisidunahof"]
 bijgewerkt: 2026-11-05
 concept: true

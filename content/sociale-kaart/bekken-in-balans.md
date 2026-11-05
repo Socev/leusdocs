@@ -8,7 +8,6 @@ email: "praktijk@bekkeninbalans.nl"
 adres: "Larikslaan 2, 3833 AM Leusden"
 doelgroep: "Volwassenen en kinderen met bekken-, blaas-, darm- of seksuologische problematiek"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Ca. 1–3 weken"
 tags: ["bekkenfysiotherapie", "bekkenbodem", "incontinentie", "omnis"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/bekkenfysiotherapeuten/bekken-in-balans"

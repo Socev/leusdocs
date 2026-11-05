@@ -9,7 +9,6 @@ email: "amersfoort@bilanciobudget.nl"
 adres: "Hardwareweg 4, 3821 BM Amersfoort"
 doelgroep: "Volwassenen met problematische schulden of onvermogen tot zelfstandig financieel beheer"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Aanvraag via rechtbank/bewind"
 tags: ["bewindvoering", "budgetbeheer", "schulden", "mentorschap"]
 bijgewerkt: 2026-11-05
 concept: true

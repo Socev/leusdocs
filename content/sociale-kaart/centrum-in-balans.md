@@ -9,7 +9,6 @@ email: "centruminbalans@planet.nl"
 adres: "Hamersveldseweg 17, 3833 GK Leusden"
 doelgroep: "Volwassenen en kinderen met psychosociale problematiek"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "In overleg"
 tags: ["psychotherapie", "haptotherapie", "ademtherapie", "lichaamsgericht", "emdr", "hypnotherapie", "coaching", "kindertherapie"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/centrum-in-balans"

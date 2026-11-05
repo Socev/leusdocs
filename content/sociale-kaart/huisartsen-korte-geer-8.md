@@ -8,7 +8,7 @@ email: "vragen@huisartskortegeer.nl"
 adres: "Korte Geer 8, 3833 VV Leusden"
 doelgroep: "Inwoners van Leusden"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Gesloten voor nieuwe patiënten"
+wachttijd: "Open voor nieuwe inschrijvingen (site nov 2026)"
 tags: ["huisarts", "korte geer", "van berkel", "de rooy", "van der leest", "hagro"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsenpraktijk-korte-geer"

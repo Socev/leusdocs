@@ -8,7 +8,6 @@ email: "ergotherapie@beweging3.nl"
 adres: "Lisidunalaan 18, 3833 BS Leusden"
 doelgroep: "Ouderen en chronisch zieken met beperkingen in het dagelijks functioneren"
 verwijzen: "Via ZorgDomein"
-wachttijd: "1–3 weken"
 tags: ["ergotherapie", "lisidunahof", "beweging 3.0", "hulpmiddelen", "valpreventie"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/ergotherapie/ergotherapie-lisidunahof"

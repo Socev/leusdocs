@@ -8,7 +8,7 @@ email: "info@hospicedome.nl"
 adres: "Appelweg 49, 3818 NN Amersfoort"
 doelgroep: "Ongeneeslijk zieke mensen in de terminale fase met een levensverwachting van minder dan 3 maanden"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "Afhankelijk van beschikbare kamers"
+wachttijd: "Meestal snel opname; bij meerdere aanmeldingen tegelijk kan een wachtlijst ontstaan (site nov 2026)"
 tags: ["hospice", "palliatief", "bijna-thuis-huis", "amersfoort", "terminaal"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/palliatieve-zorg/hospice-dome"

@@ -9,7 +9,6 @@ email: "info@kindertherapie-leusden.nl"
 adres: "Leusden"
 doelgroep: "Kinderen en jongeren van 6–20 jaar en hun opvoeders"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "1–3 weken"
 tags: ["kindertherapie", "counseling", "skj", "faalangst", "jeugd"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/ggz/praktijk-voor-kindercounseling-en-kinder-en-jeugdtherapie"

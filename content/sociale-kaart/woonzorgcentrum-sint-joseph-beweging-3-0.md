@@ -8,7 +8,6 @@ email: "sintjoseph@beweging3.nl"
 adres: "Hessenweg 218, 3791 PP Achterveld"
 doelgroep: "Zorgbehoevende ouderen uit Achterveld en omgeving met een Wlz-indicatie"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Wachtlijst via CIZ en Beweging 3.0 Zorgbemiddeling"
 tags: ["woonzorgcentrum", "achterveld", "sint joseph", "ouderenzorg", "heelkom"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl"

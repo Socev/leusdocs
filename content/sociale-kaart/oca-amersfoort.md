@@ -8,7 +8,7 @@ email: "admin@medinello.nl"
 adres: "Databankweg 2A, 3821 AL Amersfoort"
 doelgroep: "Patiënten met chronische musculoskeletale pijn en onverklaarde lichamelijke klachten"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Ca. 3–6 weken"
+wachttijd: "Tot de intake: 0 dagen (site nov 2026)"
 tags: ["revalidatie", "msr", "chronische pijn", "solk", "alk"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/oca-amersfoort"

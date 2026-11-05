@@ -6,7 +6,6 @@ website: "https://zorgthuis.bloezem.nl/"
 email: "zorgthuis@bloezem.nl"
 doelgroep: "Patiënten die behandeld worden voor oncologische aandoeningen en hun naasten"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Binnen enkele dagen intake"
 tags: ["oncologie", "kanker", "begeleiding", "thuiszorg", "allerzorg"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/palliatieve-zorg/care-for-cancer"

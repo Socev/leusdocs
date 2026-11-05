@@ -7,7 +7,6 @@ email: "info@sanergo.nl"
 adres: "Lambalgerkom 14, 3831 RP Leusden"
 doelgroep: "Werkgevers, werknemers en ZZP'ers met werkplekgebonden klachten"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "In overleg"
 tags: ["ergonomie", "werkplekonderzoek", "arbo", "advies"]
 concept: true
 bijgewerkt: 2026-11-05

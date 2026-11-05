@@ -8,7 +8,6 @@ email: "info@praktijkutrechtseheuvelrug.nl"
 adres: "Haverakker 13, 3941 LD Doorn"
 doelgroep: "Vrouwen met overgangsklachten of hormonale disbalans"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "1–2 weken"
 tags: ["overgang", "menopauze", "overgangsconsulente", "leefstijl"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/overgangsconsulente-praktijk-utrechtse-heuvelrug"

@@ -7,7 +7,6 @@ telefoon: "033-4613271"
 adres: "Arnhemseweg 23, 3832 GH Leusden"
 doelgroep: "Mensen met een verstandelijke beperking en zorgindicatie"
 verwijzen: "Via gemeente / WMO-loket"
-wachttijd: "Wlz-indicatie CIZ vereist; wachtlijst via Philadelphia cliëntbureau"
 tags: ["philadelphia", "verstandelijke beperking", "boerderij", "woonlocatie"]
 concept: true
 bijgewerkt: 2026-11-05

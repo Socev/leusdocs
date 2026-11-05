@@ -7,7 +7,6 @@ telefoon: "088-7001000"
 adres: "Hamersveldseweg 2a, 3833 GP Leusden"
 doelgroep: "Inwoners van Leusden met een diagnostische aanvraag"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Afspraak online inplannen"
 tags: ["unilabs", "saltro", "bloedonderzoek", "fundus", "holter"]
 bijgewerkt: 2026-11-05
 concept: true

@@ -7,7 +7,7 @@ telefoon: "0342-452588"
 adres: "Walter van Amersfoortstraat 36, 3791 AR Achterveld"
 doelgroep: "Inwoners van Achterveld, Stoutenburg en buitengebied"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Uitsluitend open voor vestigers binnen het eigen verzorgingsgebied"
+wachttijd: "Open voor nieuwe patiënten uit Achterveld en de aangrenzende buitengebieden (site nov 2026)"
 tags: ["huisarts", "apotheek", "achterveld", "heelkom", "apotheekhoudend", "hagro"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsenpraktijk-de-heelkom"

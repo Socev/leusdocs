@@ -8,7 +8,7 @@ email: "info@praktijkruland.nl"
 adres: "Rijstegoed 2, 3863 BZ Nijkerk"
 doelgroep: "Kinderen en jongeren van 0 tot 18 jaar en hun ouders"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Aanmeldstop: regelmatig tijdelijke opnamestop wegens bereiken gemeentelijk zorgplafond"
+wachttijd: "Aanmelding tot eerste afspraak 17 weken, daarna tot start behandeling 2 weken (site nov 2026, stand 1-8-2026)"
 tags: ["ggz jeugd", "kinderpsycholoog", "gedrag", "opvoeding", "angst"]
 website: "https://praktijkruland.nl"
 bijgewerkt: 2026-11-05

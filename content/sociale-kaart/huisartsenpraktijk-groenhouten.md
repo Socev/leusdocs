@@ -8,7 +8,7 @@ email: "info@hpgroenhouten.nl"
 adres: "Hamersveldseweg 72-A, 3833 GS Leusden"
 doelgroep: "Inwoners van Leusden"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Beperkt geopend; raadpleeg praktijkwebsite voor inschrijfmogelijkheden"
+wachttijd: "Open voor nieuwe inschrijvingen (site nov 2026)"
 tags: ["huisarts", "groenhouten", "asschatterweg", "hagro"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsenpraktijk-leusden"

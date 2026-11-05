@@ -8,7 +8,7 @@ email: "info@logopediepraktijkleusden.nl"
 adres: "Tolplaats 21, 3831 JR Leusden"
 doelgroep: "Kinderen en volwassenen met communicatie- of slikproblemen"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Aanmeldstop: wisselend geopend, wachttijd voor naschoolse plekken kan oplopen"
+wachttijd: "Op dit moment een wachtlijst; oproep zodra er plek is op de opgegeven dagdelen (site nov 2026)"
 tags: ["logopedie", "tolgaarde", "spraak", "taal", "stem", "heelkom"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/logopedie/logopediepraktijk-leusden-zorgplein-tolgaarde"

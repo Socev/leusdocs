@@ -8,7 +8,7 @@ email: "info@fysio-in.nl"
 adres: "Larikslaan 2, 3833 AM Leusden"
 doelgroep: "Patiënten met nek-, rug-, schouder- en wervelkolomklachten"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "In overleg"
+wachttijd: "Tijdelijk geen nieuwe patiënten (langdurige blessure) (site nov 2026)"
 tags: ["fysiotherapie", "manuele therapie", "dry needling", "omnis"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/fysio-in-fysio-en-manueel-therapie"

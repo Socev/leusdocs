@@ -8,7 +8,6 @@ email: "info@eempsycholoog.nl"
 adres: "Lepelaar 9a, 3831 DD Leusden"
 doelgroep: "Volwassenen vanaf 18 jaar met lichte tot matige psychische klachten"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Wisselend; telefonisch spreekuur ma, wo, do"
 tags: ["basis ggz", "psycholoog", "lepelaar", "volwassenen"]
 concept: true
 bijgewerkt: 2026-11-05

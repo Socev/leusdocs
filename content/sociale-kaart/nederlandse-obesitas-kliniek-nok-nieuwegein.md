@@ -8,7 +8,6 @@ email: "info-nieuwegein@obesitaskliniek.nl"
 adres: "Zoomstede 17, 3431 HK Nieuwegein"
 doelgroep: "Patiënten met morbide obesitas die in aanmerking komen voor bariatrische chirurgie"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Ca. 4–6 weken voor screening"
 tags: ["nok", "bariatrie", "maagverkleining", "st antonius", "nieuwegein"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/specialistische-zorg/bariatrie/nederlandse-obesitas-klinieken"

@@ -7,7 +7,6 @@ telefoon: "033-8505050"
 adres: "De Mulderij 2, 3831 NV Leusden"
 doelgroep: "Patiënten met een diagnostische aanvraag van huisarts of specialist"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Afspraak via het Meander portaal"
 tags: ["bloedafname", "röntgen", "echo", "meander", "laboratorium", "diagnostiek"]
 bijgewerkt: 2026-11-05
 concept: true

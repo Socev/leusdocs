@@ -8,7 +8,6 @@ email: "klantenservice@beweging3.nl"
 adres: "Utrechtseweg 293, 3818 EH Amersfoort"
 doelgroep: "Ouderen met zware somatische problematiek of gerontopsychiatrische aandoeningen (ZZP 5–10)"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Afhankelijk van indicatie en vrije plaatsen"
 tags: ["verpleeghuis", "beweging 3.0", "somatiek", "gerontopsychiatrie", "de lichtenberg"]
 bijgewerkt: 2026-11-05
 concept: true

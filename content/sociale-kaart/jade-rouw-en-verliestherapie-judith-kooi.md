@@ -9,7 +9,6 @@ email: "info@jadetherapie.nl"
 adres: "Koningin Wilhelminalaan 5, 3818 HN Amersfoort"
 doelgroep: "Individuen en stellen die te maken hebben met verlies, levensvragen of relatieproblemen"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Ca. 2–3 weken"
 tags: ["rouwtherapie", "contextueel", "verlies", "ongewild kinderloos"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/jade-therapie-coaching"

@@ -7,7 +7,7 @@ telefoon: "033-4944223"
 adres: "De Biezenkamp 154, 3831 JA Leusden"
 doelgroep: "Inwoners van Leusden"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Gesloten voor nieuwe patiënten, behoudens gezinsuitbreiding"
+wachttijd: "Open voor nieuwe inschrijvingen (site nov 2026)"
 tags: ["huisarts", "biezenkamp", "berkenlaan", "hagro"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsenpraktijk-berkenlaan"

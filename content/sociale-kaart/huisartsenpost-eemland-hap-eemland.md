@@ -7,7 +7,6 @@ telefoon: "085-7731100"
 adres: "Maatweg 3, 3813 TZ Amersfoort"
 doelgroep: "Patiënten met acute klachten die niet kunnen wachten tot de eerstvolgende werkdag van de eigen huisarts"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Triage via telefonie; uitsluitend op afspraak"
 tags: ["huisartsenpost", "spoedpost", "avonddienst", "weekend", "anw"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl"

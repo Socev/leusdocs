@@ -6,7 +6,6 @@ telefoon: "058-2866969"
 adres: "Borniastraat 34, 8934 AD Leeuwarden"
 doelgroep: "Patiënten met ernstig overgewicht (BMI > 40 of BMI > 35 met comorbiditeit)"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Wisselend"
 tags: ["bariatrie", "maagverkleining", "mcl", "obesitas"]
 concept: true
 bijgewerkt: 2026-11-05

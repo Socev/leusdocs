@@ -8,7 +8,6 @@ email: "info@nedspine.nl"
 adres: "Pascalstraat 21, 6716 AZ Ede"
 doelgroep: "Patiënten met rug-, nek- en uitstralende zenuwpijn (hernia, kanaalstenose)"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Ca. 2–3 weken"
 tags: ["hernia", "stenose", "wervelkolom", "neurochirurgie", "ede"]
 bijgewerkt: 2026-11-05
 concept: true
