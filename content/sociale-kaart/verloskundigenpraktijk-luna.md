@@ -8,7 +8,6 @@ email: "info@praktijkluna.nl"
 adres: "De Biezenkamp 90, 3831 JA Leusden"
 doelgroep: "Zwangere vrouwen en pasgeborenen in de gemeente Leusden en Achterveld"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen (aanmelding direct via website)"
 tags: ["verloskunde", "zwangerschap", "geboorte", "luna", "mulderij", "heelkom"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/zwangerschap/verloskundigenpraktijk-luna"

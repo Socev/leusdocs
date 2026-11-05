@@ -110,7 +110,8 @@ export const VELDEN = {
     { naam: 'adres', label: 'Adres', type: 'text' },
     { naam: 'doelgroep', label: 'Doelgroep', type: 'text' },
     { naam: 'verwijzen', label: 'Hoe verwijzen', type: 'select', opties: VERWIJSWIJZEN },
-    { naam: 'wachttijd', label: 'Wachttijd (indicatie)', type: 'text' },
+    { naam: 'wachttijd', label: 'Wachttijd (indicatie; alleen invullen wat gemeld of op de site gelezen is, liefst met bron en datum. Leeg = "geen gemeld")', type: 'text' },
+    { naam: 'wachttijd_nvt', label: 'Geen wachttijdregel tonen (puur informatief: website, infolijn, meldpunt zonder aanmelding)', type: 'checkbox' },
     { naam: 'tags', label: 'Trefwoorden (komma-gescheiden)', type: 'tags' },
     { naam: 'concept', label: 'Niet geverifieerd (toont een label op de site)', type: 'checkbox' },
     { naam: 'bijgewerkt', label: 'Laatst gecontroleerd op', type: 'date' },
@@ -152,6 +153,26 @@ export const WIJZIGING_SOORTEN = [
   { id: 'contact', label: 'Contactgegevens (telefoon, e-mail, website)' },
   { id: 'info', label: 'Andere informatie' },
 ];
+
+// Wachttijd: bij categorieën waar je je aanmeldt (intake, behandeling, begeleiding) staat "Wachttijd: geen gemeld" als het veld
+// leeg is. Dat is iets anders dan "geen wachttijd": dat laatste staat er alleen als het zo gemeld is (David, 5-11-2026).
+// GGZ: altijd. Elders per categorie; een losse vermelding kan uit met `wachttijd_nvt: true`. Een gevulde wachttijd staat er altijd.
+export const WACHTTIJD_CATEGORIEEN = [
+  'GGZ volwassenen', 'GGZ jeugd', 'Verslaving',
+  'Welzijn & maatschappelijk werk', 'Jeugd & gezin', 'Gemeente & WMO', 'Werk, inkomen & schulden', 'Zingeving & levensvragen',
+  'Fysiotherapie & oefentherapie', 'Diëtetiek, logopedie & ergotherapie', 'Paramedisch',
+  'Thuiszorg & mantelzorg', 'Ouderen', 'Verpleeg- en verzorgingshuizen', 'Palliatieve zorg & overlijden',
+  'Ziekenhuis & specialistische zorg',
+];
+
+// Wat er op de kaart achter "Wachttijd:" staat: de gemelde tekst, "geen gemeld", of null (geen regel).
+export function wachttijdTekst(data) {
+  const w = typeof data.wachttijd === 'string' ? data.wachttijd.trim() : '';
+  if (w) return w;
+  const ggz = groepVanCategorie(data.categorie).id === 'ggz';
+  if (!ggz && (data.wachttijd_nvt || !WACHTTIJD_CATEGORIEEN.includes(data.categorie))) return null;
+  return 'geen gemeld';
+}
 
 // Aanmeldstops gelden alleen voor het tabblad GGZ (knop, label en filter staan alleen daar; /api/aanmeldstop weigert de rest).
 export const AANMELDSTOP_GROEP = 'ggz';

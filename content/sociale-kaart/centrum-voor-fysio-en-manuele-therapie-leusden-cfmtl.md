@@ -7,7 +7,6 @@ telefoon: "033-4942193"
 adres: "Lepelaar 8, 3831 DE Leusden"
 doelgroep: "Volwassenen en kinderen met complexe houdings- en bewegingsklachten"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["fysiotherapie", "manuele therapie", "schoudernetwerk", "oncologie"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/centrum-voor-fysio-en-manuele-therapie"

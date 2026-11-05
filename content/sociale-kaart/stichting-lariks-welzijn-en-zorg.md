@@ -9,7 +9,6 @@ email: "info@lariks-leusden.nl"
 adres: "'t Erf 1, 3831 NA Leusden"
 doelgroep: "Alle inwoners van de gemeente Leusden met ondersteuningsvragen op het gebied van welzijn, mantelzorg en zelfredzaamheid"
 verwijzen: "Via gemeente / WMO-loket"
-wachttijd: "Geen"
 tags: ["lariks", "sociaal team", "wmo", "mantelzorg", "senioren", "biezenkamp"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/activiteiten-senioren"

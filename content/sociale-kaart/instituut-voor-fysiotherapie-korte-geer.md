@@ -7,7 +7,6 @@ email: "info@kortegeer.nl"
 adres: "Korte Geer 6, 3833 VV Leusden"
 doelgroep: "Patiënten met chronische of complexe aandoeningen en bewegingsklachten"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["fysiotherapie", "parkinsonnet", "psychosomatiek", "korte geer"]
 concept: true
 bijgewerkt: 2026-11-05

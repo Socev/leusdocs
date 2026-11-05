@@ -8,7 +8,6 @@ email: "klantcontactcentrum@beweging3.nl"
 adres: "Lisidunalaan 18, 3833 BS Leusden"
 doelgroep: "Zorgbehoevende thuiswonenden in Leusden en Achterveld"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Geen (indicatiestelling door wijkverpleegkundige)"
 tags: ["wijkverpleging", "beweging 3.0", "thuiszorg", "casemanagement dementie", "palliatief"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/palliatieve-zorg/beweging-3-0-thuiszorg"

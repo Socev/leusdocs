@@ -8,7 +8,6 @@ email: "info@bengelsenkanjers.nl"
 adres: "De Oude Munt 24 a-b, 3824 DK Amersfoort"
 doelgroep: "Baby's, peuters, schoolkinderen en jongeren tot 18 jaar"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["kinderfysiotherapie", "tabaksteeg", "baby's", "motoriek"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/kinderfysiotherapie/bengels-en-kanjers"

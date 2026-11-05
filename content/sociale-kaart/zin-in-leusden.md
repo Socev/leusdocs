@@ -8,5 +8,6 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 tags: ["zingeving", "levensvragen", "spiritualiteit", "bezinning", "kerken"]
 bijgewerkt: 2026-11-05
 bron: "https://zininleusden.nl/"
+wachttijd_nvt: true
 ---
 Initiatief van inwoners (kerkelijk en niet-kerkelijk) en Leusdense predikanten; agenda en organisatielijst op de site. Werkt samen met het Centrum voor Levensvragen Eemland.

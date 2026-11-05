@@ -10,5 +10,6 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 tags: ["minima", "meedoen", "kindpakket", "sport", "schoolkosten", "armoede"]
 bijgewerkt: 2026-11-05
 bron: "https://www.lariks-leusden.nl/themas/rondkomen"
+wachttijd_nvt: true
 ---
 Aanvraagformulieren staan op de pagina van Lariks; de vrijwilligers van het Sociaal Maatschappelijk Steunpunt in Huis van Leusden helpen gratis met invullen. Voor volwassenen met een laag inkomen zijn er onder meer de Sportpas 18+ en de Tegemoetkoming Chronisch Zieken en Beperkten.

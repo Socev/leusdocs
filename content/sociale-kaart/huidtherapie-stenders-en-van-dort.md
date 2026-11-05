@@ -8,7 +8,6 @@ email: "info@huidtherapiestendersvandort.nl"
 adres: "Tolplaats 17, 3831 JJ Leusden"
 doelgroep: "Patiënten met lymfoedeem, littekenweefsel, acne, overbeharing en vaatafwijkingen"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["huidtherapie", "oedeemtherapie", "tolgaarde", "acne", "lasertherapie"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/huidtherapie-stenders-van-dort"

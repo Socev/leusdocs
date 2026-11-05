@@ -8,7 +8,6 @@ email: "tabaksteeg@benuapotheek.nl"
 adres: "Willem Alexanderhof 1, 3832 JN Leusden"
 doelgroep: "Inwoners van Leusden-Zuid en omstreken"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["apotheek", "tabaksteeg", "benu", "medicatie", "leusden-zuid"]
 bijgewerkt: 2026-11-05
 concept: true

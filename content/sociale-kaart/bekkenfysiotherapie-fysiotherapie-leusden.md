@@ -8,7 +8,6 @@ email: "info@fysiotherapie-leusden.nl"
 adres: "De Hank 4, 3832 JL Leusden"
 doelgroep: "Patiënten met klachten in het bekken-, buik- en bekkenbodemgebied"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["bekkenfysiotherapie", "tabaksteeg", "zwangerschap", "bekkenpijn"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/bekkenfysiotherapeuten/bekkenfysiotherapie-gooi-en-eemland"

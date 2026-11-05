@@ -8,7 +8,6 @@ email: "info@sterkoefentherapie.nl"
 adres: "Larikslaan 2, 3833 AM Leusden"
 doelgroep: "Kinderen met motorische ontwikkelingsproblemen en volwassenen met houdingsklachten"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["kinderoefentherapie", "cesar", "motoriek", "dcd", "omnis"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/sterk-oefentherapie"

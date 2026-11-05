@@ -44,7 +44,8 @@ email: "info@voorbeeld.nl"                        # optioneel, geldig e-mailadre
 adres: "Voorbeeldstraat 1, 3831 AA Leusden"        # optioneel (voorbeeldwaarde)
 doelgroep: "Volwassenen en ouderen met complexe psychische problematiek"   # optioneel
 verwijzen: "Via ZorgDomein"                       # optioneel, EXACT één uit VERWIJSWIJZEN
-wachttijd: "ca. 6 weken (intake)"                 # optioneel, vrije tekst
+wachttijd: "ca. 6 weken (intake)"                 # optioneel, vrije tekst; ALLEEN wat gemeld of op de site gelezen is (bron/datum erbij). Nooit "Geen" invullen als niemand dat meldde: leeg toont "Wachttijd: geen gemeld"
+wachttijd_nvt: true                               # optioneel; geen wachttijdregel (puur informatief: website, infolijn, meldpunt). Werkt niet op GGZ
 tags: ["sggz", "crisisdienst"]                    # optioneel, lijst van trefwoorden (voor zoeken)
 concept: true                                     # optioneel; true = toont label "Niet geverifieerd" (zet de reden in de toelichting)
 bijgewerkt: 2026-09-14                            # optioneel, datum JJJJ-MM-DD (laatst gecontroleerd)
@@ -73,7 +74,14 @@ Verwijswijzen (`VERWIJSWIJZEN`): `Rechtstreeks (patiënt meldt zichzelf aan)`, `
 
 Controleer bij twijfel altijd `shared/velden.mjs` — dat is de waarheid, niet dit document.
 
-### 3a. Aanmeldstop (alleen tabblad GGZ)
+### 3a. Wachttijd: "geen gemeld" ≠ "geen wachttijd"
+
+Sinds 5-11-2026 (David): is `wachttijd` leeg, dan staat op de kaart cursief "Wachttijd: geen gemeld" — op GGZ altijd, elders alleen
+bij categorieën in `WACHTTIJD_CATEGORIEEN` (`shared/velden.mjs`, aanbod met aanmelding/intake) en niet bij `wachttijd_nvt: true`.
+Niet bij Huisartsen, Apotheken, Tandartsen, Zwangerschap & geboorte, Laboratorium & diagnostiek en Overig. "Geen wachttijd"
+schrijf je alleen als de aanbieder dat meldt. De 31 waarden "Geen" uit de import van 14-9-2026 stonden niet in de bron en zijn gewist.
+
+### 3b. Aanmeldstop (alleen tabblad GGZ)
 
 Sinds 5-11-2026 alleen voor vermeldingen in de groep GGZ; `/api/aanmeldstop` weigert de rest. Zet op andere tabbladen geen `aanmeldstop_*`-velden.
 
@@ -82,7 +90,7 @@ Sinds 5-11-2026 alleen voor vermeldingen in de groep GGZ; `/api/aanmeldstop` wei
 - Iedereen (zonder login) kan de status melden via de knop op /sociale-kaart; dat gaat via `POST /api/aanmeldstop` met `{ "id": "<slug>", "aanmeldstop": true|false, "vanaf": "JJJJ-MM-DD", "toelichting": "…" }`. Die functie past uitsluitend de vier `aanmeldstop_*`-velden aan en zet `aanmeldstop_gemeld` op vandaag. Elke melding is een aparte commit (`aanmeldstop: <naam> — …`).
 - **Periodieke controle (opdracht voor de bot):** loop alle items met `aanmeldstop: true` én alle GGZ-items (`/data/sociale-kaart.json`, tabblad GGZ) langs, open de `website`, zoek naar teksten als "aanmeldstop", "wachtlijst", "geen nieuwe cliënten/patiënten", "aanmelden niet mogelijk", "tijdelijk gesloten voor aanmelding" en werk de velden bij via de GitHub API (sectie 7) — altijd met `aanmeldstop_gemeld` op de controledatum, en een korte toelichting die de bron noemt (bv. "volgens website 14-9-2026"). Bij twijfel: niets veranderen en het item rapporteren.
 
-### 3b. Meld een wijziging
+### 3c. Meld een wijziging
 
 Elke kaart heeft een knop "Meld een wijziging" (`POST /api/wijziging` met `{ id, soort: adres|opgeheven|contact|info, tekst }`).
 Die meldingen worden **niet** gepubliceerd en staan niet in deze repo: ze staan in Cloudflare KV en een beheerder handelt ze af in

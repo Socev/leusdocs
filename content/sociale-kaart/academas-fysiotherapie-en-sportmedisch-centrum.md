@@ -8,7 +8,6 @@ email: "info@academas.nl"
 adres: "Bavoortseweg 9a, 3833 BM Leusden"
 doelgroep: "Patiënten met klachten aan het bewegingsapparaat en sporters"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["fysiotherapie", "sportfysio", "revalidatie", "training"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/academas"

@@ -8,7 +8,6 @@ email: "info@centraalzorg.nl"
 adres: "Davelaak 17a, 3831 PA Leusden"
 doelgroep: "Thuiswonende ouderen en zorgbehoevenden in Leusden en omgeving"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["thuiszorg", "wijkverpleging", "persoonlijke verzorging", "dementiezorg"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/centraalzorg"

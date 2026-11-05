@@ -22,6 +22,7 @@ const socialeKaart = defineCollection({
     doelgroep: z.preprocess(legeStringNaarUndefined, z.string().optional()),
     verwijzen: z.preprocess(legeStringNaarUndefined, z.enum(VERWIJSWIJZEN as [string, ...string[]]).optional()),
     wachttijd: z.preprocess(legeStringNaarUndefined, z.string().optional()),
+    wachttijd_nvt: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
     concept: z.boolean().default(false),
     bijgewerkt: z.coerce.date().optional(),

@@ -16,6 +16,8 @@ Website van de huisartsen en apothekers in Leusden & Achterveld: HAGRO-agenda, s
   `leusdocs-meldingen`, previews `leusdocs-meldingen-preview`, gekoppeld via de Pages-instellingen, niet via wrangler.toml) en
   staat in [/beheer#meldingen](https://www.leusdocs.nl/beheer#meldingen) achter Access. Daar: *Vermelding bewerken* en
   *Afgehandeld* (= weg uit KV). Niet afgehandeld vervalt na 180 dagen. De repo is openbaar; daarom staan deze meldingen er niet in.
+- Wachttijd: leeg = "Wachttijd: geen gemeld" (GGZ altijd, elders per categorie, `WACHTTIJD_CATEGORIEEN`; uit per vermelding met
+  `wachttijd_nvt`). Zie AGENTS.md 3a.
 - Beide: honeypotveld, limiet 10 per uur per IP (`functions/_lib/limiet.js`), alleen bestaande vermeldingen.
 - Lokaal toetsen: `npx wrangler pages dev dist --kv MELDINGEN` (met `BEHEER_ONTWIKKELMODUS=ja` in `.dev.vars` voor /beheer).
 

@@ -9,7 +9,6 @@ email: "info@indebuurt033.nl"
 adres: "Basicweg 24, 3821 BR Amersfoort"
 doelgroep: "Uitsluitend inwoners van de gemeente Amersfoort"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["welzijn", "amersfoort", "vrijwilligers", "sociaal werk"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/indebuurt033"

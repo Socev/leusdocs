@@ -8,7 +8,6 @@ email: "mariannebuikema@gmail.com"
 adres: "Haverland 17, 3833 CT Leusden"
 doelgroep: "Ouders van baby's in het eerste levensjaar met onrust-, slaap- of voedingsproblematiek"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen (spoedig inzetbaar)"
 tags: ["babyconsulent", "huilbaby", "slaapproblemen", "lactatie", "pediatrie"]
 concept: true
 bijgewerkt: 2026-11-05

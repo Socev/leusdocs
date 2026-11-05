@@ -7,7 +7,6 @@ email: "maria.lunter@kpnmail.nl"
 adres: "Walter van Amersfoortstraat 36, 3791 AR Achterveld"
 doelgroep: "Patiënten met chronische aandoeningen (diabetes, CVRM, COPD, maag-darmklachten)"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Geen"
 tags: ["diëtist", "achterveld", "heelkom", "chronische zorg", "diabetes"]
 concept: true
 bijgewerkt: 2026-11-05

@@ -7,7 +7,6 @@ email: "info@mensendieckboerkamp.nl"
 adres: "Henegouwen 31, 3831 AD Leusden"
 doelgroep: "Patiënten met klachten door overbelasting, verkeerde houding of chronische aandoeningen"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["oefentherapie", "mensendieck", "houding", "rugklachten", "stress"]
 concept: true
 bijgewerkt: 2026-11-05

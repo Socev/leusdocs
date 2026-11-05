@@ -9,7 +9,6 @@ email: "info@welzin.nl"
 adres: "Basicweg 24, 3821 BR Amersfoort"
 doelgroep: "Inwoners van Leusden en Achterveld met psychosociale, relationele of opvoedvragen"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["maatschappelijk werk", "welzin", "thuisbegeleiding", "kies", "rozengaarde"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/maatschappelijk-werk/maatschappelijk-werk-welzin"

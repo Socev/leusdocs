@@ -1,13 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
-import { GROEPEN, GGZ_NIVEAUS, OUDE_GROEPEN, groepVanCategorie, WIJZIGING_SOORTEN, AANMELDSTOP_GROEP } from '../../shared/velden.mjs';
+import { GROEPEN, GGZ_NIVEAUS, OUDE_GROEPEN, groepVanCategorie, WIJZIGING_SOORTEN, AANMELDSTOP_GROEP, wachttijdTekst } from '../../shared/velden.mjs';
 import { datumLang } from '../lib/datum';
 
 // Alfabetisch; niet-geverifieerde items onderaan
 const items = (await getCollection('sociale-kaart')).sort((a, b) => Number(a.data.concept) - Number(b.data.concept) || a.data.naam.localeCompare(b.data.naam, 'nl'));
 const gerenderd = await Promise.all(
-  items.map(async (i) => ({ ...i, Body: (await render(i)).Content, heeftBody: !!i.body?.trim().length, groep: groepVanCategorie(i.data.categorie).id })),
+  items.map(async (i) => ({ ...i, Body: (await render(i)).Content, heeftBody: !!i.body?.trim().length, groep: groepVanCategorie(i.data.categorie).id, wacht: wachttijdTekst(i.data) })),
 );
 const nettoTel = (t: string) => t.replace(/[^\d+]/g, '');
 const perGroep = GROEPEN.map((g) => ({
@@ -72,11 +72,11 @@ const perGroep = GROEPEN.map((g) => ({
               {i.data.email && <li><span class="k">E-mail</span><a href={`mailto:${i.data.email}`}>{i.data.email}</a></li>}
               {i.data.adres && <li><span class="k">Adres</span><a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(i.data.adres)}`} target="_blank" rel="noopener">{i.data.adres}</a></li>}
             </ul>
-            {(i.data.doelgroep || i.data.verwijzen || i.data.wachttijd) && (
+            {(i.data.doelgroep || i.data.verwijzen || i.wacht) && (
               <div class="sk-meta">
                 {i.data.doelgroep && <span><b>Doelgroep:</b> {i.data.doelgroep}</span>}
                 {i.data.verwijzen && <span><b>Verwijzen:</b> {i.data.verwijzen}</span>}
-                {i.data.wachttijd && <span><b>Wachttijd:</b> {i.data.wachttijd}</span>}
+                {i.wacht && <span class={i.data.wachttijd ? undefined : 'sk-wacht-onbekend'}><b>Wachttijd:</b> {i.wacht}</span>}
               </div>
             )}
             {i.heeftBody && <div class="sk-toelichting"><i.Body /></div>}

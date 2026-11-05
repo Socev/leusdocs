@@ -8,7 +8,6 @@ email: "info@wijkfysio.nl"
 adres: "Rozengaarde 22B, 3831 CD Leusden"
 doelgroep: "Kwetsbare ouderen, mensen met chronische neurologische aandoeningen of valrisico"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["geriatrie", "ouderenzorg", "valpreventie", "parkinson", "dementie"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/wijkfysio"

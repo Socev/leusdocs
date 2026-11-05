@@ -8,7 +8,6 @@ email: "info@nobels-fysiotherapie.nl"
 adres: "Bitterschoten 25, 3831 PC Leusden"
 doelgroep: "Patiënten met acute of chronische fysieke klachten en sportblessures"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["fysiotherapie", "sportfysio", "manuele therapie", "psychosomatisch"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/nobels-fysiotherapie"

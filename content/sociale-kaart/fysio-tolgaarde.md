@@ -8,7 +8,6 @@ email: "info@fysio-tolgaarde.nl"
 adres: "Tolplaats 11, 3831 JR Leusden"
 doelgroep: "Patiënten van alle leeftijden met aandoeningen van het bewegingsapparaat"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
-wachttijd: "Geen"
 tags: ["fysiotherapie", "tolgaarde", "kinderfysiotherapie", "geriatrie", "claudicatio", "copd"]
 bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/fysio-tolgaarde"

@@ -9,5 +9,6 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 tags: ["huiselijk geweld", "kindermishandeling", "meldcode", "ouderenmishandeling", "advies"]
 bijgewerkt: 2026-11-05
 bron: "https://veiligthuisutrecht.nl/"
+wachttijd_nvt: true
 ---
 Voor professionals: meldformulier, uitleg over de meldcode en over informatie delen op veiligthuisutrecht.nl/voor-professionals.
