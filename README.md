@@ -7,6 +7,13 @@ Website van de huisartsen en apothekers in Leusden & Achterveld: HAGRO-agenda, s
 - **Inhoud bewerken:** via [www.leusdocs.nl/beheer](https://www.leusdocs.nl/beheer) (inloggen met e-mailcode via Cloudflare Access) met een visuele editor (TipTap; slaat op als markdown), of rechtstreeks in `content/` — zie [AGENTS.md](AGENTS.md) voor het exacte formaat.
 - **Hosting, Access en DNS instellen:** [docs/cloudflare-setup.md](docs/cloudflare-setup.md)
 
+## Zoeken op de sociale kaart
+
+- Zoeken binnen een tabblad; daaronder de knop *Zoektocht uitbreiden naar álle categorieën?* (ook bij 0 treffers), met het
+  aantal treffers in de andere tabbladen. Die weergave groepeert per tabblad (daarbinnen per categorie), heeft een eigen
+  zoekveld, *Terug naar …* en per tabblad *Alleen in … zoeken*. Deeplink: `/sociale-kaart?q=bloedafname&alle=1`; de terugknop
+  van de browser werkt. Zoeken negeert hoofdletters en accenten; aantallen worden via `role="status"` voorgelezen.
+
 ## Meldingen van bezoekers (sociale kaart)
 
 - **Aanmeldstop** (alleen tabblad GGZ): knop op de kaart → `POST /api/aanmeldstop` → commit op `main`, dus direct openbaar

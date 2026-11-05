@@ -1,15 +1,13 @@
 ---
-naam: "Medisch Centrum De Mulderij (Diagnostiek Meander)"
+naam: "Medisch Centrum De Mulderij (bloedafname Meander)"
 categorie: "Laboratorium & diagnostiek"
-omschrijving: "Buitenpolikliniek van Meander Medisch Centrum voor bloedafname, röntgenfoto's, echografie en fundusfotografie. Afspraak vooraf verplicht."
+omschrijving: "Bloedafnamepost van Meander Medisch Centrum in De Mulderij. Alleen nog bloedafname, uitsluitend op afspraak; röntgenfoto's, echografie en fundusfotografie gebeuren hier niet meer."
 website: "https://www.meandermc.nl/bloedafname"
 telefoon: "033-8505050"
 adres: "De Mulderij 2, 3831 NV Leusden"
-doelgroep: "Patiënten met een diagnostische aanvraag van huisarts of specialist"
+doelgroep: "Patiënten met een aanvraag voor bloedafname van huisarts of specialist"
 verwijzen: "Via ZorgDomein"
-tags: ["bloedafname", "röntgen", "echo", "meander", "laboratorium", "diagnostiek"]
+tags: ["bloedafname", "meander", "mulderij", "laboratorium", "prikpost"]
 bijgewerkt: 2026-11-05
-concept: true
-bron: "https://sociaalleusden.nl/laboratorium/medisch-centrum-de-mulderij"
 ---
-**Niet geverifieerd** bij de controle van 5-11-2026: Meander-site laadt, maar locatie De Mulderij en nummer 033-8505050 niet teruggevonden; Heelkom-site noemt wel bloedafname bij Meander in Achterveld.
+Volgens de huisartsen (5-11-2026) is op deze locatie alleen nog bloedafname, op afspraak. Het telefoonnummer is het algemene nummer van Meander (meandermc.nl, nov 2026); de locatie Leusden staat niet op de Meander-site.

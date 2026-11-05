@@ -109,9 +109,34 @@ const perGroep = GROEPEN.map((g) => ({
           </article>
         ))}
       </div>
-      <p class="leeg sk-leeg" hidden>Geen organisaties gevonden. <a href="/beheer#sociale-kaart">Voeg er een toe</a>.</p>
+      <p class="leeg sk-leeg" hidden>Geen organisaties gevonden in dit tabblad. <a href="/beheer#sociale-kaart">Voeg er een toe</a>.</p>
+      <div class="sk-uitbreiden" hidden>
+        <button type="button" class="knop secundair sk-uitbreid-knop">Zoektocht uitbreiden naar álle categorieën?</button>
+        <span class="klein zacht sk-elders"></span>
+      </div>
+      <p class="sk-sr sk-telling" role="status" aria-live="polite"></p>
     </section>
   ))}
+
+  <section class="sk-alle" id="sk-alle" hidden aria-labelledby="sk-alle-kop">
+    <div class="sk-alle-kopregel">
+      <h2 id="sk-alle-kop" tabindex="-1">Zoeken in alle categorieën</h2>
+      <button type="button" class="knop secundair klein sk-terug">← Terug</button>
+    </div>
+    <div class="filters" role="search">
+      <input type="search" class="sk-alle-zoek" placeholder="Zoek op naam, trefwoord, doelgroep…" aria-label="Zoeken in alle categorieën" autocomplete="off" />
+    </div>
+    <p class="sk-alle-status" role="status" aria-live="polite"></p>
+    {perGroep.map((g) => (
+      <div class="sk-alle-groep" data-groep={g.id} data-label={g.label} hidden>
+        <div class="sk-alle-groepkop">
+          <h3>{g.label} <span class="sk-tab-aantal sk-alle-aantal">0</span></h3>
+          <button type="button" class="sk-naar-tab" data-groep={g.id}>Alleen in {g.kort} zoeken</button>
+        </div>
+        <div class="grid sk-alle-lijst"></div>
+      </div>
+    ))}
+  </section>
 
   <dialog id="as-dialog" class="as-dialog">
     <form method="dialog" id="as-form" autocomplete="off">
@@ -202,8 +227,7 @@ const perGroep = GROEPEN.map((g) => ({
         const j = await r.json().catch(() => ({}));
         if (!r.ok) throw new Error(j.fout || `HTTP ${r.status}`);
         // Kaart direct bijwerken (de site zelf bouwt in 1–2 minuten opnieuw)
-        const blok = document.querySelector<HTMLElement>(`.as-blok[data-id="${CSS.escape(asId)}"]`);
-        if (blok) {
+        for (const blok of document.querySelectorAll<HTMLElement>(`.as-blok[data-id="${CSS.escape(asId)}"]`)) {
           (blok.closest('.sk-kaart') as HTMLElement).dataset.stop = stop ? '1' : '';
           const vandaag = fDatum.format(new Date());
           const toel = body.toelichting ? ` · ${esc(body.toelichting)}` : '';
@@ -278,14 +302,107 @@ const perGroep = GROEPEN.map((g) => ({
 
     const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.sk-tab'));
     const panelen = Array.from(document.querySelectorAll<HTMLElement>('.sk-paneel'));
-    const params = new URLSearchParams(location.search);
+    let params = new URLSearchParams(location.search);
+    const alle = document.getElementById('sk-alle') as HTMLElement;
+    const alleZoek = alle.querySelector<HTMLInputElement>('.sk-alle-zoek')!;
+    const alleStatus = alle.querySelector<HTMLElement>('.sk-alle-status')!;
+    const alleGroepen = Array.from(alle.querySelectorAll<HTMLElement>('.sk-alle-groep'));
+    const inAlle = () => !alle.hidden;
+    // Zoeken zonder hoofdletters en accenten: 'rontgen' vindt 'röntgen'
+    const norm = (t: string) => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const zoekTekst = new WeakMap<HTMLElement, string>();
+    const past = (k: HTMLElement, q: string) => {
+      if (!zoekTekst.has(k)) zoekTekst.set(k, norm(k.dataset.zoek ?? ''));
+      return zoekTekst.get(k)!.includes(q);
+    };
+    const kaartenVan = (p: HTMLElement) => Array.from(p.querySelectorAll<HTMLElement>('.sk-kaart'));
+    const meervoud = (n: number, een: string, meer: string) => `${n} ${n === 1 ? een : meer}`;
+    const schrijfUrl = (push = false) => {
+      const url = params.toString() ? `?${params}` : location.pathname;
+      push ? history.pushState({ alle: inAlle() }, '', url) : history.replaceState(history.state, '', url);
+    };
 
-    function toonGroep(id: string, schrijfUrl = true) {
+    // Na wisselen van weergave: tabbladen bovenaan in beeld (onder de vaste kopbalk)
+    function naarBoven() {
+      const kop = document.querySelector('header')?.getBoundingClientRect().height ?? 0;
+      const y = document.querySelector('.sk-tabs')!.getBoundingClientRect().top + window.scrollY - kop - 20;
+      if (window.scrollY > y) window.scrollTo({ top: y });
+    }
+
+    function toonGroep(id: string, schrijf = true) {
+      alle.hidden = true;
       for (const t of tabs) t.setAttribute('aria-selected', String(t.dataset.groep === id));
       for (const p of panelen) p.hidden = p.dataset.groep !== id;
-      if (schrijfUrl) { params.set('groep', id); history.replaceState(null, '', `?${params}`); }
+      if (schrijf) { params.set('groep', id); params.delete('alle'); schrijfUrl(); }
     }
-    tabs.forEach((t) => t.addEventListener('click', () => toonGroep(t.dataset.groep!)));
+
+    // ---- Zoektocht uitbreiden naar alle categorieën (?q=…&alle=1) ----
+    function vulAlle() {
+      const ruw = alleZoek.value.trim();
+      const q = norm(ruw);
+      let totaal = 0, groepen = 0;
+      for (const g of alleGroepen) {
+        const p = panelen.find((x) => x.dataset.groep === g.dataset.groep)!;
+        const treffers = q ? kaartenVan(p).filter((k) => past(k, q)) : [];
+        // gegroepeerd per categorie (binnen de categorie de volgorde van het tabblad)
+        treffers.sort((a, b) => (a.dataset.categorie ?? '').localeCompare(b.dataset.categorie ?? '', 'nl'));
+        const lijst = g.querySelector<HTMLElement>('.sk-alle-lijst')!;
+        lijst.replaceChildren(...treffers.map((k) => {
+          const c = k.cloneNode(true) as HTMLElement;
+          c.removeAttribute('id');
+          c.hidden = false;
+          return c;
+        }));
+        g.querySelector<HTMLElement>('.sk-alle-aantal')!.textContent = String(treffers.length);
+        g.hidden = !treffers.length;
+        totaal += treffers.length;
+        if (treffers.length) groepen++;
+      }
+      alleStatus.textContent = !q ? 'Typ een zoekterm om in alle categorieën te zoeken.'
+        : totaal ? `${meervoud(totaal, 'resultaat', 'resultaten')} voor “${ruw}” in ${meervoud(groepen, 'tabblad', 'tabbladen')}.`
+        : `Niets gevonden voor “${ruw}” in alle categorieën.`;
+    }
+    function toonAlle(q: string, terug: string) {
+      for (const t of tabs) t.setAttribute('aria-selected', 'false');
+      for (const p of panelen) p.hidden = true;
+      alle.hidden = false;
+      alle.dataset.terug = terug;
+      const tab = tabs.find((t) => t.dataset.groep === terug);
+      alle.querySelector<HTMLElement>('.sk-terug')!.textContent = `← Terug naar ${tab?.querySelector('.sk-tab-kort')?.textContent ?? 'tabblad'}`;
+      alleZoek.value = q;
+      vulAlle();
+    }
+    // Uit 'alle categorieën' naar één tabblad, met dezelfde zoekterm (nieuwe stap in de geschiedenis)
+    function naarTab(id: string) {
+      const q = alleZoek.value.trim();
+      params = new URLSearchParams();
+      params.set('groep', id);
+      if (q) params.set('q', q);
+      history.pushState(null, '', `?${params}`);
+      pasUrlToe();
+      naarBoven();
+      tabs.find((t) => t.dataset.groep === id)?.focus({ preventScroll: true });
+    }
+    alleZoek.addEventListener('input', () => {
+      vulAlle();
+      const q = alleZoek.value.trim();
+      q ? params.set('q', q) : params.delete('q');
+      schrijfUrl();
+    });
+    alle.querySelector('.sk-terug')!.addEventListener('click', () => {
+      if (history.state?.alle) history.back();
+      else naarTab(alle.dataset.terug || panelen[0].dataset.groep!);
+    });
+    alle.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.sk-naar-tab');
+      if (b) naarTab(b.dataset.groep!);
+    });
+
+    tabs.forEach((t) => t.addEventListener('click', () => {
+      if (inAlle()) return naarTab(t.dataset.groep!);
+      toonGroep(t.dataset.groep!);
+      (panelen.find((p) => p.dataset.groep === t.dataset.groep) as any)?.__filter();
+    }));
 
     for (const p of panelen) {
       const zoek = p.querySelector<HTMLInputElement>('.sk-zoek')!;
@@ -293,23 +410,46 @@ const perGroep = GROEPEN.map((g) => ({
       const open = p.querySelector<HTMLButtonElement>('.sk-open');
       const niveaus = Array.from(p.querySelectorAll<HTMLButtonElement>('.sk-niveau'));
       const aan = (b: HTMLButtonElement) => b.getAttribute('aria-pressed') === 'true';
-      const kaarten = Array.from(p.querySelectorAll<HTMLElement>('.sk-kaart'));
+      const kaarten = kaartenVan(p);
       const leeg = p.querySelector<HTMLElement>('.sk-leeg')!;
+      const uitbreiden = p.querySelector<HTMLElement>('.sk-uitbreiden')!;
+      const elders = p.querySelector<HTMLElement>('.sk-elders')!;
+      const telling = p.querySelector<HTMLElement>('.sk-telling')!;
+      p.querySelector('.sk-uitbreid-knop')!.addEventListener('click', () => {
+        const q = zoek.value.trim();
+        if (!q) return;
+        params = new URLSearchParams();
+        params.set('groep', p.dataset.groep!);
+        params.set('q', q);
+        params.set('alle', '1');
+        toonAlle(q, p.dataset.groep!);
+        schrijfUrl(true);
+        naarBoven();
+        (document.getElementById('sk-alle-kop') as HTMLElement).focus({ preventScroll: true });
+      });
       const filter = () => {
-        const q = zoek.value.trim().toLowerCase();
+        const ruw = zoek.value.trim();
+        const q = norm(ruw);
         const c = cat.value;
         let n = 0;
         const gekozen = niveaus.filter(aan).map((b) => b.dataset.niveau!);
         for (const k of kaarten) {
           const kn = (k.dataset.niveau ?? '').split('|').filter(Boolean);
           const niveauOk = !gekozen.length || gekozen.some((n) => kn.includes(n));
-          const ok = (!c || k.dataset.categorie === c) && (!q || (k.dataset.zoek ?? '').includes(q)) && !(open && aan(open) && k.dataset.stop === '1') && niveauOk;
+          const ok = (!c || k.dataset.categorie === c) && (!q || past(k, q)) && !(open && aan(open) && k.dataset.stop === '1') && niveauOk;
           k.hidden = !ok;
           if (ok) n++;
         }
         leeg.hidden = n > 0;
+        uitbreiden.hidden = !q;
+        if (q) {
+          const anders = panelen.filter((x) => x !== p).reduce((som, x) => som + kaartenVan(x).filter((k) => past(k, q)).length, 0);
+          elders.textContent = anders ? `${meervoud(anders, 'resultaat', 'resultaten')} in andere tabbladen` : 'ook in andere tabbladen niets gevonden';
+        }
+        telling.textContent = q || c || gekozen.length || (open && aan(open)) ? `${meervoud(n, 'resultaat', 'resultaten')} in dit tabblad` : '';
         if (!p.hidden) {
-          q ? params.set('q', q) : params.delete('q');
+          params.delete('alle');
+          ruw ? params.set('q', ruw) : params.delete('q');
           c ? params.set('cat', c) : params.delete('cat');
           gekozen.length ? params.set('niveau', gekozen.join(',')) : params.delete('niveau');
           history.replaceState(null, '', params.toString() ? `?${params}` : location.pathname);
@@ -322,23 +462,31 @@ const perGroep = GROEPEN.map((g) => ({
       (p as any).__filter = filter;
     }
 
-    // Beginstand uit de URL: ?groep=medisch&cat=Huisartsen&q=…  (of een #anker naar een kaart)
-    let start = params.get('groep') ?? '';
+    // Stand uit de URL: ?groep=medisch&cat=Huisartsen&q=…, ?q=…&alle=1 (alle categorieën), of een #anker naar een kaart.
+    // Ook bij de terugknop van de browser (popstate).
     const oud = JSON.parse(document.querySelector<HTMLElement>('.sk-tabs')?.dataset.oud || '{}');
-    start = oud[start] ?? start;
-    const anker = location.hash.slice(1);
-    if (anker) {
-      const kaart = document.getElementById(anker);
-      const paneel = kaart?.closest<HTMLElement>('.sk-paneel');
-      if (paneel) start = paneel.dataset.groep!;
+    function pasUrlToe(anker = '') {
+      params = new URLSearchParams(location.search);
+      let start = params.get('groep') ?? '';
+      start = oud[start] ?? start;
+      if (anker) {
+        const paneel = document.getElementById(anker)?.closest<HTMLElement>('.sk-paneel');
+        if (paneel) start = paneel.dataset.groep!;
+      }
+      if (!panelen.some((p) => p.dataset.groep === start)) start = panelen[0].dataset.groep!;
+      const q = params.get('q') ?? '';
+      if (params.get('alle') === '1' && q.trim() && !anker) return toonAlle(q, start);
+      toonGroep(start, false);
+      const actief = panelen.find((p) => p.dataset.groep === start)!;
+      actief.querySelector<HTMLInputElement>('.sk-zoek')!.value = q;
+      actief.querySelector<HTMLSelectElement>('.sk-categorie')!.value = params.get('cat') ?? '';
+      const niveaus = (params.get('niveau') ?? '').split(',');
+      for (const b of actief.querySelectorAll<HTMLButtonElement>('.sk-niveau')) b.setAttribute('aria-pressed', String(niveaus.includes(b.dataset.niveau!)));
+      (actief as any).__filter();
     }
-    if (!panelen.some((p) => p.dataset.groep === start)) start = panelen[0].dataset.groep!;
-    toonGroep(start, false);
-    const actief = panelen.find((p) => p.dataset.groep === start)!;
-    if (params.get('q')) actief.querySelector<HTMLInputElement>('.sk-zoek')!.value = params.get('q')!;
-    if (params.get('cat')) actief.querySelector<HTMLSelectElement>('.sk-categorie')!.value = params.get('cat')!;
-    for (const n of (params.get('niveau') ?? '').split(',')) actief.querySelector<HTMLButtonElement>(`.sk-niveau[data-niveau="${CSS.escape(n)}"]`)?.setAttribute('aria-pressed', 'true');
-    (actief as any).__filter();
+    const anker = location.hash.slice(1);
+    pasUrlToe(anker);
+    window.addEventListener('popstate', () => pasUrlToe());
     if (anker) document.getElementById(anker)?.scrollIntoView({ block: 'start' });
   </script>
 </Base>

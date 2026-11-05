@@ -68,6 +68,8 @@ Categorieën (`CATEGORIEEN`) zijn verdeeld in vijf groepen (`GROEPEN`); de groep
 
 Een nieuwe categorie voeg je toe aan de juiste groep in `shared/velden.mjs`.
 
+Zoeken: elk tabblad heeft een eigen zoekveld (zonder hoofdletters en accenten: `rontgen` vindt `röntgen`). Na een zoekterm staat onder de resultaten *Zoektocht uitbreiden naar álle categorieën?*; dat toont dezelfde zoekterm over alle tabbladen, gegroepeerd per tabblad en daarbinnen per categorie (`?q=…&alle=1`, terugknop van de browser werkt). Het zoekveld doorzoekt naam, omschrijving, doelgroep, adres, tags, categorie en toelichting.
+
 Binnen het tabblad GGZ filtert de site extra op `ggz_niveau` (knoppen B-GGZ / S-GGZ / Overig). Geef elk item in die groep minstens één niveau; behandelaars die zowel basis- als specialistische GGZ bieden krijgen beide. Welzijn, hulplijnen, coaching, POH-GGZ e.d. krijgen `Overig`.
 
 Verwijswijzen (`VERWIJSWIJZEN`): `Rechtstreeks (patiënt meldt zichzelf aan)`, `Via ZorgDomein`, `Verwijsbrief huisarts`, `Via gemeente / WMO-loket`, `Onbekend`.
