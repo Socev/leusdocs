@@ -10,6 +10,7 @@ verwijzen: "Via ZorgDomein"
 wachttijd: "Geen"
 tags: ["diëtist", "achterveld", "heelkom", "chronische zorg", "diabetes"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/dietisten/dietistenpraktijk-maria-lunter"
 ---
-Let op: de opgegeven website `www.dietisten-midden-nederland.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: Geen enkele bron gevonden voor praktijk of Maria Lunter in Achterveld; De Heelkom-site noemt de praktijk niet. Domein dietisten-midden-nederland.nl al eerder weg.

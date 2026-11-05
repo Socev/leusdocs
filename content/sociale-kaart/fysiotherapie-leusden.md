@@ -10,6 +10,6 @@ doelgroep: "Inwoners van Leusden met uiteenlopende klachten aan het houdings- en
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["fysiotherapie", "tabaksteeg", "alandsbeek", "oedeemtherapie", "sportfysio"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/fysiotherapie-leusden"
 ---

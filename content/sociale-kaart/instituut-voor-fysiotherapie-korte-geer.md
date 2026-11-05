@@ -10,6 +10,7 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["fysiotherapie", "parkinsonnet", "psychosomatiek", "korte geer"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/de-korte-geer"
 ---
-Let op: de opgegeven website `www.fysiotherapiekortegeer.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: Domeinen fysiotherapiekortegeer.nl en kortegeer.nl bestaan niet (meer). Zoekopdrachten naar de praktijk en Korte Geer 6 leverden geen bevestiging op.

@@ -9,6 +9,6 @@ doelgroep: "Inwoners van Leusden-Zuid / Tabaksteeg"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Alleen geopend voor nieuwe bewoners in het verzorgingsgebied die nog geen huisarts in Leusden hebben"
 tags: ["huisarts", "leusden-zuid", "sante", "tabaksteeg", "hagro"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsenpraktijk-sante"
 ---

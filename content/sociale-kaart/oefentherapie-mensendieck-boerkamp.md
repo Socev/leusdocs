@@ -10,6 +10,7 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["oefentherapie", "mensendieck", "houding", "rugklachten", "stress"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/oefentherapie-mensendieck-boerkamp"
 ---
-Let op: de opgegeven website `www.mensendieckboerkamp.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: Website bestaat niet meer; alleen een Zorgkaart-vermelding (J. Boerkamp, Leusden) zonder reviews of contactgegevens. Geen bewijs van actieve praktijk.

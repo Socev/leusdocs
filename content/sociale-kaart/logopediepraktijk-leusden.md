@@ -10,6 +10,6 @@ doelgroep: "Kinderen en volwassenen met communicatie- of slikproblemen"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Aanmeldstop: wisselend geopend, wachttijd voor naschoolse plekken kan oplopen"
 tags: ["logopedie", "tolgaarde", "spraak", "taal", "stem", "heelkom"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/logopedie/logopediepraktijk-leusden-zorgplein-tolgaarde"
 ---

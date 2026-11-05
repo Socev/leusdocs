@@ -10,6 +10,6 @@ doelgroep: "Patiënten met acute medicatiebehoefte buiten openingstijden van reg
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["spoedapotheek", "dienstapotheek", "avonddienst", "weekend", "meander"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/apotheken/dienstapotheek-eemland"
 ---

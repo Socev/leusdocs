@@ -9,6 +9,6 @@ doelgroep: "Patiënten die thuis hoogcomplexe medisch-technische zorg behoeven"
 verwijzen: "Via ZorgDomein"
 wachttijd: "Geen"
 tags: ["technische thuiszorg", "infuustherapie", "transfusie", "santé partners", "stmn"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/palliatieve-zorg/specialistisch-team-midden-nederland-nh-stmn"
 ---

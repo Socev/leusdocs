@@ -6,11 +6,11 @@ omschrijving: "Het centrale welzijns- en sociaal team van de gemeente Leusden vo
 website: "https://www.lariks-leusden.nl"
 telefoon: "033-3034444"
 email: "info@lariks-leusden.nl"
-adres: "De Biezenkamp 179, 3831 JA Leusden"
+adres: "'t Erf 1, 3831 NA Leusden"
 doelgroep: "Alle inwoners van de gemeente Leusden met ondersteuningsvragen op het gebied van welzijn, mantelzorg en zelfredzaamheid"
 verwijzen: "Via gemeente / WMO-loket"
 wachttijd: "Geen"
 tags: ["lariks", "sociaal team", "wmo", "mantelzorg", "senioren", "biezenkamp"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/activiteiten-senioren"
 ---

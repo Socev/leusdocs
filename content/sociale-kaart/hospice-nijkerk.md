@@ -10,6 +10,6 @@ doelgroep: "Mensen in de terminale levensfase met levensverwachting <3 maanden"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Afhankelijk van kamerbezetting"
 tags: ["hospice", "nijkerk", "palliatief", "terminaal", "respijtzorg"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/palliatieve-zorg/hospice-nijkerk"
 ---

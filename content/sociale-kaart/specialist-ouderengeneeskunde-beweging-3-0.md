@@ -11,6 +11,8 @@ doelgroep: "Thuiswonende kwetsbare ouderen in Leusden en Achterveld"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "1–2 weken; spoed in overleg"
 tags: ["specialist ouderengeneeskunde", "geriatrie", "dementie", "wilsbekwaamheid", "lisidunahof"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
+concept: true
 bron: "https://sociaalleusden.nl/verpleeg-en-verzorgingshuizen/specialist-ouderengeneeskunde"
 ---
+**Niet geverifieerd** bij de controle van 5-11-2026: Beweging 3.0 bestaat; diepe link /behandeling stuurt door naar de homepage en toont dit aanbod en adres/telefoon niet. Centraal nummer op de site (033) 469 20 20.

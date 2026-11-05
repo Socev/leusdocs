@@ -10,6 +10,6 @@ doelgroep: "Kinderen met motorische ontwikkelingsproblemen en volwassenen met ho
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["kinderoefentherapie", "cesar", "motoriek", "dcd", "omnis"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/sterk-oefentherapie"
 ---

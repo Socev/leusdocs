@@ -10,6 +10,6 @@ doelgroep: "Volwassenen en kinderen met bekken-, blaas-, darm- of seksuologische
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Ca. 1–3 weken"
 tags: ["bekkenfysiotherapie", "bekkenbodem", "incontinentie", "omnis"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/bekkenfysiotherapeuten/bekken-in-balans"
 ---

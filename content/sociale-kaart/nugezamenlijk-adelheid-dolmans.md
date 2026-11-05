@@ -11,7 +11,7 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Onbekend"
 tags: ["pri", "ouderschap", "coaching", "omnis", "emotionele balans"]
 concept: true
-bijgewerkt: 2026-09-19
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/adelheid-dolmans-nugezamenlijk-praktijk-voor-pri-coachingtherapie"
 ---
-Let op: het domein nugezamenlijk.nl is verlopen ("This web space is expired", gecontroleerd 19-9-2026). Nagaan of de praktijk nog bestaat.
+**Niet geverifieerd** bij de controle van 5-11-2026: Domein verlopen; geen tweede bron gevonden (websearch op naam en praktijk leverde niets). Niet bewezen dat het gestopt is.

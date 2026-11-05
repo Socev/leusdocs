@@ -10,6 +10,7 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "In overleg"
 tags: ["ergonomie", "werkplekonderzoek", "arbo", "advies"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/ergotherapie/sanergo"
 ---
-Let op: de opgegeven website `www.sanergo.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: Websites sanergo.nl niet bereikbaar. OpenCorporates toont KvK 06078351 als actief met adres Lambalgerkom 14 Leusden; geen teken van werkelijke activiteit gevonden.

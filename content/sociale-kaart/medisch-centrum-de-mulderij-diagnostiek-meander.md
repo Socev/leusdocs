@@ -9,6 +9,8 @@ doelgroep: "Patiënten met een diagnostische aanvraag van huisarts of specialist
 verwijzen: "Via ZorgDomein"
 wachttijd: "Afspraak via het Meander portaal"
 tags: ["bloedafname", "röntgen", "echo", "meander", "laboratorium", "diagnostiek"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
+concept: true
 bron: "https://sociaalleusden.nl/laboratorium/medisch-centrum-de-mulderij"
 ---
+**Niet geverifieerd** bij de controle van 5-11-2026: Meander-site laadt, maar locatie De Mulderij en nummer 033-8505050 niet teruggevonden; Heelkom-site noemt wel bloedafname bij Meander in Achterveld.

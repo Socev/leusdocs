@@ -10,6 +10,6 @@ doelgroep: "Chronisch zieken, mensen met dementie en terminale patiënten met be
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Direct inzetbaar"
 tags: ["particuliere thuiszorg", "24-uurs zorg", "nachtzorg", "pgb"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/thuiszorg/verpleeg-collectief-particuliere-thuiszorg"
 ---

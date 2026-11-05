@@ -6,11 +6,11 @@ omschrijving: "Brede welzijnsorganisatie voor de gemeente Amersfoort. Let op: in
 website: "https://www.indebuurt033.nl"
 telefoon: "033-2048677"
 email: "info@indebuurt033.nl"
-adres: "Drentsestraat 14, 3812 EH Amersfoort"
+adres: "Basicweg 24, 3821 BR Amersfoort"
 doelgroep: "Uitsluitend inwoners van de gemeente Amersfoort"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["welzijn", "amersfoort", "vrijwilligers", "sociaal werk"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/indebuurt033"
 ---

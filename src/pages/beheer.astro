@@ -151,7 +151,7 @@ import Base from '../layouts/Base.astro';
         const g = gebouwd.find((i) => i.id === id);
         const titel = g ? (g.naam || g.titel || id) : id;
         const sub = g
-          ? [g.categorie, g.afzender, g.datum ? String(g.datum).slice(0, 10) : '', g.concept ? '⚠ nog te controleren' : ''].filter(Boolean).join(' · ')
+          ? [g.categorie, g.afzender, g.datum ? String(g.datum).slice(0, 10) : '', g.concept ? '⚠ niet geverifieerd' : ''].filter(Boolean).join(' · ')
           : 'nog niet gepubliceerd (site wordt gebouwd)';
         return { id, titel, sub, nietInGit: inGit.length > 0 && !inGit.some((f) => f.naam === id) };
       }).sort((a, b) => a.titel.localeCompare(b.titel, 'nl'));

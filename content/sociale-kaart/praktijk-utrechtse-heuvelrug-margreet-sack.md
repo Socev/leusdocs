@@ -10,7 +10,8 @@ doelgroep: "Vrouwen met overgangsklachten of hormonale disbalans"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "1–2 weken"
 tags: ["overgang", "menopauze", "overgangsconsulente", "leefstijl"]
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/overgangsconsulente-praktijk-utrechtse-heuvelrug"
 concept: true
 ---
-Website `www.praktijkutrechtseheuvelrug.nl` was op 14-9-2026 niet bereikbaar vanuit de controle; nog nakijken.
+**Niet geverifieerd** bij de controle van 5-11-2026: Website niet bereikbaar (ook niet zonder www); zoeken vond geen vermelding van Margreet Sack of de praktijk in Doorn.

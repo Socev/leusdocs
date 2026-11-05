@@ -10,6 +10,8 @@ doelgroep: "Patiënten met rug-, nek- en uitstralende zenuwpijn (hernia, kanaals
 verwijzen: "Via ZorgDomein"
 wachttijd: "Ca. 2–3 weken"
 tags: ["hernia", "stenose", "wervelkolom", "neurochirurgie", "ede"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
+concept: true
 bron: "https://sociaalleusden.nl/specialistische-zorg/orthopedie/nedspine"
 ---
+**Niet geverifieerd** bij de controle van 5-11-2026: nedspine.nl laadt niet. Directory's (WhatClinic) noemen adres Pascalstraat 21 Ede; een bedrijfsprofiel noemt mogelijk 'Bergman Clinics | Bewegen (voorheen NedSpine)'. Niet bevestigd.

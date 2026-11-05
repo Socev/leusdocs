@@ -10,6 +10,6 @@ doelgroep: "Inwoners van Achterveld en omgeving met fysieke klachten"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["fysiotherapie", "achterveld", "heelkom", "manuele therapie", "kinderfysio"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/fysio-heelkom-achterveld"
 ---

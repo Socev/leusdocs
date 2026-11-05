@@ -4,14 +4,14 @@ categorie: "GGZ jeugd"
 ggz_niveau: ["Overig"]
 omschrijving: "Praktijk op Zorgplein Tolgaarde voor psychologische hulp, psychotherapie, opvoedondersteuning en Cogmed-werkgeheugentraining."
 website: "https://ellenvandijck.praktijkinfo.nl"
-telefoon: "033-4701965"
+telefoon: "06-51782345"
 email: "psychologischepraktijkleusden@gmail.com"
-adres: "Tolplaats 5, 3831 JR Leusden"
+adres: "'t Zand 39, 3811 GB Amersfoort"
 doelgroep: "Kinderen, jongeren en volwassenen"
 verwijzen: "Via ZorgDomein"
 wachttijd: "Aanmeldstop sinds juni 2026; partnerrelatietherapie kan zonder verwijzing"
 tags: ["psychologie", "tolgaarde", "kinderen", "psychotherapie", "cogmed"]
-bijgewerkt: 2026-09-19
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/ggz/praktijk-voor-pedagogische-en-psychologische-hulp"
 aanmeldstop: true
 aanmeldstop_vanaf: 2026-06-01
@@ -19,3 +19,5 @@ aanmeldstop_toelichting: "geen ruimte voor nieuwe aanmeldingen; heropening wordt
 aanmeldstop_gemeld: 2026-09-19
 ---
 Bericht op de site (1 juni 2026): "Op dit moment is er geen ruimte voor nieuwe aanmeldingen. Als er ruimte is, wordt dit op de website vermeld."
+
+Controle 5-11-2026: praktijk zit niet meer op de Tolplaats in Leusden maar in Amersfoort; aanmelden telefonisch of via WhatsApp.

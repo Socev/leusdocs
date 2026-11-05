@@ -10,6 +10,6 @@ doelgroep: "Inwoners van Leusden"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Beperkt geopend; raadpleeg praktijkwebsite voor inschrijfmogelijkheden"
 tags: ["huisarts", "groenhouten", "asschatterweg", "hagro"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsenpraktijk-leusden"
 ---

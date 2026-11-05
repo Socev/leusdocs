@@ -1,15 +1,13 @@
 ---
-naam: "Annatommie mc Amersfoort"
+naam: "Xpert Clinics Orthopedie Amersfoort (v/h Annatommie mc)"
 categorie: "Ziekenhuis & specialistische zorg"
 omschrijving: "Zelfstandig behandelcentrum voor orthopedische chirurgie, bewegingsapparaat, fysiotherapie en geavanceerde diagnostiek (incl. Open MRI)."
-website: "https://www.annatommiemc.nl/locaties/amersfoort"
-telefoon: "088-0220600"
-email: "contact@annatommiemc.nl"
-adres: "Softwareweg 5, 3821 BN Amersfoort"
+website: "https://www.xpertclinics.nl/locaties/amersfoort"
+adres: "De Brand 20, 3823 LJ Amersfoort"
 doelgroep: "Patiënten met gewrichtsklachten, sportblessures of rug/nekklachten"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Kort (eerste consult veelal binnen 1–2 weken)"
 tags: ["orthopedie", "open mri", "gewrichten", "sportblessures", "zbc"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/specialistische-zorg/orthopedie/annatommie"
 ---
+Controle 5-11-2026: Annatommie mc gaat sinds 2023 verder als Xpert Clinics Orthopedie; annatommiemc.nl verwijst door. Telefoon en e-mail niet op de site gezien; wachttijd staat actueel op de locatiepagina.

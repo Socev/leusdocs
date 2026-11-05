@@ -9,6 +9,7 @@ verwijzen: "Via ZorgDomein"
 wachttijd: "Wisselend"
 tags: ["bariatrie", "maagverkleining", "mcl", "obesitas"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/specialistische-zorg/bariatrie/centrum-voor-obesitas-leeuwarden"
 ---
-Let op: de opgegeven website `www.obesitascentrum.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: Domein obesitascentrum.nl niet bereikbaar. Zoekresultaten noemen het Centrum Obesitas Noord-Nederland als onderdeel van het MCL (2022), maar adres Borniastraat 34 en nummer niet op een actuele eigen bron bevestigd.

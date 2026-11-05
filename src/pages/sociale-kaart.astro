@@ -1,10 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
-import { GROEPEN, GGZ_NIVEAUS, groepVanCategorie } from '../../shared/velden.mjs';
+import { GROEPEN, GGZ_NIVEAUS, OUDE_GROEPEN, groepVanCategorie } from '../../shared/velden.mjs';
 import { datumLang } from '../lib/datum';
 
-// Alfabetisch; items die nog gecontroleerd moeten worden onderaan
+// Alfabetisch; niet-geverifieerde items onderaan
 const items = (await getCollection('sociale-kaart')).sort((a, b) => Number(a.data.concept) - Number(b.data.concept) || a.data.naam.localeCompare(b.data.naam, 'nl'));
 const gerenderd = await Promise.all(
   items.map(async (i) => ({ ...i, Body: (await render(i)).Content, heeftBody: !!i.body?.trim().length, groep: groepVanCategorie(i.data.categorie).id })),
@@ -25,10 +25,10 @@ const perGroep = GROEPEN.map((g) => ({
     <a class="knop secundair" href="/beheer#sociale-kaart">Toevoegen of wijzigen</a>
   </div>
 
-  <div class="sk-tabs" role="tablist" aria-label="Onderdeel van de sociale kaart">
+  <div class="sk-tabs" role="tablist" aria-label="Onderdeel van de sociale kaart" data-oud={JSON.stringify(OUDE_GROEPEN)}>
     {perGroep.map((g, n) => (
       <button class="sk-tab" role="tab" type="button" data-groep={g.id} aria-selected={n === 0 ? 'true' : 'false'}>
-        {g.label} <span class="sk-tab-aantal">{g.items.length}</span>
+        <span class="sk-tab-lang">{g.label}</span><span class="sk-tab-kort">{g.kort}</span> <span class="sk-tab-aantal">{g.items.length}</span>
       </button>
     ))}
   </div>
@@ -62,7 +62,7 @@ const perGroep = GROEPEN.map((g) => ({
           >
             <div class="rij tussen">
               <span class="rij" style="gap:4px"><span class="label">{i.data.categorie}</span>{i.data.ggz_niveau.filter((n) => n !== 'Overig').map((n) => <span class="label niveau">{n}</span>)}</span>
-              {i.data.concept && <span class="label let-op" title="Gegevens zijn nog niet gecontroleerd">Nog te controleren</span>}
+              {i.data.concept && <span class="label let-op" title="Gegevens konden bij de laatste controle niet worden bevestigd">Niet geverifieerd</span>}
             </div>
             <h3>{i.data.website ? <a href={i.data.website} target="_blank" rel="noopener">{i.data.naam}</a> : i.data.naam}</h3>
             <p style="margin:0">{i.data.omschrijving}</p>
@@ -233,8 +233,10 @@ const perGroep = GROEPEN.map((g) => ({
       (p as any).__filter = filter;
     }
 
-    // Beginstand uit de URL: ?groep=zorg&cat=Huisartsen&q=…  (of een #anker naar een kaart)
+    // Beginstand uit de URL: ?groep=medisch&cat=Huisartsen&q=…  (of een #anker naar een kaart)
     let start = params.get('groep') ?? '';
+    const oud = JSON.parse(document.querySelector<HTMLElement>('.sk-tabs')?.dataset.oud || '{}');
+    start = oud[start] ?? start;
     const anker = location.hash.slice(1);
     if (anker) {
       const kaart = document.getElementById(anker);

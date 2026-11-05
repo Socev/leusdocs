@@ -5,11 +5,11 @@ omschrijving: "Gespecialiseerd kinderhospice voor verpleegkundige zorg, respijtz
 website: "https://www.kinderhospicebinnenveld.nl"
 telefoon: "0342-405200"
 email: "info@kinderhospicebinnenveld.nl"
-adres: "Binnenveldlaan 1, 3771 PK Barneveld"
+adres: "Binnenveld 11, 3771 PL Barneveld"
 doelgroep: "Kinderen van 0 tot 18 jaar met een levensbedreigende of chronisch complexe aandoening"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Capaciteitsafhankelijk"
 tags: ["kinderhospice", "kinderen", "respijtzorg", "barneveld", "palliatief"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/palliatieve-zorg/kinderhospice-de-glind"
 ---

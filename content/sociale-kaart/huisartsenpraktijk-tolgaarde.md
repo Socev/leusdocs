@@ -9,6 +9,6 @@ doelgroep: "Ingeschreven patiënten in Leusden"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Aanmeldstop: sinds 15 januari 2025 tijdelijk gesloten voor nieuwe inschrijvingen (capaciteit)"
 tags: ["huisarts", "tolgaarde", "hagro", "huisartsenzorg"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsenpaktijk-tolgaarde"
 ---

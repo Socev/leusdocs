@@ -10,6 +10,6 @@ doelgroep: "Ongeneeslijk zieke mensen in de terminale fase met een levensverwach
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Afhankelijk van beschikbare kamers"
 tags: ["hospice", "palliatief", "bijna-thuis-huis", "amersfoort", "terminaal"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/palliatieve-zorg/hospice-dome"
 ---

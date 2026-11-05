@@ -11,6 +11,7 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["geestelijke verzorging", "levensvragen", "palliatief", "zingeving", "verlies"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/centrum-voor-levensvragen-eemland"
 ---
-Let op: de opgegeven website `www.centrumlevensvrageneemland.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: Website bestaat niet meer (DNS-fout); webzoekopdracht vond alleen andere regionale Centra voor Levensvragen, niets over Eemland.

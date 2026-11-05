@@ -36,7 +36,7 @@ Handige leesbron zonder Git: de gebouwde site publiceert elke collectie als JSON
 ---
 naam: "GGZ Centraal"                              # verplicht
 categorie: "GGZ volwassenen"                      # verplicht, EXACT één uit shared/velden.mjs → CATEGORIEEN
-ggz_niveau: ["B-GGZ", "S-GGZ"]                    # alleen voor de groep GGZ & welzijn; één of meer uit GGZ_NIVEAUS: B-GGZ, S-GGZ, Overig
+ggz_niveau: ["B-GGZ", "S-GGZ"]                    # alleen voor het tabblad GGZ; één of meer uit GGZ_NIVEAUS: B-GGZ, S-GGZ, Overig
 omschrijving: "Specialistische GGZ voor volwassenen en ouderen in de regio Eemland."   # verplicht, 1–2 zinnen
 website: "https://www.ggzcentraal.nl"             # optioneel, moet met http(s):// beginnen
 telefoon: "033 123 45 67"                         # optioneel, vrije tekst (voorbeeldwaarde)
@@ -46,7 +46,7 @@ doelgroep: "Volwassenen en ouderen met complexe psychische problematiek"   # opt
 verwijzen: "Via ZorgDomein"                       # optioneel, EXACT één uit VERWIJSWIJZEN
 wachttijd: "ca. 6 weken (intake)"                 # optioneel, vrije tekst
 tags: ["sggz", "crisisdienst"]                    # optioneel, lijst van trefwoorden (voor zoeken)
-concept: true                                     # optioneel; true = toont label "Nog te controleren"
+concept: true                                     # optioneel; true = toont label "Niet geverifieerd" (zet de reden in de toelichting)
 bijgewerkt: 2026-09-14                            # optioneel, datum JJJJ-MM-DD (laatst gecontroleerd)
 bron: "https://sociaalleusden.nl/ggz/…"           # optioneel, waar de gegevens vandaan komen
 aanmeldstop: true                                 # optioneel; true = neemt geen nieuwe patiënten aan (rood label op de site)
@@ -57,14 +57,17 @@ aanmeldstop_gemeld: 2026-09-14                    # datum waarop de aanmeldstop-
 Optionele toelichting in markdown (verwijscriteria, bijzonderheden, contactpersoon).
 ```
 
-Categorieën (`CATEGORIEEN`) zijn verdeeld in twee groepen (`GROEPEN`); de groep bepaalt op welk tabblad van /sociale-kaart een organisatie staat:
+Categorieën (`CATEGORIEEN`) zijn verdeeld in vijf groepen (`GROEPEN`); de groep bepaalt op welk tabblad van /sociale-kaart een organisatie staat (sinds november 2026; oude links met `?groep=zorg` komen uit op Medisch & diagnostiek):
 
-- **GGZ & welzijn** (standaardtabblad): `GGZ volwassenen`, `GGZ jeugd`, `Jeugd & gezin`, `Verslaving`, `Ouderen`, `Welzijn & maatschappelijk werk`, `Gemeente & WMO`, `Werk, inkomen & schulden`
-- **Overige zorgverleners**: `Huisartsen`, `Apotheken`, `Tandartsen`, `Fysiotherapie & oefentherapie`, `Diëtetiek, logopedie & ergotherapie`, `Paramedisch`, `Zwangerschap & geboorte`, `Thuiszorg & mantelzorg`, `Verpleeg- en verzorgingshuizen`, `Palliatieve zorg & overlijden`, `Ziekenhuis & specialistische zorg`, `Laboratorium & diagnostiek`, `Overig`
+- **GGZ** (standaardtabblad): `GGZ volwassenen`, `GGZ jeugd`, `Verslaving`
+- **Sociaal domein & welzijn**: `Welzijn & maatschappelijk werk`, `Jeugd & gezin`, `Gemeente & WMO`, `Werk, inkomen & schulden`, `Zingeving & levensvragen`
+- **Paramedisch**: `Fysiotherapie & oefentherapie`, `Diëtetiek, logopedie & ergotherapie`, `Paramedisch`
+- **Thuiszorg, ouderen & palliatief**: `Thuiszorg & mantelzorg`, `Ouderen`, `Verpleeg- en verzorgingshuizen`, `Palliatieve zorg & overlijden`
+- **Medisch & diagnostiek**: `Huisartsen`, `Apotheken`, `Tandartsen`, `Zwangerschap & geboorte`, `Ziekenhuis & specialistische zorg`, `Laboratorium & diagnostiek`, `Overig`
 
 Een nieuwe categorie voeg je toe aan de juiste groep in `shared/velden.mjs`.
 
-Binnen GGZ & welzijn filtert de site extra op `ggz_niveau` (knoppen B-GGZ / S-GGZ / Overig). Geef elk item in die groep minstens één niveau; behandelaars die zowel basis- als specialistische GGZ bieden krijgen beide. Welzijn, hulplijnen, coaching, POH-GGZ e.d. krijgen `Overig`.
+Binnen het tabblad GGZ filtert de site extra op `ggz_niveau` (knoppen B-GGZ / S-GGZ / Overig). Geef elk item in die groep minstens één niveau; behandelaars die zowel basis- als specialistische GGZ bieden krijgen beide. Welzijn, hulplijnen, coaching, POH-GGZ e.d. krijgen `Overig`.
 
 Verwijswijzen (`VERWIJSWIJZEN`): `Rechtstreeks (patiënt meldt zichzelf aan)`, `Via ZorgDomein`, `Verwijsbrief huisarts`, `Via gemeente / WMO-loket`, `Onbekend`.
 
@@ -75,7 +78,7 @@ Controleer bij twijfel altijd `shared/velden.mjs` — dat is de waarheid, niet d
 - `aanmeldstop: true` + optioneel `aanmeldstop_vanaf`/`aanmeldstop_toelichting` → rood label "Aanmeldstop sinds … · toelichting — gemeld <datum>".
 - `aanmeldstop` weg of `false` mét `aanmeldstop_gemeld` → groen label "Neemt patiënten aan — gemeld <datum>". Zonder `aanmeldstop_gemeld` wordt niets getoond.
 - Iedereen (zonder login) kan de status melden via de knop op /sociale-kaart; dat gaat via `POST /api/aanmeldstop` met `{ "id": "<slug>", "aanmeldstop": true|false, "vanaf": "JJJJ-MM-DD", "toelichting": "…" }`. Die functie past uitsluitend de vier `aanmeldstop_*`-velden aan en zet `aanmeldstop_gemeld` op vandaag. Elke melding is een aparte commit (`aanmeldstop: <naam> — …`).
-- **Periodieke controle (opdracht voor de bot):** loop alle items met `aanmeldstop: true` én alle GGZ-items (`/data/sociale-kaart.json`, groep GGZ & welzijn) langs, open de `website`, zoek naar teksten als "aanmeldstop", "wachtlijst", "geen nieuwe cliënten/patiënten", "aanmelden niet mogelijk", "tijdelijk gesloten voor aanmelding" en werk de velden bij via de GitHub API (sectie 7) — altijd met `aanmeldstop_gemeld` op de controledatum, en een korte toelichting die de bron noemt (bv. "volgens website 14-9-2026"). Bij twijfel: niets veranderen en het item rapporteren.
+- **Periodieke controle (opdracht voor de bot):** loop alle items met `aanmeldstop: true` én alle GGZ-items (`/data/sociale-kaart.json`, tabblad GGZ) langs, open de `website`, zoek naar teksten als "aanmeldstop", "wachtlijst", "geen nieuwe cliënten/patiënten", "aanmelden niet mogelijk", "tijdelijk gesloten voor aanmelding" en werk de velden bij via de GitHub API (sectie 7) — altijd met `aanmeldstop_gemeld` op de controledatum, en een korte toelichting die de bron noemt (bv. "volgens website 14-9-2026"). Bij twijfel: niets veranderen en het item rapporteren.
 
 ## 4. Mededelingen — veldenschema
 

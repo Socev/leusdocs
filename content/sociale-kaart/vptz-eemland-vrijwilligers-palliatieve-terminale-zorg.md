@@ -10,6 +10,7 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen (acute inzet mogelijk)"
 tags: ["vptz", "terminale thuiszorg", "vrijwilligers", "palliatief", "mantelzorg"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/hulpdienst-hoevelaken-vrijwilligers-terminale-thuiszorg"
 ---
-Let op: de opgegeven website `www.vptzeemland.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: vptzeemland.nl niet bereikbaar; zoeken leverde niets specifieks op over VPTZ Eemland.

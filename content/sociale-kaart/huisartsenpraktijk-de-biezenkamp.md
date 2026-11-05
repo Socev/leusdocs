@@ -9,6 +9,6 @@ doelgroep: "Inwoners van Leusden"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Gesloten voor nieuwe patiënten, behoudens gezinsuitbreiding"
 tags: ["huisarts", "biezenkamp", "berkenlaan", "hagro"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsenpraktijk-berkenlaan"
 ---

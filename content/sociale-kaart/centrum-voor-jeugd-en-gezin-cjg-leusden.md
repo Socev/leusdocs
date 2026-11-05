@@ -11,6 +11,7 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["cjg", "jeugdgezondheidszorg", "consultatiebureau", "opvoeden", "jeugdwet"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl"
 ---
-Let op: de opgegeven website `www.cjgleusden.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: cjgleusden.nl niet bereikbaar; zoeken leverde niets Leusden-specifieks op. Mogelijk opgegaan in gemeentelijk jeugdloket, niet bewezen.

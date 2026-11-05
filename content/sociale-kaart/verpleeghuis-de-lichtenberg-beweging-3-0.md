@@ -10,6 +10,8 @@ doelgroep: "Ouderen met zware somatische problematiek of gerontopsychiatrische a
 verwijzen: "Via ZorgDomein"
 wachttijd: "Afhankelijk van indicatie en vrije plaatsen"
 tags: ["verpleeghuis", "beweging 3.0", "somatiek", "gerontopsychiatrie", "de lichtenberg"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
+concept: true
 bron: "https://sociaalleusden.nl/verpleeg-en-verzorgingshuizen/verpleeghuis-de-lichtenberg"
 ---
+**Niet geverifieerd** bij de controle van 5-11-2026: De Lichtenberg (Amersfoort) staat nog in de locatielijst van Beweging 3.0. Locatiepagina en eigen telefoon/adres niet bevestigd; centraal nummer (033) 469 20 20.

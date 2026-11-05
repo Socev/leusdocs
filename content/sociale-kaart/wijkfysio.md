@@ -10,6 +10,7 @@ doelgroep: "Kwetsbare ouderen, mensen met chronische neurologische aandoeningen 
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["geriatrie", "ouderenzorg", "valpreventie", "parkinson", "dementie"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/wijkfysio"
 ---
+Controle 5-11-2026: adres klopt; ook een vestiging in Woudenberg. Het mobiele nummer staat als WhatsApp-link op de site.

@@ -11,6 +11,6 @@ doelgroep: "Mensen die willen reflecteren op verandering, rouw en levenskeuzes"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Start per gespreksgroepcyclus"
 tags: ["zelfbezinning", "gespreksgroepen", "zingeving", "dodeweg"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overlijden/centrum-voor-zelfbezinning"
 ---

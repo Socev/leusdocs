@@ -10,6 +10,7 @@ verwijzen: "Via gemeente / WMO-loket"
 wachttijd: "Wlz-indicatie CIZ vereist; wachtlijst via Philadelphia cliëntbureau"
 tags: ["philadelphia", "verstandelijke beperking", "boerderij", "woonlocatie"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/verpleeg-en-verzorgingshuizen/boerderij-groot-schutterhoef"
 ---
-De specifieke pagina `www.philadelphia.nl/locatie/groot-schutterhoef` bestaat niet meer (404, gecontroleerd 14-9-2026); link verwijst nu naar de hoofdsite.
+**Niet geverifieerd** bij de controle van 5-11-2026: philadelphia.nl bestaat; pagina Groot Schutterhoef geeft 404. Alleen oudere overheidsstukken (2015) noemen de locatie Arnhemseweg 23; huidig bedrijf niet bevestigd.

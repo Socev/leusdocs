@@ -11,7 +11,7 @@ doelgroep: "Kinderen, jongeren en volwassenen"
 verwijzen: "Via ZorgDomein"
 wachttijd: "Wachtlijst gesloten; bij heropening ca. 8–12 weken tot intake"
 tags: ["ggz", "emdr", "cgt", "leusden", "psychologie"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/ggz/psycho-praktijk-leusden"
 aanmeldstop: true
 aanmeldstop_toelichting: "wachtlijst BGGZ, SGGZ én medicatieconsulten tot nader order gesloten; daarnaast budgetstop voor CZ en Zilveren Kruis"

@@ -10,7 +10,7 @@ doelgroep: "Volwassenen met lichte tot matig ernstige psychische klachten"
 verwijzen: "Via ZorgDomein"
 wachttijd: "Intake ±11 weken, daarna geen wachttijd tot behandeling (site sep 2026)"
 tags: ["ggz", "mentaal beter", "cgt", "depressie", "angst", "trauma"]
-bijgewerkt: 2026-09-19
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/ggz/hsk-groep"
 aanmeldstop_gemeld: 2026-09-19
 ---

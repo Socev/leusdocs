@@ -1,39 +1,67 @@
 // Gedeelde definities: gebruikt door de site (build) én door /beheer (formulieren + Pages Function).
 // Wijzig je hier een categorie, dan verandert die overal.
 
-// Twee groepen: GGZ & welzijn staat voorop (standaardtabblad op /sociale-kaart), de overige zorgverleners
-// staan op een eigen tabblad. Een categorie hoort bij precies één groep.
+// Vijf groepen = vijf tabbladen op /sociale-kaart (GGZ staat voorop en is het standaardtabblad).
+// Een categorie hoort bij precies één groep. `kort` is het tabbladlabel op een smal scherm.
+// Oude links met ?groep=zorg komen via OUDE_GROEPEN op het tabblad Medisch & diagnostiek uit.
 export const GROEPEN = [
   {
     id: 'ggz',
-    label: 'GGZ & welzijn',
-    omschrijving: 'Psychische hulp, jeugd, verslaving, welzijn en het sociaal domein — de kaart voor de POH-GGZ en verwijzende huisarts.',
+    label: 'GGZ',
+    kort: 'GGZ',
+    omschrijving: 'Psychische hulp voor volwassenen en jeugd, verslavingszorg en hulplijnen — de kaart voor de POH-GGZ en verwijzende huisarts.',
     categorieen: [
       'GGZ volwassenen',
       'GGZ jeugd',
-      'Jeugd & gezin',
       'Verslaving',
-      'Ouderen',
-      'Welzijn & maatschappelijk werk',
-      'Gemeente & WMO',
-      'Werk, inkomen & schulden',
     ],
   },
   {
-    id: 'zorg',
-    label: 'Overige zorgverleners',
-    omschrijving: 'Huisartsen, apotheken, paramedici, thuiszorg, palliatieve zorg, ziekenhuizen en diagnostiek in en om Leusden.',
+    id: 'sociaal',
+    label: 'Sociaal domein & welzijn',
+    kort: 'Sociaal',
+    omschrijving: 'Welzijn en maatschappelijk werk, jeugd en gezin, gemeente en WMO, werk, inkomen en schulden, zingeving.',
+    categorieen: [
+      'Welzijn & maatschappelijk werk',
+      'Jeugd & gezin',
+      'Gemeente & WMO',
+      'Werk, inkomen & schulden',
+      'Zingeving & levensvragen',
+    ],
+  },
+  {
+    id: 'paramedisch',
+    label: 'Paramedisch',
+    kort: 'Paramedisch',
+    omschrijving: 'Fysio- en oefentherapie, diëtetiek, logopedie, ergotherapie en andere paramedici in en om Leusden.',
+    categorieen: [
+      'Fysiotherapie & oefentherapie',
+      'Diëtetiek, logopedie & ergotherapie',
+      'Paramedisch',
+    ],
+  },
+  {
+    id: 'thuiszorg',
+    label: 'Thuiszorg, ouderen & palliatief',
+    kort: 'Thuiszorg',
+    omschrijving: 'Thuiszorg en mantelzorg, ouderenzorg, verpleeg- en verzorgingshuizen, palliatieve zorg en overlijden.',
+    categorieen: [
+      'Thuiszorg & mantelzorg',
+      'Ouderen',
+      'Verpleeg- en verzorgingshuizen',
+      'Palliatieve zorg & overlijden',
+    ],
+  },
+  {
+    id: 'medisch',
+    label: 'Medisch & diagnostiek',
+    kort: 'Medisch',
+    omschrijving: 'Huisartsen, apotheken, tandartsen, verloskunde, ziekenhuizen, laboratorium en diagnostiek, en overige aanbieders.',
     categorieen: [
       'Huisartsen',
       'Apotheken',
       'Tandartsen',
-      'Fysiotherapie & oefentherapie',
-      'Diëtetiek, logopedie & ergotherapie',
-      'Paramedisch',
       'Zwangerschap & geboorte',
-      'Thuiszorg & mantelzorg',
-      'Verpleeg- en verzorgingshuizen',
-      'Palliatieve zorg & overlijden',
       'Ziekenhuis & specialistische zorg',
       'Laboratorium & diagnostiek',
       'Overig',
@@ -41,9 +69,12 @@ export const GROEPEN = [
   },
 ];
 
+// Groep-id's van vóór november 2026 (twee tabbladen) → huidige groep, zodat oude links blijven werken.
+export const OUDE_GROEPEN = { zorg: 'medisch' };
+
 export const CATEGORIEEN = GROEPEN.flatMap((g) => g.categorieen);
 
-// Verfijning binnen de groep GGZ & welzijn; een organisatie kan meerdere niveaus hebben.
+// Verfijning binnen de groep GGZ; een organisatie kan meerdere niveaus hebben.
 export const GGZ_NIVEAUS = ['B-GGZ', 'S-GGZ', 'Overig'];
 
 export function groepVanCategorie(categorie) {
@@ -71,7 +102,7 @@ export const VELDEN = {
   'sociale-kaart': [
     { naam: 'naam', label: 'Naam organisatie', type: 'text', verplicht: true },
     { naam: 'categorie', label: 'Categorie', type: 'select', opties: CATEGORIEEN, verplicht: true },
-    { naam: 'ggz_niveau', label: 'GGZ-niveau (alleen voor GGZ & welzijn; meerdere mogelijk)', type: 'multi', opties: GGZ_NIVEAUS },
+    { naam: 'ggz_niveau', label: 'GGZ-niveau (alleen voor het tabblad GGZ; meerdere mogelijk)', type: 'multi', opties: GGZ_NIVEAUS },
     { naam: 'omschrijving', label: 'Korte omschrijving (1–2 zinnen)', type: 'textarea', verplicht: true },
     { naam: 'website', label: 'Website', type: 'url' },
     { naam: 'telefoon', label: 'Telefoon', type: 'text' },
@@ -81,7 +112,7 @@ export const VELDEN = {
     { naam: 'verwijzen', label: 'Hoe verwijzen', type: 'select', opties: VERWIJSWIJZEN },
     { naam: 'wachttijd', label: 'Wachttijd (indicatie)', type: 'text' },
     { naam: 'tags', label: 'Trefwoorden (komma-gescheiden)', type: 'tags' },
-    { naam: 'concept', label: 'Nog te controleren (toont een label op de site)', type: 'checkbox' },
+    { naam: 'concept', label: 'Niet geverifieerd (toont een label op de site)', type: 'checkbox' },
     { naam: 'bijgewerkt', label: 'Laatst gecontroleerd op', type: 'date' },
     { naam: 'bron', label: 'Bron (bv. oude vermelding op sociaalleusden.nl)', type: 'url' },
     // Aanmeldstop: ook openbaar te melden via de knop op /sociale-kaart (functions/api/aanmeldstop.js)

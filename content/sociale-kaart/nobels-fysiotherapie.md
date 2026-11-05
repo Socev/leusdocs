@@ -10,6 +10,6 @@ doelgroep: "Patiënten met acute of chronische fysieke klachten en sportblessure
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen"
 tags: ["fysiotherapie", "sportfysio", "manuele therapie", "psychosomatisch"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/nobels-fysiotherapie"
 ---

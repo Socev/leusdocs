@@ -11,6 +11,8 @@ doelgroep: "Thuiswonende mensen met dementie (jong of oud) en hun mantelzorgers"
 verwijzen: "Via gemeente / WMO-loket"
 wachttijd: "In overleg (Wmo/Wlz indicatie nodig)"
 tags: ["dementie", "dagbesteding", "ontmoetingscentrum", "achterveld", "king arthur"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
+concept: true
 bron: "https://sociaalleusden.nl/overig/king-arthur-group"
 ---
+**Niet geverifieerd** bij de controle van 5-11-2026: Site kingarthurgroep.nl toont 035 20 50 950 en info@kingarthurgroep.nl (telefoon/mail kloppen), maar locatie Achterveld niet gezien.

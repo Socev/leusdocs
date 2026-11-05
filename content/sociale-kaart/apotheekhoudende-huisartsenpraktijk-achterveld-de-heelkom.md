@@ -9,6 +9,6 @@ doelgroep: "Inwoners van Achterveld, Stoutenburg en buitengebied"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Uitsluitend open voor vestigers binnen het eigen verzorgingsgebied"
 tags: ["huisarts", "apotheek", "achterveld", "heelkom", "apotheekhoudend", "hagro"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsenpraktijk-de-heelkom"
 ---

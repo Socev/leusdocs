@@ -1,6 +1,7 @@
 ---
 naam: "MIND Korrelatie"
-categorie: "Overig"
+categorie: "GGZ volwassenen"
+ggz_niveau: ["Overig"]
 omschrijving: "Landelijke, anonieme hulplijn voor psychische en psychosociale vragen: telefoon, chat en e-mail."
 website: "https://mindkorrelatie.nl"
 doelgroep: "Iedereen, ook naasten"

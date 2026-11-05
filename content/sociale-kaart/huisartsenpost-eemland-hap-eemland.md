@@ -9,6 +9,6 @@ doelgroep: "Patiënten met acute klachten die niet kunnen wachten tot de eerstvo
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Triage via telefonie; uitsluitend op afspraak"
 tags: ["huisartsenpost", "spoedpost", "avonddienst", "weekend", "anw"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl"
 ---

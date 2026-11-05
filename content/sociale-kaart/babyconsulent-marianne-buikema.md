@@ -11,6 +11,7 @@ verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Geen (spoedig inzetbaar)"
 tags: ["babyconsulent", "huilbaby", "slaapproblemen", "lactatie", "pediatrie"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/babyconsulent-marianne-buikema"
 ---
-Let op: de opgegeven website `www.mariannebuikema.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: Website bestaat niet meer (DNS-fout, 5-11-2026); webzoekopdracht gaf niets over deze babyconsulent. Geen tweede bron gevonden.

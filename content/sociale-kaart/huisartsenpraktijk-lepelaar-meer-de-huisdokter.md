@@ -10,6 +10,6 @@ doelgroep: "Inwoners van Leusden"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Praktijk gesloten voor nieuwe inschrijvingen"
 tags: ["huisarts", "lepelaar", "meer de huisdokter", "hagro"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/huisartsen/huisartsen-lepelaar"
 ---

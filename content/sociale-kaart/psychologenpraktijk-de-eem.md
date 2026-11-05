@@ -11,6 +11,7 @@ verwijzen: "Via ZorgDomein"
 wachttijd: "Wisselend; telefonisch spreekuur ma, wo, do"
 tags: ["basis ggz", "psycholoog", "lepelaar", "volwassenen"]
 concept: true
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/ggz/psychologenpraktijk-de-eem"
 ---
-Let op: de opgegeven website `www.eempsycholoog.nl` bestaat niet meer (domein niet gevonden, gecontroleerd 14-9-2026). Controleer of de organisatie nog actief is.
+**Niet geverifieerd** bij de controle van 5-11-2026: Website bestaat niet meer; Zorgkaart noemt nog Psychologenpraktijk de Eem, Leusden (zonder adres/telefoon). Geen actuele bevestiging.

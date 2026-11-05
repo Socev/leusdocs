@@ -11,7 +11,7 @@ doelgroep: "Volwassenen en kinderen met psychosociale problematiek"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "In overleg"
 tags: ["psychotherapie", "haptotherapie", "ademtherapie", "lichaamsgericht", "emdr", "hypnotherapie", "coaching", "kindertherapie"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/fysiotherapie/centrum-in-balans"
 ---
 Behandelaars o.a.: Wendy Steevens (haptotherapie), Wilma Huizinga (lichaamsgerichte psychotherapie, ademtherapie, EMDR) en Meta Pot (lichaamsgerichte psychotherapie, traumatherapie, ademtherapie; metapot.nl, 06-23903340). Complementaire zorg: vergoeding via aanvullende verzekering (RBCZ/VIT).

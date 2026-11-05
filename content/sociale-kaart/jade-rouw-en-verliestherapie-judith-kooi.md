@@ -11,6 +11,6 @@ doelgroep: "Individuen en stellen die te maken hebben met verlies, levensvragen 
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Ca. 2–3 weken"
 tags: ["rouwtherapie", "contextueel", "verlies", "ongewild kinderloos"]
-bijgewerkt: 2026-09-14
+bijgewerkt: 2026-11-05
 bron: "https://sociaalleusden.nl/overig/jade-therapie-coaching"
 ---
