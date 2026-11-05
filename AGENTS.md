@@ -73,12 +73,20 @@ Verwijswijzen (`VERWIJSWIJZEN`): `Rechtstreeks (patiënt meldt zichzelf aan)`, `
 
 Controleer bij twijfel altijd `shared/velden.mjs` — dat is de waarheid, niet dit document.
 
-### 3a. Aanmeldstop
+### 3a. Aanmeldstop (alleen tabblad GGZ)
+
+Sinds 5-11-2026 alleen voor vermeldingen in de groep GGZ; `/api/aanmeldstop` weigert de rest. Zet op andere tabbladen geen `aanmeldstop_*`-velden.
 
 - `aanmeldstop: true` + optioneel `aanmeldstop_vanaf`/`aanmeldstop_toelichting` → rood label "Aanmeldstop sinds … · toelichting — gemeld <datum>".
 - `aanmeldstop` weg of `false` mét `aanmeldstop_gemeld` → groen label "Neemt patiënten aan — gemeld <datum>". Zonder `aanmeldstop_gemeld` wordt niets getoond.
 - Iedereen (zonder login) kan de status melden via de knop op /sociale-kaart; dat gaat via `POST /api/aanmeldstop` met `{ "id": "<slug>", "aanmeldstop": true|false, "vanaf": "JJJJ-MM-DD", "toelichting": "…" }`. Die functie past uitsluitend de vier `aanmeldstop_*`-velden aan en zet `aanmeldstop_gemeld` op vandaag. Elke melding is een aparte commit (`aanmeldstop: <naam> — …`).
 - **Periodieke controle (opdracht voor de bot):** loop alle items met `aanmeldstop: true` én alle GGZ-items (`/data/sociale-kaart.json`, tabblad GGZ) langs, open de `website`, zoek naar teksten als "aanmeldstop", "wachtlijst", "geen nieuwe cliënten/patiënten", "aanmelden niet mogelijk", "tijdelijk gesloten voor aanmelding" en werk de velden bij via de GitHub API (sectie 7) — altijd met `aanmeldstop_gemeld` op de controledatum, en een korte toelichting die de bron noemt (bv. "volgens website 14-9-2026"). Bij twijfel: niets veranderen en het item rapporteren.
+
+### 3b. Meld een wijziging
+
+Elke kaart heeft een knop "Meld een wijziging" (`POST /api/wijziging` met `{ id, soort: adres|opgeheven|contact|info, tekst }`).
+Die meldingen worden **niet** gepubliceerd en staan niet in deze repo: ze staan in Cloudflare KV en een beheerder handelt ze af in
+/beheer › Meldingen. Een bot past op grond van zo'n melding niets aan zonder beheerder.
 
 ## 4. Mededelingen — veldenschema
 
