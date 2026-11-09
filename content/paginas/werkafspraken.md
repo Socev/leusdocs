@@ -2,7 +2,7 @@
 titel: "Werkafspraken huisartsen en apothekers"
 bijgewerkt: 2026-09-30
 ---
-Werkafspraken tussen de huisartsen en apothekers in Leusden en Achterveld. Onderaan staan de [afspraken uit het FTO](#fto-afspraken) (Farmacotherapeutisch Overleg, FTO-groep Leusderveld).
+Werkafspraken tussen de huisartsen en apothekers in Leusden en Achterveld. Onderaan staan de [afspraken uit het FTO](#fto-afspraken) (Farmacotherapeutisch Overleg, FTO-groep Leusderveld). De actuele afsprakenlijst medicatie van de FTO-groep Leusden – Achterveld (versie november 2026) staat op een eigen pagina: [Medicatieafspraken FTO](/medicatieafspraken).
 
 | Wat | Afspraak |
 |---|---|

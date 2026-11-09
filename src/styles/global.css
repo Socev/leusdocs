@@ -137,6 +137,7 @@ main { padding-block: 36px 56px; }
 .hero-agenda { position: sticky; top: 84px; }
 .snel { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin-bottom: 36px; }
 .snel-2 { grid-template-columns: 1fr 1fr; margin-bottom: 0; }
+.snel-2 .snel-breed { grid-column: 1 / -1; }
 .snel a { display: block; text-decoration: none; color: var(--kleur-tekst); background: var(--kleur-wit); border: 1px solid var(--kleur-rand); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--schaduw); }
 .snel a:hover { border-color: var(--kleur-accent); }
 .snel a b { display: block; font-size: 1.02rem; margin-bottom: 2px; }
