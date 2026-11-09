@@ -48,7 +48,7 @@ Let op: wijzigingen die je lokaal via /beheer opslaat, gaan écht naar GitHub.
 ```
 content/sociale-kaart/*.md    één organisatie per bestand
 content/mededelingen/*.md     één bericht per bestand
-content/paginas/*.md          werkafspraken, omzettingen, over-ons
+content/paginas/*.md          werkafspraken, medicatieafspraken, omzettingen, over-ons
 public/bestanden/             bijlagen (pdf) bij mededelingen
 shared/velden.mjs             categorieën, afzenders, veldnamen (één plek)
 site.json                     naam, agenda-feed, repo

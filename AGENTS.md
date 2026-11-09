@@ -11,7 +11,7 @@ Alles op de site is openbaar. Er staat geen gevoelige of persoonlijke data in; z
 |---|---|---|
 | Sociale kaart (één organisatie per bestand) | `content/sociale-kaart/<slug>.md` | YAML-frontmatter + optionele markdown-toelichting |
 | Mededelingen (één bericht per bestand) | `content/mededelingen/<jjjj-mm-dd>-<slug>.md` | YAML-frontmatter + markdown-bericht |
-| Vaste pagina's | `content/paginas/werkafspraken.md`, `omzettingen.md`, `over-ons.md` | YAML-frontmatter + markdown |
+| Vaste pagina's | `content/paginas/werkafspraken.md`, `medicatieafspraken.md` (FTO-afsprakenlijst, versie in de tekst), `omzettingen.md`, `over-ons.md` | YAML-frontmatter + markdown |
 | Bijlagen bij mededelingen | `public/bestanden/<naam>.pdf` | binair; op de site bereikbaar als `/bestanden/<naam>.pdf` |
 | Site-instellingen (naam, agenda-feed, repo) | `site.json` | JSON |
 | Vaste keuzelijsten (categorieën, afzenders, verwijswijzen) en veldnamen | `shared/velden.mjs` | JS-module — **hier voeg je een nieuwe categorie toe** |
@@ -184,7 +184,7 @@ content/                  alle inhoud (zie boven)
 public/                   statische bestanden (bijlagen, favicon, _headers, robots.txt)
 src/content.config.ts     Zod-schema's van de collecties (build-validatie)
 src/layouts/Base.astro    header/navigatie/footer
-src/pages/                pagina's: index, agenda, sociale-kaart, mededelingen/, werkafspraken, omzettingen, over-ons, beheer, data/[collectie].json
+src/pages/                pagina's: index, agenda, sociale-kaart, mededelingen/, werkafspraken, medicatieafspraken, omzettingen, over-ons, beheer, data/[collectie].json
 src/scripts/agenda.ts     client-side rendering van de agenda
 functions/api/agenda.js   Pages Function: iCal → JSON (cache 10 min)
 functions/api/beheer/     Pages Function: schrijft vanuit /beheer naar GitHub (achter Cloudflare Access)
