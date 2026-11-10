@@ -1,8 +1,8 @@
 ---
 titel: "Medicatieafspraken FTO Leusden – Achterveld"
-bijgewerkt: 2026-11-09
+bijgewerkt: 2026-11-10
 ---
-Werkafspraken over medicatie tussen de huisartsen en apotheken van de FTO-groep Leusden – Achterveld, **versie november 2026**. Het afsprakenformulier is voorgelezen op het laatste FTO en op 9 november 2026 rondgestuurd door de apotheek. De afspraken per FTO-overleg (2025–2026) staan bij de [Werkafspraken](/werkafspraken#fto-afspraken).
+Werkafspraken over medicatie tussen de huisartsen en apotheken van de FTO-groep Leusden – Achterveld, **versie november 2026**. Het afsprakenformulier is voorgelezen op het laatste FTO en op 9 november 2026 rondgestuurd door de apotheek. De FTO-groep houdt de afspraken bij in een gedeeld document; bij een verschil is dat document leidend en wordt deze pagina bijgewerkt. De afspraken per FTO-overleg (2025–2026) staan bij de [Werkafspraken](/werkafspraken#fto-afspraken).
 
 *Cursief met „Nog af te spreken" = een punt dat nog open staat of waarover nog een afspraak gemaakt moet worden.*
 
