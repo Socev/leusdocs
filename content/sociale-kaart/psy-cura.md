@@ -9,10 +9,10 @@ doelgroep: "Volwassenen met een andere culturele achtergrond"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "24 weken (site, update 1-7-2026)"
 tags: ["intercultureel", "anderstalig", "turks"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Alleen voor de Turks sprekende psycholoog"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Alleen voor de Turks sprekende psycholoog; bij de Nederlandssprekende GZ-psycholoog kan het wel (site, gelezen 10-11-2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Interculturele GGZ
 

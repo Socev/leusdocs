@@ -11,8 +11,8 @@ doelgroep: "(Jong)volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "21 dagen (site, bijgewerkt 24-9-2026)"
 tags: ["cgt", "emdr", "act", "schematherapie"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** AD(H)D, autisme, angst, depressie, trauma, sociale problemen
 

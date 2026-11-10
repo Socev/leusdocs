@@ -9,10 +9,10 @@ doelgroep: "Alleen inwoners van Vathorst"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Ruim 10 weken (site, maart 2026)"
 tags: ["cgt", "emdr", "act", "schematherapie", "mindfulness", "net"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Alleen voor cliënten van buiten de wijk Vathorst (dus ook voor Leusden)"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Alleen voor cliënten van buiten de wijk Vathorst (dus ook voor Leusden) (site maart 2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** AD(H)D, angst, bipolaire stoornis, depressie, eetstoornissen, emetofobie, NAH, OCD, persoonlijkheidsproblematiek, SOLK, verslaving
 

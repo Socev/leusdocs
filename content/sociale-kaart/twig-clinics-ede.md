@@ -10,8 +10,8 @@ adres: "Keesomstraat 44, 6716 AB Ede"
 doelgroep: "Kinderen, jongeren en volwassenen"
 verwijzen: "Via ZorgDomein"
 wachttijd: "Volwassenen 24 weken, jeugd 2 weken (site sep 2026)"
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 Vermeld in de verwijzing dat het om specialistische GGZ gaat.
 

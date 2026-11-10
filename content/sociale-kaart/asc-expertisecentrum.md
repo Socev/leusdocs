@@ -11,8 +11,8 @@ doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Diagnostiek en behandeling tot 9 maanden; groepstherapie 10 weken (site sep 2026)"
 tags: ["adhd", "autisme", "diagnostiek", "cgt", "emdr"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** AD(H)D en autisme en of daaruit voortvloeiende Angst, stemmings- en slaapproblemen
 

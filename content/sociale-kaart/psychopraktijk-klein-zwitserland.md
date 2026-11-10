@@ -8,7 +8,10 @@ adres: "Stadsring 250, 3811 HS Amersfoort"
 doelgroep: "Jeugd en volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 tags: ["cgt", "emdr", "schematherapie", "psychotherapie"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop: true
+aanmeldstop_toelichting: "Aanmelden niet mogelijk; heropening van de wachtlijst wordt op de site gemeld (site 15-5-2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, depressie en somberheid, emotieregulatieproblemen, persoonlijkheidsproblematiek, trauma, verliesverwerking
 

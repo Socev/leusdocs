@@ -10,10 +10,10 @@ adres: "Trosjespeergaarde 9, 3824 BA Amersfoort"
 doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 tags: ["cgt", "emdr"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Algehele aanmeldstop wegens persoonlijke omstandigheden, duur onbekend (minstens 2 maanden; site 10-7-2026)"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Algehele aanmeldstop wegens persoonlijke omstandigheden, duur onbekend (site 10-7-2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, stemming, (enkelvoudig) trauma
 

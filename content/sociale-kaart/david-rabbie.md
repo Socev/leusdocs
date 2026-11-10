@@ -8,8 +8,8 @@ adres: "Windsteeg 4, 3811 CS Amersfoort"
 doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Geen wachtlijst; kennismaking binnen ±14 dagen (site)"
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, burn-out, eetstoornis, persoonlijkheidsproblemen, trauma
 

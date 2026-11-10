@@ -7,10 +7,10 @@ website: "https://www.sinaicentrum.nl/"
 adres: "Berkenweg 7, 3818 LA Amersfoort"
 doelgroep: "Volwassenen met psychotrauma"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "Amersfoort: 52 weken tot intake, daarna 76 weken tot behandeling (site sep 2026)"
+wachttijd: "Amersfoort: 52 weken tot intake, daarna 76 weken tot behandeling (site 4-11-2026)"
 tags: ["trauma", "ptss", "cgt", "emdr", "schematherapie", "net", "klinisch"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Volwassenen met psychotrauma
 

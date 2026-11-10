@@ -7,9 +7,10 @@ website: "https://www.degeheimetuin.info"
 telefoon: "036-5210400 (centrale balie)"
 doelgroep: "Kinderen, jongeren en gezinnen met meervoudige psychische of relationele problemen"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Alleen nog Almere Buiten, Almere Poort en Bussum: intake ±8 wk, behandeling aansluitend (site 27-7-2026)"
+wachttijd: "Alleen nog Almere Buiten (intake 15 wk), Almere Poort (6 wk) en Bussum (4 wk); behandeling aansluitend (site 27-10-2026)"
 tags: ["ggz jeugd", "systeemtherapie", "gezin", "kind", "amersfoort"]
-bijgewerkt: 2026-11-05
+bijgewerkt: 2026-11-10
 bron: "https://sociaalleusden.nl/ggz/de-geheime-tuin"
+aanmeldstop_gemeld: 2026-11-10
 ---
 Controle 5-11-2026: geen vestiging meer in Amersfoort; alleen Almere Buiten, Almere Poort en Bussum. Sinds 1-1-2025 onderdeel van GGz Centraal; aanmelden via de centrale balie.

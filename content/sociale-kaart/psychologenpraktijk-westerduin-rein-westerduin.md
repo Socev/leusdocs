@@ -9,9 +9,9 @@ email: "info@psychologenpraktijkwesterduin.nl"
 adres: "Walter van Amersfoortstraat 36, 3791 AR Achterveld"
 doelgroep: "Kinderen, jeugd en volwassenen, multi-probleemgezinnen"
 verwijzen: "Via ZorgDomein"
-wachttijd: "±12 weken; sinds 19-8-2026 weer open voor nieuwe aanmeldingen"
+wachttijd: "Ongeveer 9 weken (site 29-9-2026)"
 tags: ["gz-psycholoog", "achterveld", "heelkom", "jeugd", "emdr", "lvb"]
-bijgewerkt: 2026-11-05
+bijgewerkt: 2026-11-10
 bron: "https://sociaalleusden.nl/overig/psychologenpraktijk-westerduin"
-aanmeldstop_gemeld: 2026-09-19
+aanmeldstop_gemeld: 2026-11-10
 ---

@@ -7,7 +7,8 @@ website: "https://www.fosspartners.nl/"
 adres: "Databankweg 12b, 3821 AL Amersfoort"
 doelgroep: "Jeugd, gezinnen en volwassenen"
 verwijzen: "Verwijsbrief huisarts"
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Financiële problemen, gezinsproblemen, opvoedingsproblemen, psychische problemen, relatieproblemen, werk gerelateerde problemen
 

@@ -8,7 +8,10 @@ adres: "Amersfoort (bezoekadres na aanmelding)"
 doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 tags: ["cgt", "psychotherapie"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop: true
+aanmeldstop_toelichting: "Wachtlijst gesloten wegens drukte (site, zonder datum)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, overspannenheid of burn-out, partnerrelatieproblemen, persoonlijkheidsproblemen, problemen in de omgang met anderen, problemen in reactie op ingrijpende of traumatische gebeurtenissen, studie- of werkproblemen, waaronder depressie
 

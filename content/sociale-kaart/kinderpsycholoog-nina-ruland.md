@@ -11,7 +11,8 @@ verwijzen: "Via ZorgDomein"
 wachttijd: "Aanmelding tot eerste afspraak 17 weken, daarna tot start behandeling 2 weken (site nov 2026, stand 1-8-2026)"
 tags: ["ggz jeugd", "kinderpsycholoog", "gedrag", "opvoeding", "angst"]
 website: "https://praktijkruland.nl"
-bijgewerkt: 2026-11-05
+bijgewerkt: 2026-11-10
 bron: "https://sociaalleusden.nl/ggz/kinderpsycholoog-ruland"
+aanmeldstop_gemeld: 2026-11-10
 ---
 Controle 5-11-2026: praktijk is verhuisd van Amersfoort naar Nijkerk, met nieuwe website en e-mail; telefoon ongewijzigd.

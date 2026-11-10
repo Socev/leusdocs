@@ -8,12 +8,12 @@ telefoon: "06-47441366"
 adres: "Oude Fabriekstraat 7 (2.07), 3812 NR Amersfoort"
 doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "10–12 weken per behandelaar; behandelingen starten pas in november (update aug 2026)"
+wachttijd: "12 weken bij Renee en Loes; behandelingen starten pas in januari 2027 (site okt 2026)"
 tags: ["buitentherapie"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Gedeeltelijk: 3 van de 5 behandelaars hebben een aanmeldstop; bij Renee Swagerman (12 wk) en Loes/Mèlanie (10 wk) kan het nog"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Gedeeltelijk: Annefleur (t/m feb 2027), Carmen (t/m dec) en Mèlanie hebben een aanmeldstop; Renee en Loes 12 weken (site okt 2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Rouw en verlies, zwangerschap & (in)fertilitiet
 

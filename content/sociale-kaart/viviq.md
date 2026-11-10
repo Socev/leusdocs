@@ -9,10 +9,10 @@ email: "info@viviqggz.nl"
 adres: "Arnhemseweg 10, 3817 CH Amersfoort"
 doelgroep: "Volwassenen"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Amersfoort: intake 50 wk (VGZ 45), behandeling 15 wk; digitale poli: intake 9 wk (ZK 21), behandeling 14 wk (peildatum 15-9-2026)"
+wachttijd: "Amersfoort: intake 50 wk (VGZ 45), behandeling 15 wk; digitale poli: intake 9 wk (ZK 21), behandeling 14 wk (peildatum 22-10-2026)"
 tags: ["cgt", "emdr", "act", "schematherapie", "mbt", "online", "exposure"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** AD(H)D, angst, autisme, depressie en somberheid, gedragsproblematiek, persoonlijkheidsproblematiek, SOLK, trauma, verslaving
 

@@ -8,10 +8,10 @@ telefoon: "088-6463316"
 adres: "Stadsring 236, 3811 HS Amersfoort"
 doelgroep: "Volwassenen"
 verwijzen: "Via ZorgDomein"
-wachttijd: "16 weken tot eerste gesprek (site, bijgewerkt 25-9-2026)"
+wachttijd: "7 weken tot eerste gesprek (site 6-11-2026)"
 tags: ["cgt", "emdr", "act", "groepstherapie"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** ADHD en ASS, angst en paniek, SOLK en ALK, somberheid en depressie, trauma of PTSS
 

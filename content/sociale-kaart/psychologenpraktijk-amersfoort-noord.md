@@ -9,10 +9,10 @@ adres: "Zeldertsedreef 11A, 3824 EJ Amersfoort (MC Nieuwland)"
 doelgroep: "Volwassenen (geen psychose, suïcidaliteit of verslaving op de voorgrond)"
 verwijzen: "Verwijsbrief huisarts"
 tags: ["cgt", "emdr", "act", "schematherapie", "psychotherapie", "exposure", "klinisch", "oplossingsgericht"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Wachtlijsten basis- én specialistische GGZ gesloten tot 1-12-2026"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Wachtlijsten basis- én specialistische GGZ gesloten tot 1-12-2026 (site, gelezen 10-11-2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angsten, depressies, dwang, psychosomatische problematiek en persoonlijkheidsproblematiek.
 

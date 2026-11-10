@@ -10,7 +10,8 @@ doelgroep: "Kinderen en volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 tags: ["autisme", "trauma"]
 concept: true
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 De website geeft sinds september 2026 een lege pagina; adres en telefoon komen van ZorgkaartNederland.
 

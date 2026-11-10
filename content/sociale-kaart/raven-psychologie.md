@@ -8,11 +8,11 @@ adres: "Laaxumstraat 20, 3826 AJ Amersfoort"
 doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 tags: ["cgt", "emdr", "act", "schematherapie", "psychotherapie", "oplossingsgericht"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
 aanmeldstop_vanaf: 2026-05-01
-aanmeldstop_toelichting: "Zowel basis- als specialistische GGZ (site, bijgewerkt 1-5-2026)"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Zowel basis- als specialistische GGZ (site 1-5-2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** AD(H)D, angst, autisme, persoonlijkheidsproblematiek, stemmingsklachten, trauma
 

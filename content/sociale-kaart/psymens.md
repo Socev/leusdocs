@@ -10,7 +10,8 @@ doelgroep: "Kinderen, jeugd en volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Amersfoort: basis-GGZ 10–12 weken, specialistische GGZ minimaal 15 maanden (site sep 2026)"
 tags: ["cgt", "emdr", "act", "schematherapie", "ipt", "mbt", "aft", "systeemtherapie"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** AD(H)D, angst, autisme, bipolaire-stemmingsstoornis, depressie, dissociatieve stoornis, eetstoornis, emotieregulatie, genderdysforie, OCD, persoonlijkheidsstoornis, relatieproblemen, seksuele disfuncties, slaapstoornis, SOLK, trauma
 

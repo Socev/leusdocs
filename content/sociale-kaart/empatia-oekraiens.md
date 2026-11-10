@@ -10,7 +10,8 @@ adres: "Online / telefonisch"
 doelgroep: "Oekraïners in Nederland (ook jongeren vanaf 14)"
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 tags: ["oekraiens", "anderstalig", "online"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 Programma van de Opora Foundation. Kaart met Oekraïenstalige psychologen: empatiaprogram.nl/empatia-map-of-psychologists. Therapie valt onder de RMO-verzekering.
 

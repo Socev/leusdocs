@@ -11,7 +11,8 @@ doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Geen wachtlijst volgens de site"
 tags: ["online"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Divers
 

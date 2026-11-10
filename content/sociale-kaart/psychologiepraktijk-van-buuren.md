@@ -9,8 +9,8 @@ doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Intake 1–2 weken (Hilversum en online; site sep 2026)"
 tags: ["cgt", "emdr", "act", "eft", "online"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, burn-out, depressie, kanker, overspannen, PTSS, rouw & verlies, relatieproblemen, seksualiteit, SOLK
 

@@ -11,8 +11,8 @@ doelgroep: "(Jong)volwassenen"
 verwijzen: "Via ZorgDomein"
 wachttijd: "Indicatief 6 maanden tot behandeling (site)"
 tags: ["trauma", "emdr", "lichaamsgericht", "exposure"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** PTSS of psychotrauma
 

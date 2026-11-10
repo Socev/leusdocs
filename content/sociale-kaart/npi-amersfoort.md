@@ -8,10 +8,13 @@ telefoon: "033-8007102"
 adres: "Berkenweg 7, 3818 LA Amersfoort"
 doelgroep: "Volwassenen met persoonlijkheidsproblematiek"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "Aanmelding tot intake Amersfoort 15 weken (site 25-9-2026); behandelwachttijd per zorgpad maanden"
+wachttijd: "Aanmelding tot intake Amersfoort 11 weken (site 16-10-2026)"
 tags: ["persoonlijkheid", "schematherapie", "mbt", "aft"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
+aanmeldstop: true
+aanmeldstop_vanaf: 2025-11-01
+aanmeldstop_toelichting: "Alleen voor Engelstalige cliënten; anderen kunnen zich aanmelden (site 16-10-2026)"
 ---
 **Problematiek:** Persoonlijkheidsproblematiek
 

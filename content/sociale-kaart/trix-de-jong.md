@@ -8,10 +8,10 @@ telefoon: "06-21173489"
 adres: "Bloemendalse Binnenpoort 7, 3811 GD Amersfoort"
 doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "12 weken tot eerste gesprek, daarna direct behandeling (site 28-9-2026)"
+wachttijd: "15 weken tot eerste gesprek (site 9-11-2026)"
 tags: ["cgt", "act", "schematherapie", "mindfulness"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, levensfase problemen, psychosomatisch, relatieproblemen, rouwverwerking, somberheid, stress, zingeving
 

@@ -9,8 +9,8 @@ doelgroep: "Volwassenen die chronisch benzodiazepinen gebruiken en willen minder
 verwijzen: "Rechtstreeks (patiënt meldt zichzelf aan)"
 wachttijd: "Online programma: geen wachttijd; bij doorstroom naar behandeling bij Tactus geldt de wachttijd van de locatie"
 tags: ["verslaving", "benzodiazepinen", "e-health", "tactus", "afbouwen"]
-bijgewerkt: 2026-11-05
+bijgewerkt: 2026-11-10
 bron: "https://sociaalleusden.nl/ggz/online-benzodebaas-nl"
-aanmeldstop_gemeld: 2026-09-19
+aanmeldstop_gemeld: 2026-11-10
 ---
 Controle 5-11-2026: benzodebaas.nl verwijst door naar deze Tactus-pagina; het telefoonnummer staat daar.

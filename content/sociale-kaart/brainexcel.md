@@ -8,10 +8,10 @@ adres: "Nijverheidsweg-Noord 60-69, 3812 PM Amersfoort"
 doelgroep: "Volwassenen"
 tags: ["neurofeedback"]
 concept: true
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Cliëntenstop wegens gezondheidsomstandigheden (site, geen datum)"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Cliëntenstop wegens gezondheidsomstandigheden (site, zonder datum)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** AD(H)D, ASS, angst en paniek, burn-out en stress, depressie, fobieën, PTSS, rouwverwerking, slaapstoornissen
 

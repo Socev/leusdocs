@@ -9,8 +9,8 @@ doelgroep: "Jeugd en volwassenen met een eetstoornis"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Bilthoven: 20 weken tot intake (site sep 2026)"
 tags: ["eetstoornis", "online"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Eetstoornissen
 

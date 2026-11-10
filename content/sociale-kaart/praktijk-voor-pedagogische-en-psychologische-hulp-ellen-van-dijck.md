@@ -9,15 +9,12 @@ email: "psychologischepraktijkleusden@gmail.com"
 adres: "'t Zand 39, 3811 GB Amersfoort"
 doelgroep: "Kinderen, jongeren en volwassenen"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Aanmeldstop sinds juni 2026; partnerrelatietherapie kan zonder verwijzing"
 tags: ["psychologie", "tolgaarde", "kinderen", "psychotherapie", "cogmed"]
-bijgewerkt: 2026-11-05
+bijgewerkt: 2026-11-10
 bron: "https://sociaalleusden.nl/ggz/praktijk-voor-pedagogische-en-psychologische-hulp"
-aanmeldstop: true
-aanmeldstop_vanaf: 2026-06-01
-aanmeldstop_toelichting: "geen ruimte voor nieuwe aanmeldingen; heropening wordt op de website gemeld"
-aanmeldstop_gemeld: 2026-09-19
+aanmeldstop_toelichting: "Beperkt ruimte voor nieuwe aanmeldingen; partnerrelatietherapie kan zonder verwijzing (site okt 2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
-Bericht op de site (1 juni 2026): "Op dit moment is er geen ruimte voor nieuwe aanmeldingen. Als er ruimte is, wordt dit op de website vermeld."
+Bericht op de site (oktober 2026, tekst gedateerd 1 juni 2026): "Op dit moment is er beperkt ruimte voor nieuwe aanmeldingen."
 
 Controle 5-11-2026: praktijk zit niet meer op de Tolplaats in Leusden maar in Amersfoort; aanmelden telefonisch of via WhatsApp.

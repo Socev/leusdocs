@@ -10,8 +10,10 @@ doelgroep: "Pools sprekende volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Amsterdam: intake ≤4 weken, therapie 10 weken (site, 24-9-2026)"
 tags: ["pools", "anderstalig", "cgt", "emdr", "schematherapie", "psychotherapie", "groepstherapie", "online"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
+aanmeldstop: true
+aanmeldstop_toelichting: "Alleen voor verzekerden van Achmea, a.s.r., CZ, ONVZ en VGZ; DSW, Eucare, Menzis, Salland en Zorg en Zekerheid wel (site 6-11-2026)"
 ---
 **Problematiek:** Angst, stemming, persoonlijkheidsstoornissen, PTSS
 

@@ -9,7 +9,8 @@ adres: "Australiëring 53, 3823 XK Amersfoort"
 doelgroep: "Volwassenen en stellen"
 verwijzen: "Verwijsbrief huisarts"
 tags: ["psychotherapie", "vaktherapie"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, depressie, relatieproblemen, SOLK, stress, trauma
 

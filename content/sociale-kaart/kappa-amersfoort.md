@@ -8,7 +8,10 @@ adres: "Regentesselaan 24A, 3818 HJ Amersfoort"
 doelgroep: "Jeugd en volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 tags: ["cgt", "emdr", "act", "schematherapie", "eft", "psychoanalytisch", "psychotherapie"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop: true
+aanmeldstop_toelichting: "Alle acht behandelaars: geen ruimte voor nieuwe cliënten (site, zonder datum)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, depressie, dwang, piekeren, sociale problemen, seksualiteit (gender problematiek), slaapproblemen, trauma
 

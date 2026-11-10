@@ -9,11 +9,11 @@ email: "info@indigo.nl"
 adres: "Piet Mondriaanlaan 10, 3812 GV Amersfoort"
 doelgroep: "Volwassenen met lichte tot matige klachten"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Intake 2 weken (ADHD 10, veerkracht 10); behandeling start direct na intake (site 22-9-2026)"
+wachttijd: "Intake 2 weken (ADHD 10, veerkracht 10); behandeling start direct na intake (site, gelezen 10-11-2026)"
 tags: ["bggz", "kortdurend", "adhd", "act", "cgt", "emdr"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop_toelichting: "Geen contract met ONVZ en Caresq (Aevitae) in 2026: die verzekerden worden niet aangenomen"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** ADHD, angst, ASS, (milde) verslaving, depressie en somberheid, persoonlijkheidsproblemen, SOLK, trauma en PTSS
 

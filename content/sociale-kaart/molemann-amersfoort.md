@@ -9,12 +9,12 @@ email: "amersfoort@molemann.nl"
 adres: "Henry Dunantstraat 32a, 3822 XE Amersfoort"
 doelgroep: "Jongvolwassenen, volwassenen en ouderen"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Jongvolwassenen (18–25) 24 weken; ouderen 7 weken; Meander ALK-poli 12, POP-poli 10 weken (site sep 2026)"
+wachttijd: "Jongvolwassenen (18–25) 20 weken; ouderen 7 weken; Meander ALK-poli 12, POP-poli 10 weken (site, gelezen 10-11-2026)"
 tags: ["cgt", "act", "schematherapie", "mindfulness", "runningtherapie", "psychotherapie", "ouderen"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Alleen volwassenen, tot 1-10-2026; jongvolwassenen en ouderen kunnen wel"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Alleen volwassenen, tot 1-2-2027; jongvolwassenen (18–25) en ouderen kunnen wel (site, gelezen 10-11-2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, depressie, piekeren, somberheid, trauma
 

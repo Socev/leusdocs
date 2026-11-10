@@ -9,8 +9,8 @@ doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Intake binnen 2 weken, geen wachtlijst (site sep 2026)"
 tags: ["cgt", "emdr", "act", "eft", "mindfulness", "runningtherapie", "exposure", "vaktherapie"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst en paniek, ADHD, burn-out, depressie en somberheid, hoogbegaafdheid, persoonlijkheidsproblematiek, slaapproblemen, trauma
 

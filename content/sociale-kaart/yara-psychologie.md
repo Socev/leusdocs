@@ -10,10 +10,10 @@ adres: "Amersfoort"
 doelgroep: "Volwassenen (geen psychose, verslaving, eetproblematiek, bipolair)"
 verwijzen: "Via ZorgDomein"
 tags: ["farsi", "dari", "anderstalig", "cgt", "schematherapie", "online"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Tijdelijk gesloten wegens zwangerschapsverlof; heropening begin 2027, datum volgt"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Tijdelijk gesloten wegens zwangerschapsverlof; heropening begin 2027, datum volgt (site, gelezen 10-11-2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst en paniek, trauma, depressie, SOLK; diagnostiek o.a. ADHD en autisme
 

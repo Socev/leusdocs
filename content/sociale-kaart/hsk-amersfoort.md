@@ -9,10 +9,10 @@ email: "info@hsk.nl"
 adres: "De Brand 10, 3823 LH Amersfoort"
 doelgroep: "Volwassenen; ook verwijzing via de bedrijfsarts mogelijk"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Amersfoort Noord: intake 12 weken, daarna 3 weken tot behandeling bij de meeste verzekeraars (hsk.nl, sep 2026)"
+wachttijd: "Amersfoort Noord: intake 16 weken, daarna 3 weken tot behandeling, bij alle verzekeraars (site 5-11-2026)"
 tags: ["ggz", "hsk", "burn-out", "werkgerelateerd", "online ggz", "interapy"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 HSK werkt met verwijzing van huisarts én bedrijfsarts. Online behandeling loopt via HSK sinds interapy.nl daarnaartoe doorverwijst. Openingstijden ma t/m vr 08:00–17:00. Wachttijd per verzekeraar: hsk.nl/wachttijden (tweewekelijks bijgewerkt).
 

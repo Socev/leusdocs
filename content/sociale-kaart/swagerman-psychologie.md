@@ -8,12 +8,10 @@ email: "info@swagermanpsychologie.nl"
 adres: "Arnhemseweg 2, 3817 CH Amersfoort"
 doelgroep: "Volwassenen"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "12–16 weken per behandelaar (site sep 2026)"
+wachttijd: "4–20 weken per behandelaar, bij Ruben Swagerman 20 weken (site, gelezen 10-11-2026)"
 tags: ["cgt", "emdr", "act", "eft", "mindfulness", "buitentherapie"]
-bijgewerkt: 2026-09-28
-aanmeldstop: true
-aanmeldstop_toelichting: "Alleen bij Ruben Swagerman; de andere behandelaars 12–16 weken"
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst en paniek, depressie en somberheid, dwang, fobieën, PTSS, relatieproblemen, zelfbeeld
 

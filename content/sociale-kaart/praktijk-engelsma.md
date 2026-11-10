@@ -9,10 +9,10 @@ adres: "Puntenburgerlaan 84E, 3812 CG Amersfoort"
 doelgroep: "Volwassenen, alleen Zilveren Kruis-verzekerden (incl. FBTO, De Friesland)"
 verwijzen: "Via ZorgDomein"
 tags: ["psychoanalytisch", "psychotherapie"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Geen ruimte voor nieuwe psychotherapie (sep 2026); af en toe wel ADHD-medicatietrajecten bij elders gestelde diagnose"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Geen ruimte voor nieuwe psychotherapie (okt 2026); af en toe wel ADHD-medicatietrajecten bij elders gestelde diagnose"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Behandelingen:** psychoanalytische psychotherapie (een inzichtgevende therapie)
 

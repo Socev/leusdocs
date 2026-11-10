@@ -9,10 +9,10 @@ email: "secretariaat-MNL@dehoop.org"
 adres: "Ruimtevaart 50-56 (3e etage), 3824 MX Amersfoort"
 doelgroep: "Kinderen, jongeren en volwassenen"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "Tot intake: BGGZ 12 wk, SGGZ 16 wk (verslaving 20), jeugd 13 wk; daarna BGGZ 8, SGGZ 10 wk (site aug/sep 2026)"
+wachttijd: "Amersfoort tot intake: BGGZ 16 wk, SGGZ 20 wk (verslaving 20); daarna BGGZ 8, SGGZ 10 wk (site 9-11-2026)"
 tags: ["cgt", "emdr", "act", "schematherapie", "eft", "ipt", "mbt", "psychotherapie", "systeemtherapie", "exposure", "klinisch", "vaktherapie", "oplossingsgericht", "christelijk", "verslaving"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** AD(H)D, angst, autisme, bipolaire-stemmingsstoornis, burn-out, DIS, depressie, dwang, eetstoornis, persoonlijkheidsstoornis, PTSS, psychose, verslaving
 

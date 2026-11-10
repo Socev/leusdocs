@@ -9,14 +9,14 @@ email: "info@psychopraktijkleusden.nl"
 adres: "Kastanjelaan 6B, 3833 AN Leusden"
 doelgroep: "Kinderen, jongeren en volwassenen"
 verwijzen: "Via ZorgDomein"
-wachttijd: "Wachtlijst gesloten; bij heropening ca. 8–12 weken tot intake"
+wachttijd: "Gemiddeld 9,5 weken van aanmelding tot start behandeling (eerste helft 2026, site)"
 tags: ["ggz", "emdr", "cgt", "leusden", "psychologie"]
-bijgewerkt: 2026-11-05
+bijgewerkt: 2026-11-10
 bron: "https://sociaalleusden.nl/ggz/psycho-praktijk-leusden"
 aanmeldstop: true
-aanmeldstop_toelichting: "wachtlijst BGGZ, SGGZ én medicatieconsulten tot nader order gesloten; daarnaast budgetstop voor CZ en Zilveren Kruis"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Alleen voor verzekerden van CZ (incl. OHRA, NN, Just) en Zilveren Kruis (incl. Interpolis, FBTO e.a.): budget 2026 op; anderen kunnen weer (site 28-10-2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 Hoofdvestiging Kastanjelaan 6B; nevenvestiging in GC Tabaksteeg (praktijkruimte in de apotheek), Willem Alexanderhof 1, Leusden-Zuid.
 
-Op de site staat op elke pagina de melding dat de wachtlijst voor alle behandelingen tot nader order gesloten is, plus een aanmeldstop voor verzekerden van CZ (CZ/OHRA/Nationale Nederlanden/Just) en Zilveren Kruis Achmea (Zilveren Kruis/Interpolis/ZieZo/De Friesland/FBTO) wegens een bereikt budgetplafond. De pagina Wachttijden zelf meldt nog "aanmeldingen weer welkom, ca. 8–12 weken" (tekst van 4-2-2025) — bij twijfel bellen.
+Controle 10-11-2026: de contactpagina zegt "U kunt zich aanmelden voor behandeling in de Basis GGZ (BGGZ), de Specialistische GGZ (SGGZ) en medicatieconsulten bij de psychiater (SGGZ). Deze informatie is geldig vanaf 28 oktober 2026", met daarbij een aanmeldstop voor verzekerden van CZ (CZ/OHRA/Nationale Nederlanden/Just) en Zilveren Kruis Achmea (Zilveren Kruis/Interpolis/ZieZo/De Friesland/FBTO/De Christelijke Zorgverzekeraar) omdat het budget voor dit jaar benut is. De melding "wachtlijst tot nader order gesloten" op de pagina Wachttijden is een oude eindejaarsmededeling — bij twijfel bellen.

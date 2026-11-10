@@ -7,10 +7,10 @@ website: "https://www.psychologenpraktijkgeerling.nl/"
 adres: "Ambachtlaan 2, 3828 DA Amersfoort (Hoogland)"
 doelgroep: "Jeugd en volwassenen"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "\"Vergoed en geen wachtlijst\" (site sep 2026)"
+wachttijd: "Volwassenen 3 weken, jeugd 7 weken (site, gelezen 10-11-2026)"
 tags: ["cgt", "schematherapie", "online", "oplossingsgericht"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst en paniek, burn-out, depressie, dwang, eetstoornis, gezinsproblemen, grenzen, onverwerkte rouw, opvoedingsproblemen, religieuze problematiek, SOLK, trauma, verslaving
 

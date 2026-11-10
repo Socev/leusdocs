@@ -9,10 +9,10 @@ doelgroep: "Alleen patiënten van GC Cartesius, HP De Koppel en HP De Ronde Tafe
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "±10 weken (site, sep 2026)"
 tags: ["cgt", "emdr", "oplossingsgericht"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Niet voor Leusdense patiënten: werkt alleen voor drie Amersfoortse huisartsenpraktijken"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Niet voor Leusdense patiënten: werkt alleen voor drie Amersfoortse huisartsenpraktijken (site sep 2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst en paniek, dwang, somberheid, trauma
 

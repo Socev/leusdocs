@@ -8,10 +8,10 @@ telefoon: "088-2774020"
 adres: "Daltonlaan 200, 3584 BJ Utrecht"
 doelgroep: "Mensen met een eetstoornis"
 verwijzen: "Verwijsbrief huisarts"
-wachttijd: "Utrecht: intake 15 weken, behandeling 10 weken (site sep 2026)"
+wachttijd: "Utrecht: intake 14 weken, behandeling 20 weken (site 1-11-2026)"
 tags: ["eetstoornis"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Eetstoornissen
 

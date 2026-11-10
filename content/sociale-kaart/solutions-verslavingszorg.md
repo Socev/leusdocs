@@ -11,8 +11,8 @@ doelgroep: "Jongeren en volwassenen met verslavingsproblematiek"
 verwijzen: "Verwijsbrief huisarts"
 wachttijd: "Intake en start behandeling elk binnen 4 weken (site)"
 tags: ["verslaving", "alcohol", "drugs", "gokken", "gamen", "cgt", "mindfulness", "groepstherapie", "klinisch"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Verslavingsproblematiek (drugsverslaving, alcoholverslaving, seksverslaving, gameverslaving, gokverslaving, medicijnverslaving, werkverslaving of burn-out)
 

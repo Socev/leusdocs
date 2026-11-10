@@ -10,8 +10,8 @@ doelgroep: "Volwassenen (18+)"
 verwijzen: "Via ZorgDomein"
 wachttijd: "Kort; afhankelijk van eigen beschikbaarheid (site)"
 tags: ["cgt", "emdr", "online"]
-bijgewerkt: 2026-09-28
-aanmeldstop_gemeld: 2026-09-28
+bijgewerkt: 2026-11-10
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Angst, depressie en somberheid, onzekerheid en piekeren, stress en burn-out, trauma, verslaving
 

@@ -11,10 +11,10 @@ doelgroep: "Volwassenen"
 verwijzen: "Via ZorgDomein"
 wachttijd: "Overige verzekeraars: 8 weken tot intake + 14 weken tot behandeling (site mei 2026)"
 tags: ["cgt", "emdr", "act", "ipt", "groepstherapie", "online", "exposure"]
-bijgewerkt: 2026-09-28
+bijgewerkt: 2026-11-10
 aanmeldstop: true
-aanmeldstop_toelichting: "Alleen VGZ (incl. Univé, IZZ, Zekur e.a.) en Menzis (incl. Anderzorg): budgetplafond 2026 bereikt"
-aanmeldstop_gemeld: 2026-09-28
+aanmeldstop_toelichting: "Alleen VGZ (incl. Univé, IZZ, Zekur e.a.) en Menzis (incl. Anderzorg): budgetplafond 2026 bereikt (site 21-5-2026)"
+aanmeldstop_gemeld: 2026-11-10
 ---
 **Problematiek:** Complexe psychische klachten
 
