@@ -1,8 +1,8 @@
 ---
 titel: "Medicatieafspraken FTO Leusden – Achterveld"
-bijgewerkt: 2026-11-10
+bijgewerkt: 2026-11-13
 ---
-Werkafspraken over medicatie tussen de huisartsen en apotheken van de FTO-groep Leusden – Achterveld, **versie november 2026**. Het afsprakenformulier is voorgelezen op het laatste FTO en op 9 november 2026 rondgestuurd door de apotheek. De FTO-groep houdt de afspraken bij in een gedeeld document; bij een verschil is dat document leidend en wordt deze pagina bijgewerkt. De afspraken per FTO-overleg (2025–2026) staan bij de [Werkafspraken](/werkafspraken#fto-afspraken).
+Werkafspraken over medicatie tussen de huisartsen en apotheken van de FTO-groep Leusden – Achterveld, **versie november 2026**. Het afsprakenformulier is voorgelezen op het laatste FTO en op 9 november 2026 rondgestuurd door de apotheek. De FTO-groep houdt de afspraken bij in een gedeeld document; bij een verschil is dat document leidend en wordt deze pagina bijgewerkt. Onderaan staan ook de afspraken uit de FTO-overleggen 2025–2026 per onderwerp; per overleg staan ze bij de [Werkafspraken](/werkafspraken#fto-afspraken).
 
 *Cursief met „Nog af te spreken" = een punt dat nog open staat of waarover nog een afspraak gemaakt moet worden.*
 
@@ -86,3 +86,78 @@ Werkafspraken over medicatie tussen de huisartsen en apotheken van de FTO-groep 
 | **Cetirizine** | Niet vergoed. Levocetirizine en desloratadine wel (altijd recept nodig). |
 | **Clindamycine-gel** | Pas vergoed als de vloeistof geprobeerd is en niet werkt of niet kan worden toegepast. |
 | **Clotrimazol** | 500 mg eenmalig niet vergoed (bij de drogist te koop); de driedaagse kuur 200 mg wel. |
+
+<!-- fto-overleggen:begin -->
+
+## Afspraken uit de FTO-overleggen 2025–2026
+
+De afspraken die per FTO-overleg zijn gemaakt, hier per onderwerp. Per overleg en met het originele document: [Werkafspraken](/werkafspraken#fto-afspraken).
+
+### CVRM (FTO 2025)
+
+| Wat | Afspraak |
+|---|---|
+| **Statine** | Eerste keus is rosuvastatine. (Uit de cijfers blijkt dat er nog wel andere statines worden voorgeschreven, waarschijnlijk door waarnemers.) |
+
+### Duurzaamheid (FTO 2025)
+
+| Wat | Afspraak |
+|---|---|
+| **Aerosol omzetten** | Patiënten die nu een aerosol gebruiken zo mogelijk omzetten naar een poederinhalator. |
+| **Geen recept meer** | Geen recepten meer voor miconazol, vitamine D en calciumtabletten. Nog niet geëvalueerd (te kort geleden). |
+
+### Osteoporose (FTO 2025, evaluatie 9 april 2026)
+
+| Wat | Afspraak |
+|---|---|
+| **Alendroninezuur** | Vaker alendroninezuur drank als alternatief starten (wordt nog niet voorgeschreven). |
+| **Bij prednison** | Bij de evaluatie bleek de preventie duidelijk verbeterd: bij prednisongebruik is vaker direct met een bisfosfonaat gestart. |
+| **Risicogroep 2** | *Nog af te spreken: identificeren van risicogroep 2 (veel corticosteroïden per jaar).* |
+
+### Obesitas (FTO 6 november 2025, besproken 3 september 2026)
+
+| Wat | Afspraak |
+|---|---|
+| **BMI > 40** | Huisartsen en apotheker leggen de contra-indicatie *morbide obesitas* vast in het dossier. |
+| **Doseeradviezen** | Bij de evaluatie na 1 jaar gebruiken alle huisartsen en de apotheker de medicatie- en doseeradviezen voor patiënten met morbide obesitas. |
+| **Eigen kosten** | *Nog af te spreken: regionale afspraak over obesitasmedicatie (GLP-1) op eigen kosten; in september 2026 besproken, geen conclusie.* |
+
+### Communicatie huisarts – apotheek (FTO 3 februari 2026)
+
+| Wat | Afspraak |
+|---|---|
+| **Autoriseren van recepten** | Huisartsen plannen dit in hun agenda in, zodat de apotheek minder vaak hoeft te bellen over openstaande recepten (o.a. antibiotica en pijnstillers). |
+| **Indicatie op het recept** | Huisartsen noteren de indicatie of het gebruik vaker en duidelijker op het recept. *Nog af te spreken: overzicht van middelen waarbij dit extra relevant is (bijv. DOAC's).* |
+| **Grote nazendingen** | Informatie met een bijbehorend plan in de WhatsApp-groep van het FTO wordt als prettig ervaren en wordt voortgezet. |
+| **Specialistenmedicatie** | Herhaalmedicatie die door een specialist is gestart, wordt niet zonder meer door de huisarts gefiatteerd (conform het NHG-standpunt). *Nog af te spreken: plan om dit lokaal en mogelijk regionaal op te pakken.* |
+| **MMC** | Aandacht voor het doorgeven van wijzigingen vanuit het MMC. |
+| **GGZ** | *Nog af te spreken: er is behoefte aan uniformere medicatieoverdracht vanuit de GGZ.* |
+
+### Huidinfecties en antibiotica (FTO 9 april 2026)
+
+| Wat | Afspraak |
+|---|---|
+| **Scabiës** | Starten met ivermectine óf permetrine. Bij voorkeur een recept van de huisarts (vergoeding en indicatiestelling). Op verzoek van de patiënt kan de apotheker naar eigen inzicht wel een eenmalige dosering voor huisgenoten leveren. |
+| **Impetigo** | Fusidinezuurcrème (Fucidin) blijft eerste keus; mupirocine is reserve en voor dragerschap. Flucloxacilline is eerste keus. Bij onvoldoende effect adviseert de NHG-Standaard verwijzing naar de tweede lijn; volgens een medisch microbioloog (expert opinion) kan dan ook clindamycine aan flucloxacilline worden toegevoegd. |
+| **Antibiotica** | Gebruik de prescriptor en controleer met het Kinderformularium. |
+
+### ADHD (FTO 2 juni 2026)
+
+| Wat | Afspraak |
+|---|---|
+| **Niet-dagelijks gebruik** | Schrijf op het recept op welke dagen de medicatie wordt gebruikt als dat niet elke dag is (bijv. alleen schooldagen), zodat te vroeg ophalen sneller opvalt. *Doel: 6 maanden na het FTO is het aantal recepten met zo-nodig-gebruik zonder aanvullende informatie met 50% afgenomen.* |
+| **Dexamfetamine en rijden** | Huisarts en apotheek informeren alle nieuwe gebruikers die een voertuig besturen dat zij bij een controle moeten kunnen aantonen dat zij dexamfetamine voor ADHD gebruiken. De apotheek controleert of dit in de patiëntenbijsluiter staat. *Doel: 6 maanden na het FTO zijn alle nieuwe gebruikers hiervan op de hoogte.* |
+| **Misbruik verminderen** | Bij nieuwe patiënten, bij het jaargesprek en bij verslavingsgevoelige patiënten sneller langwerkend methylfenidaat overwegen. *Doel: 6 maanden na het FTO krijgen verslavingsgevoelige patiënten vaker langwerkend methylfenidaat.* |
+| **Papieren recepten** | Worden in principe niet meer geaccepteerd; de apotheek belt dan de voorschrijvend arts. |
+
+### Afbouw antidepressiva (FTO 3 september 2026)
+
+| Wat | Afspraak |
+|---|---|
+| **Lijsten** | De apothekers leveren lijsten aan; de huisarts geeft akkoord wie door de apotheker benaderd mag worden en bij wie (gefaseerd) afbouwen mogelijk is. De patiënt maakt een afspraak op het spreekuur van de huisarts voor begeleiding bij het afbouwen. |
+| **Recept** | Eén dosering voorschrijven met het afbouwschema in de regel erbij; de apotheker levert dan de juiste hoeveelheid tabletten van de verschillende sterktes. |
+| **Doelen** | Na 1 jaar is bij alle patiënten die langer dan 15 maanden antidepressiva gebruiken beoordeeld of afbouwen mogelijk is, en is er 5% minder langdurig antidepressivagebruik. |
+
+*Aangevuld met afspraken uit de FTO-appgroep t/m het FTO van 3 september 2026.*
+
+<!-- fto-overleggen:eind -->
